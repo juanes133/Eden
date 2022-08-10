@@ -1,4 +1,4 @@
-package com.example.eden
+package com.jadevelopers.eden
 
 import org.junit.Test
 

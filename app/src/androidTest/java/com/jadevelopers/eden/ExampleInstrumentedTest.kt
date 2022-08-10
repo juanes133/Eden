@@ -1,4 +1,4 @@
-package com.example.eden
+package com.jadevelopers.eden
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

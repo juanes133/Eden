@@ -1,4 +1,4 @@
-package com.example.eden
+package com.jadevelopers.eden
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
