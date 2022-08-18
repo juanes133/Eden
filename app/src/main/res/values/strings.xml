@@ -4,4 +4,7 @@
     <string name="app_name">Eden</string>
     <string name="eden">Eden</string>
     <string name="your_web_client_id">202382885503-b7f1hekb86dimm64itvt6ud466cggall.apps.googleusercontent.com</string>
+    <string name="signout">SignOut</string>
+    <string name="products">Products</string>
+    <string name="tracking">Tracking</string>
 </resources>
