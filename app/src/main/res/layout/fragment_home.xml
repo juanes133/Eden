@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintHome"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".view.HomeFragment">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnproducts"
+            android:layout_width="@dimen/tamanio_imagen_button"
+            android:layout_height="@dimen/tamanio_imagen_button"
+            android:foreground="@drawable/ic_products"
+            app:layout_constraintBottom_toBottomOf="@id/constraintMenu"
+            app:layout_constraintEnd_toEndOf="@id/btntrackin"
+            app:layout_constraintStart_toStartOf="@id/constraintMenu"
+            app:layout_constraintTop_toTopOf="@id/constraintMenu" />
+
+        <ImageButton
+            android:id="@+id/btntrackin"
+            android:layout_width="@dimen/tamanio_imagen_button"
+            android:layout_height="@dimen/tamanio_imagen_button"
+            android:foreground="@drawable/ic_tracking"
+            app:layout_constraintBottom_toBottomOf="@id/constraintMenu"
+            app:layout_constraintEnd_toEndOf="@id/constraintMenu"
+            app:layout_constraintStart_toStartOf="@+id/btnproducts"
+            app:layout_constraintTop_toTopOf="@id/constraintMenu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

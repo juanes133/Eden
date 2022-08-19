@@ -5,6 +5,7 @@ import android.view.*
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.R
@@ -17,6 +18,12 @@ class HomeFragment : Fragment(), MenuProvider {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.btnproducts.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_productsFragment2)
+        }
+        binding.btntrackin.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_trackingFragment)
+        }
         activity?.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return binding.root
     }
