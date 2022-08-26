@@ -12,10 +12,7 @@ class CheckNetworkConnection(private val connectivityManager: ConnectivityManage
     LiveData<Boolean>() {
     constructor(application: Application) : this(application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
 
-    private val networkCallback =
-
-    object : ConnectivityManager.NetworkCallback() {
-
+    private val networkCallback = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
             postValue(true)

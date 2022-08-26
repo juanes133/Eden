@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private var dialog:  AlertDialog? = null
     private lateinit var binding: ActivityMainBinding
     private lateinit var checkNetworkConnection: CheckNetworkConnection
 
@@ -14,20 +15,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         callNetworkConnection()
+        dialog = AlertDialog.Builder(this)
+            .setTitle("No Internet Connection")
+            .setMessage("Please check your internet connection and try again")
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .create()
     }
 
     private fun callNetworkConnection() {
         checkNetworkConnection = CheckNetworkConnection(application)
         checkNetworkConnection.observe(this) { isConnected ->
             if (isConnected) {
-                AlertDialog.Builder(this)
-
+                dialog?.dismiss()
             } else {
-                AlertDialog.Builder(this)
-                    .setTitle("No Internet Connection")
-                    .setMessage("Please check your internet connection and try again")
-                    .setIcon(android.R.drawable.ic_dialog_alert).show()
-                    .setCanceledOnTouchOutside(false)
+                dialog?.setCanceledOnTouchOutside(false)
+                dialog?.show()
+
             }
         }
     }
