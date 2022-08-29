@@ -1,7 +1,8 @@
 package com.jadevelopers.eden.view
 
-import android.content.Context
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +10,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.Cannabis
-import com.jadevelopers.eden.CannabisProvider
 import com.jadevelopers.eden.adapter.CannabisAdapter
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
 
@@ -22,20 +24,41 @@ class ProductsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        initRecyclerView()
+        val db = Firebase.firestore
+
+        db.collection("products")
+            .get()
+            .addOnSuccessListener { result ->
+                val list = ArrayList<Cannabis>()
+                for (document in result) {
+                    list.add(
+                        Cannabis(
+                            document.id,
+                            document.data["description"].toString(),
+                            document.data["realName"].toString(),
+                            document.data["price"].toString(),
+                            document.data["photo"].toString()
+                        )
+                    )
+                }
+                initRecyclerView(list)
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
         return binding.root
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView(list:ArrayList<Cannabis>) {
         val manager = LinearLayoutManager(context)
         val decoration = DividerItemDecoration(context, manager.orientation)
         binding.recyclerCannabis.layoutManager = manager
         binding.recyclerCannabis.adapter =
-            CannabisAdapter(CannabisProvider.cannabisList, { cannabis -> onItemSelect(cannabis) })
+            CannabisAdapter(list) { cannabis -> onItemSelect(cannabis) }
         binding.recyclerCannabis.addItemDecoration(decoration)
     }
 
-    fun onItemSelect(cannabis: Cannabis) {
+    private fun onItemSelect(cannabis: Cannabis) {
         Toast.makeText(context, cannabis.realName, Toast.LENGTH_SHORT).show()
     }
 }
