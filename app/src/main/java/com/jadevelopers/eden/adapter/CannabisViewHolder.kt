@@ -1,19 +1,21 @@
 package com.jadevelopers.eden.adapter
 
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jadevelopers.eden.Cannabis
-import com.jadevelopers.eden.databinding.FragmentProductsBinding
+import com.jadevelopers.eden.databinding.TextRowItemBinding
 
 class CannabisViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val binding = FragmentProductsBinding.bind(view)
+
+    private val binding = TextRowItemBinding.bind(view)
 
     fun render(cannabisModel: Cannabis, onClickListener: (Cannabis) -> Unit) {
         binding.tvRealName.text = cannabisModel.realName
-        binding.tvDescription.text = cannabisModel.description
-        binding.tvPrice.text = cannabisModel.price
+        binding.descripcionSabor.text = cannabisModel.sabor
+        binding.descripcionEfecto.text = cannabisModel.efecto
+        binding.descripcionThc.text= cannabisModel.thc
+        binding.descripcionPrice.text = cannabisModel.price
         Glide.with(binding.ivCannabis.context).load(cannabisModel.photo).into(binding.ivCannabis)
         itemView.setOnClickListener {
             onClickListener(cannabisModel)

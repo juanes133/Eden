@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivCannabis"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/cardview_dark_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRealName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="BlueBerry" />
+
+    <TextView
+        android:id="@+id/tituloSabor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+        app:layout_constraintTop_toBottomOf="@+id/tvRealName"
+        android:text="@string/sabor" />
+
+    <TextView
+        android:id="@+id/descripcionSabor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tituloSabor"
+        app:layout_constraintTop_toBottomOf="@+id/tvRealName"
+        tools:text="Dulce y afrutado" />
+
+    <TextView
+        android:id="@+id/tituloEfecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+        app:layout_constraintTop_toBottomOf="@+id/tituloSabor"
+        android:text="@string/efecto" />
+
+    <TextView
+        android:id="@+id/descripcionEfecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tituloEfecto"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionSabor"
+        tools:text="fuerte" />
+
+    <TextView
+        android:id="@+id/tituloThc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+        app:layout_constraintTop_toBottomOf="@+id/tituloEfecto"
+        android:text="@string/thc" />
+
+    <TextView
+        android:id="@+id/descripcionThc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tituloThc"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionEfecto"
+        tools:text="19,5%" />
+
+    <TextView
+        android:id="@+id/tituloPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+        app:layout_constraintTop_toBottomOf="@+id/tituloThc"
+        android:text="@string/price" />
+
+    <TextView
+        android:id="@+id/descripcionPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tituloPrice"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionThc"
+        tools:text="$17.85" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,8 +34,10 @@ class ProductsFragment : Fragment() {
                     list.add(
                         Cannabis(
                             document.id,
-                            document.data["description"].toString(),
                             document.data["realName"].toString(),
+                            document.data["sabor"].toString(),
+                            document.data["efecto"].toString(),
+                            document.data["thc"].toString(),
                             document.data["price"].toString(),
                             document.data["photo"].toString()
                         )
@@ -49,7 +51,7 @@ class ProductsFragment : Fragment() {
         return binding.root
     }
 
-    private fun initRecyclerView(list:ArrayList<Cannabis>) {
+    private fun initRecyclerView(list: ArrayList<Cannabis>) {
         val manager = LinearLayoutManager(context)
         val decoration = DividerItemDecoration(context, manager.orientation)
         binding.recyclerCannabis.layoutManager = manager
