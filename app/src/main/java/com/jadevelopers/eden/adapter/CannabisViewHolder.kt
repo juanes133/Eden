@@ -11,12 +11,12 @@ class CannabisViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binding = TextRowItemBinding.bind(view)
 
     fun render(cannabisModel: Cannabis, onClickListener: (Cannabis) -> Unit) {
-        binding.tvRealName.text = cannabisModel.realName
+        binding.tvNombrePlanta.text = cannabisModel.nombrePlanta
         binding.descripcionSabor.text = cannabisModel.sabor
         binding.descripcionEfecto.text = cannabisModel.efecto
         binding.descripcionThc.text= cannabisModel.thc
-        binding.descripcionPrice.text = cannabisModel.price
-        Glide.with(binding.ivCannabis.context).load(cannabisModel.photo).into(binding.ivCannabis)
+        binding.descripcionPrecio.text = cannabisModel.precio
+        Glide.with(binding.ivCannabis.context).load(cannabisModel.imagen).into(binding.ivCannabis)
         itemView.setOnClickListener {
             onClickListener(cannabisModel)
         }

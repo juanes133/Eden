@@ -10,5 +10,5 @@
     <string name="efecto">Efecto: ""</string>
     <string name="sabor">Sabor: ""</string>
     <string name="thc">THC: ""</string>
-    <string name="price">Price: ""</string>
+    <string name="precio">Precio: ""</string>
 </resources>

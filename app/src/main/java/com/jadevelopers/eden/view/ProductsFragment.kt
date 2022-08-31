@@ -1,12 +1,11 @@
 package com.jadevelopers.eden.view
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,19 +33,21 @@ class ProductsFragment : Fragment() {
                     list.add(
                         Cannabis(
                             document.id,
-                            document.data["realName"].toString(),
+                            document.data["nombrePlanta"].toString(),
                             document.data["sabor"].toString(),
                             document.data["efecto"].toString(),
                             document.data["thc"].toString(),
-                            document.data["price"].toString(),
-                            document.data["photo"].toString()
+                            document.data["precio"].toString(),
+                            document.data["imagen"].toString()
                         )
                     )
                 }
                 initRecyclerView(list)
+                binding.loading.isVisible = false
             }
             .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
+                binding.loading.isVisible = false
+                //TODO: mostrar un error cuando falla
             }
         return binding.root
     }
@@ -61,7 +62,7 @@ class ProductsFragment : Fragment() {
     }
 
     private fun onItemSelect(cannabis: Cannabis) {
-        Toast.makeText(context, cannabis.realName, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, cannabis.nombrePlanta, Toast.LENGTH_SHORT).show()
     }
 }
 

@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvRealName"
+        android:id="@+id/tvNombrePlanta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -34,7 +34,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-        app:layout_constraintTop_toBottomOf="@+id/tvRealName"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombrePlanta"
         android:text="@string/sabor" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/tituloSabor"
-        app:layout_constraintTop_toBottomOf="@+id/tvRealName"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombrePlanta"
         tools:text="Dulce y afrutado" />
 
     <TextView
@@ -82,20 +82,20 @@
         tools:text="19,5%" />
 
     <TextView
-        android:id="@+id/tituloPrice"
+        android:id="@+id/tituloPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivCannabis"
         app:layout_constraintTop_toBottomOf="@+id/tituloThc"
-        android:text="@string/price" />
+        android:text="@string/precio" />
 
     <TextView
-        android:id="@+id/descripcionPrice"
+        android:id="@+id/descripcionPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tituloPrice"
+        app:layout_constraintStart_toEndOf="@+id/tituloPrecio"
         app:layout_constraintTop_toBottomOf="@+id/descripcionThc"
         tools:text="$17.85" />
 </androidx.constraintlayout.widget.ConstraintLayout>
