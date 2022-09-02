@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.2115" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1125" />
+        <entry key="app/src/main/res/drawable/ic_products.xml" value="0.2115" />
         <entry key="app/src/main/res/drawable/ic_products_background.xml" value="0.2115" />
         <entry key="app/src/main/res/drawable/ic_products_foreground.xml" value="0.2115" />
         <entry key="app/src/main/res/drawable/menu-48px.xml" value="0.1125" />
@@ -30,6 +31,7 @@
         <entry key="app/src/main/res/menu/menu.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/menu/menu_navigation_bar.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/menu/menu_tab.xml" value="0.2359375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2115" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_products.xml" value="0.1125" />
       </map>
     </option>

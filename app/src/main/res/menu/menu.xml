@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/signout"
-        android:title="@string/signout"
+        android:title="@string/cerrarSesion"
         app:showAsAction="withText" />
 
 </menu>

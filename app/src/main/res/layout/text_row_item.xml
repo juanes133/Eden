@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvNombrePlanta"
+        android:id="@+id/tvNamePlant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -28,74 +28,74 @@
         tools:text="BlueBerry" />
 
     <TextView
-        android:id="@+id/tituloSabor"
+        android:id="@+id/titleTaste"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombrePlanta"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
         android:text="@string/sabor" />
 
     <TextView
-        android:id="@+id/descripcionSabor"
+        android:id="@+id/descriptionTaste"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tituloSabor"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombrePlanta"
+        app:layout_constraintStart_toEndOf="@+id/titleTaste"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
         tools:text="Dulce y afrutado" />
 
     <TextView
-        android:id="@+id/tituloEfecto"
+        android:id="@+id/titleEffect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-        app:layout_constraintTop_toBottomOf="@+id/tituloSabor"
+        app:layout_constraintTop_toBottomOf="@+id/titleTaste"
         android:text="@string/efecto" />
 
     <TextView
-        android:id="@+id/descripcionEfecto"
+        android:id="@+id/descriptionEffect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tituloEfecto"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionSabor"
+        app:layout_constraintStart_toEndOf="@+id/titleEffect"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
         tools:text="fuerte" />
 
     <TextView
-        android:id="@+id/tituloThc"
+        android:id="@+id/titleThc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-        app:layout_constraintTop_toBottomOf="@+id/tituloEfecto"
+        app:layout_constraintTop_toBottomOf="@+id/titleEffect"
         android:text="@string/thc" />
 
     <TextView
-        android:id="@+id/descripcionThc"
+        android:id="@+id/descriptionThc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tituloThc"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionEfecto"
+        app:layout_constraintStart_toEndOf="@+id/titleThc"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionEffect"
         tools:text="19,5%" />
 
     <TextView
-        android:id="@+id/tituloPrecio"
+        android:id="@+id/titlePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-        app:layout_constraintTop_toBottomOf="@+id/tituloThc"
+        app:layout_constraintTop_toBottomOf="@+id/titleThc"
         android:text="@string/precio" />
 
     <TextView
-        android:id="@+id/descripcionPrecio"
+        android:id="@+id/descriptionPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tituloPrecio"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionThc"
+        app:layout_constraintStart_toEndOf="@+id/titlePrice"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionThc"
         tools:text="$17.85" />
 </androidx.constraintlayout.widget.ConstraintLayout>

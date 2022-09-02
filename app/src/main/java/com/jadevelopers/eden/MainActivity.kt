@@ -1,8 +1,11 @@
 package com.jadevelopers.eden
 
+import android.content.Context
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         callNetworkConnection()
         dialog = AlertDialog.Builder(this)
-            .setTitle("No Internet Connection")
-            .setMessage("Please check your internet connection and try again")
+            .setTitle("Sin conexion de internet")
+            .setMessage("Comprueba tu conexión a Internet e inténtalo de nuevo")
             .setIcon(android.R.drawable.ic_dialog_alert)
             .create()
     }
