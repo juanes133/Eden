@@ -1,9 +1,7 @@
 package com.jadevelopers.eden.view
 
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import android.view.*
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -29,9 +27,9 @@ class HomeFragment : Fragment(), MenuProvider {
             findNavController().navigate(R.id.action_homeFragment_to_trackingFragment)
         }
         activity?.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        activity?.apply { onBackPressedDispatcher.addCallback(this){
+       //activity?.apply { onBackPressedDispatcher.addCallback(this){
             // Pendiente lineas de cerrar sesion//
-        } }
+        //} }
         return binding.root
     }
 

@@ -20,25 +20,14 @@
             android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="loading"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fallbackContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:visibility="gone"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="gone">
 
         <ImageView
             android:id="@+id/alertDb"
@@ -58,13 +47,13 @@
             android:text="@string/a_ocurrido_un_error"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/Retry"
+            app:layout_constraintBottom_toTopOf="@id/btnRetry"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/alertDb" />
 
         <Button
-            android:id="@+id/Retry"
+            android:id="@+id/btnRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
@@ -74,4 +63,13 @@
             app:layout_constraintTop_toBottomOf="@id/textError" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>
