@@ -4,6 +4,6 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.TrackingFragment"
-    android:background="@color/red">
+    android:background="@color/white">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,26 +14,27 @@
         android:id="@+id/constraintMenu"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/purple_200"
+        android:background="@color/menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnproducts"
             android:layout_width="@dimen/tamanio_imagen_button"
             android:layout_height="@dimen/tamanio_imagen_button"
-            android:foreground="@drawable/ic_products"
+            android:src="@mipmap/ic_products"
             app:layout_constraintBottom_toBottomOf="@id/constraintMenu"
             app:layout_constraintEnd_toEndOf="@id/btntrackin"
             app:layout_constraintStart_toStartOf="@id/constraintMenu"
-            app:layout_constraintTop_toTopOf="@id/constraintMenu" />
+            app:layout_constraintTop_toTopOf="@id/constraintMenu"
+            tools:ignore="ContentDescription" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btntrackin"
             android:layout_width="@dimen/tamanio_imagen_button"
             android:layout_height="@dimen/tamanio_imagen_button"
-            android:foreground="@drawable/ic_tracking"
+            android:src="@mipmap/ic_tracking"
             app:layout_constraintBottom_toBottomOf="@id/constraintMenu"
             app:layout_constraintEnd_toEndOf="@id/constraintMenu"
             app:layout_constraintStart_toStartOf="@+id/btnproducts"

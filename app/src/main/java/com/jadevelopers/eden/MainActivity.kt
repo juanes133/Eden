@@ -1,15 +1,15 @@
 package com.jadevelopers.eden
 
-import android.content.Context
 import android.os.Bundle
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.NavHostFragment
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private var dialog:  AlertDialog? = null
+    private var dialog: AlertDialog? = null
     private lateinit var binding: ActivityMainBinding
     private lateinit var checkNetworkConnection: CheckNetworkConnection
 
@@ -33,8 +33,22 @@ class MainActivity : AppCompatActivity() {
             } else {
                 dialog?.setCanceledOnTouchOutside(false)
                 dialog?.show()
-
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+        if (navController.currentDestination?.id == R.id.homeFragment) {
+            if (Firebase.auth.currentUser != null){
+                finish()
+            }else{
+                super.onBackPressed()
+            }
+        } else {
+            super.onBackPressed()
         }
     }
 }
