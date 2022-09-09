@@ -14,4 +14,9 @@
     <string name="reintentar">Reintentar</string>
     <string name="google">Google</string>
     <string name="a_ocurrido_un_error">¡A ocurrido un error!</string>
+    <string name="products">products</string>
+    <string name="shopping_car">shopping_car</string>
+    <string name="tracking">tracking</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>

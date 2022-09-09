@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group>
+
+        <item
+            android:id="@+id/productsFragment"
+            android:title="@string/products" />
+
+        <item
+            android:id="@+id/trackingFragment"
+            android:title="@string/tracking" />
+
+        <item
+            android:id="@+id/shopping_car"
+            android:title="@string/shopping_car" />
+        <item
+            android:id="@+id/signout"
+            android:title="@string/cerrarSesion"
+            app:showAsAction="withText" />
+
+    </group>
+
+
+</menu>

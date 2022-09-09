@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#F44336</color>
-    <color name="menu">#F4DD0E</color>
+    <color name="menu">#275929</color>
     <color name="colorPrimary">#D18B25</color>
     <color name="colorPrimaryDark">@color/menu</color>
     <color name="colorAccent">@color/menu</color>
