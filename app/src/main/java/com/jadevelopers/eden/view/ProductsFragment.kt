@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.Cannabis
+import com.jadevelopers.eden.R
 import com.jadevelopers.eden.adapter.CannabisAdapter
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
 
@@ -20,7 +23,7 @@ class ProductsFragment : Fragment() {
     private lateinit var binding: FragmentProductsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
         binding.btnRetry.setOnClickListener {
@@ -74,6 +77,14 @@ class ProductsFragment : Fragment() {
     private fun onItemSelect(cannabis: Cannabis) {
         Toast.makeText(context, cannabis.namePlant, Toast.LENGTH_SHORT).show()
     }
+
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.action_productsFragment_to_loginFragment)
+        }
+    }
+
 }
 
 

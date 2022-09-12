@@ -5,10 +5,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -37,9 +38,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
         drawerLayout = binding.drawerLayout
-        navController?.let {
-            navigationView?.setupWithNavController(it)
-        }
+        navigationView = binding.navigationView
         appBarConfiguration = navController?.let {
             AppBarConfiguration(it.graph, drawerLayout)
         }
@@ -48,6 +47,12 @@ class MainActivity : AppCompatActivity() {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.fragmentContainerView)
+        return appBarConfiguration?.let { navController.navigateUp(it) } == true
+                || super.onSupportNavigateUp()
     }
 
     private fun callNetworkConnection() {
@@ -63,17 +68,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
-        if (navController.currentDestination?.id == R.id.homeFragment) {
-            if (Firebase.auth.currentUser != null) {
-                finish()
-            } else {
-                super.onBackPressed()
-            }
-        } else {
-            super.onBackPressed()
+        super.onBackPressed()
+        if (Firebase.auth.currentUser == null) {
+            finish()
         }
     }
+
+
 }

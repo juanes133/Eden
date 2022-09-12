@@ -92,7 +92,7 @@ class LoginFragment : Fragment() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            activity?.onBackPressed()
         }
     }
 
