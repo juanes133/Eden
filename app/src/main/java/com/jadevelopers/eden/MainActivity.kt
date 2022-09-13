@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.btnSignOut.setOnClickListener {
+            Firebase.auth.signOut()
+            findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)
+            drawerLayout?.closeDrawers()
+        }
         setContentView(binding.root)
         callNetworkConnection()
         dialog = AlertDialog.Builder(this)

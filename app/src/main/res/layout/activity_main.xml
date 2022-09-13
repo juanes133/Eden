@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
+        tools:layout_editor_absoluteX="-102dp"
+        tools:layout_editor_absoluteY="-16dp"
         tools:openDrawer="start">
 
         <androidx.fragment.app.FragmentContainerView
@@ -31,6 +34,7 @@
             android:layout_gravity="start">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomOf_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -39,15 +43,15 @@
                     android:id="@+id/top_container"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:background="@color/menu"
+                    android:background="#FF119CAE"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/iv_nav_controller"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@mipmap/ic_products"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -56,17 +60,48 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/eden"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/iv_nav_controller" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btn_products"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/eden"
+                    style="@style/ButtonNavigationStyle"
+                    android:text="@string/productos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/top_container" />
+
+                <Button
+                    android:id="@+id/btn_tracking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ButtonNavigationStyle"
+                    android:text="@string/tracking"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_products" />
+
+                <Button
+                    android:id="@+id/btn_shopping"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ButtonNavigationStyle"
+                    android:text="@string/compras"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_tracking" />
+
+                <Button
+                    android:id="@+id/btn_signOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ButtonSignOutStyle"
+                    android:text="@string/cerrarSesion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_shopping" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,3 +110,4 @@
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
