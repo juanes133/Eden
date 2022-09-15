@@ -1,5 +1,8 @@
 package com.jadevelopers.eden
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,19 +72,16 @@ class MainActivity : AppCompatActivity() {
             if (isConnected) {
                 dialog?.dismiss()
             } else {
-                dialog?.setCanceledOnTouchOutside(false)
+                dialog?.setCancelable(false)
                 dialog?.show()
             }
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onBackPressed() {
-        if (checkNetworkConnection?.isConnected() == true){
-            super.onBackPressed()
-            if (Firebase.auth.currentUser == null) {
-                finish()
-            }
+        super.onBackPressed()
+        if (Firebase.auth.currentUser == null) {
+            finish()
         }
     }
 }

@@ -6,14 +6,11 @@ import android.content.Context
 import android.net.*
 import android.net.ConnectivityManager.NetworkCallback
 import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
-import java.lang.reflect.Type
 
 class CheckNetworkConnection(private val connectivityManager: ConnectivityManager) :
     LiveData<Boolean>() {
     constructor(application: Application) : this(application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
-
     private val networkCallback = object : NetworkCallback() {
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
@@ -26,14 +23,36 @@ class CheckNetworkConnection(private val connectivityManager: ConnectivityManage
         }
     }
 
-   @RequiresApi(Build.VERSION_CODES.M)
-    fun isConnected(function: () -> Unit): Boolean {
-        val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-       if (capabilities != null){
-           if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)){
+    @Suppress("DEPRECATION")
+    fun isConnected(context: Context): Boolean {
+        var result = false
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val networkCapabilities = connectivityManager.activeNetwork ?: return false
+            val actNw =
+                connectivityManager.getNetworkCapabilities(networkCapabilities) ?: return false
+            result = when {
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                else -> false
+            }
+        } else {
+            connectivityManager.run {
+                connectivityManager.activeNetworkInfo?.run {
+                    result = when (type) {
+                        ConnectivityManager.TYPE_WIFI -> true
+                        ConnectivityManager.TYPE_MOBILE -> true
+                        ConnectivityManager.TYPE_ETHERNET -> true
+                        else -> false
+                    }
+
+                }
             }
         }
-        return true
+
+        return result
     }
 
     @SuppressLint("MissingPermission")
@@ -47,5 +66,4 @@ class CheckNetworkConnection(private val connectivityManager: ConnectivityManage
         super.onInactive()
         connectivityManager.unregisterNetworkCallback(networkCallback)
     }
-
 }
