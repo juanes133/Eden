@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -27,7 +28,7 @@ class LoginFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.btngoogle.setOnClickListener {
@@ -41,6 +42,8 @@ class LoginFragment : Fragment() {
         activity?.let {
             googleSignInClient = GoogleSignIn.getClient(it, gso)
             auth = Firebase.auth
+            (it as AppCompatActivity).supportActionBar?.title = ""
+            it.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         }
         return binding.root
     }

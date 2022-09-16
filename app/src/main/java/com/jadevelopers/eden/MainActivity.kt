@@ -1,8 +1,11 @@
 package com.jadevelopers.eden
 
 import android.os.Bundle
+import android.view.Gravity
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -23,16 +26,12 @@ class MainActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
+    lateinit var toogle: ActionBarDrawerToggle
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.btnSignOut.setOnClickListener {
-            Firebase.auth.signOut()
-            findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)
-            drawerLayout?.closeDrawers()
-        }
         setContentView(binding.root)
         callNetworkConnection()
         dialog = AlertDialog.Builder(this)
@@ -48,21 +47,34 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = navController?.let {
             AppBarConfiguration(it.graph, drawerLayout)
         }
+
         appBarConfiguration?.let { appBarConfiguration ->
             navController?.let {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
-        if (checkNetworkConnection?.isConnected(this)==false){
+        binding.btnSignOut.setOnClickListener {
+            Firebase.auth.signOut()
+            findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)
+            drawerLayout?.closeDrawers()
+        }
+
+        if (checkNetworkConnection?.isConnected(this) == false) {
             dialog?.setCancelable(false)
             dialog?.show()
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        super.onSupportNavigateUp()
         val navController = findNavController(R.id.fragmentContainerView)
-        return appBarConfiguration?.let { navController.navigateUp(it) } == true
-                || super.onSupportNavigateUp()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        return if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+            drawerLayout?.closeDrawers()
+            false
+        }else{
+            appBarConfiguration?.let { navController.navigateUp(it) } == true
+        }
     }
 
     private fun callNetworkConnection() {
@@ -84,3 +96,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
