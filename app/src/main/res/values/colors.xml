@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#F44336</color>
     <color name="menu">#275929</color>
-    <color name="colorPrimary">#D18B25</color>
-    <color name="colorPrimaryDark">@color/menu</color>
-    <color name="colorAccent">@color/menu</color>
+    <color name="colorPrimary">#FFAA92ED</color>
+    <color name="colorPrimaryVariant">#FFAA92ED</color>
+    <color name="colorOnPrimary">#FF000000</color>
 
 </resources>

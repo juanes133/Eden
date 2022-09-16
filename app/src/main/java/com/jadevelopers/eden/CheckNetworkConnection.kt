@@ -47,11 +47,9 @@ class CheckNetworkConnection(private val connectivityManager: ConnectivityManage
                         ConnectivityManager.TYPE_ETHERNET -> true
                         else -> false
                     }
-
                 }
             }
         }
-
         return result
     }
 

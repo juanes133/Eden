@@ -1,11 +1,6 @@
 package com.jadevelopers.eden
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -57,6 +52,10 @@ class MainActivity : AppCompatActivity() {
             navController?.let {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
+        }
+        if (checkNetworkConnection?.isConnected(this)==false){
+            dialog?.setCancelable(false)
+            dialog?.show()
         }
     }
 
