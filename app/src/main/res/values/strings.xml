@@ -19,4 +19,7 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
     <string name="compras">Compras</string>
+    <string name="registrate_con_google">Registrate con Google</string>
+    <string name="bienvenidos_a_eden">Bienvenidos a Eden!</string>
+    <string name="descripcion">Descripcion</string>
 </resources>
