@@ -23,4 +23,9 @@
         android:name="com.jadevelopers.eden.view.TrackingFragment"
         android:label="fragment_tracking"
         tools:layout="@layout/fragment_tracking" />
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.jadevelopers.eden.view.DescriptionFragment"
+        android:label="description_item"
+        tools:layout="@layout/fragment_description" />
 </navigation>

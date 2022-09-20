@@ -47,12 +47,14 @@ class ProductsFragment : Fragment() {
                     list.add(
                         Cannabis(
                             document.id,
+                            document.data["descripcion"].toString(),
                             document.data["nombrePlanta"].toString(),
                             document.data["sabor"].toString(),
                             document.data["efecto"].toString(),
                             document.data["thc"].toString(),
                             document.data["precio"].toString(),
                             document.data["imagen"].toString()
+
                         )
                     )
                 }
@@ -78,6 +80,7 @@ class ProductsFragment : Fragment() {
 
     private fun onItemSelect(cannabis: Cannabis) {
         Toast.makeText(context, cannabis.namePlant, Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.descriptionFragment)
     }
 
     override fun onStart() {
@@ -86,7 +89,6 @@ class ProductsFragment : Fragment() {
             findNavController().navigate(R.id.action_productsFragment_to_loginFragment)
         }
     }
-
 }
 
 

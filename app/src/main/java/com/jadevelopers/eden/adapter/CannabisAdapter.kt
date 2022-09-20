@@ -17,6 +17,7 @@ class CannabisAdapter(
 
     override fun onBindViewHolder(holder: CannabisViewHolder, position: Int) {
         holder.render(CannabisList[position], onClickListener)
+
     }
 
     override fun getItemCount(): Int = CannabisList.size
