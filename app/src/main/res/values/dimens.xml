@@ -4,5 +4,7 @@
     <dimen name="fragment_vertical_margin">16dp</dimen>
     <dimen name="tamanio_imagen_button">48dp</dimen>
     <dimen name="padding">16dp</dimen>
+    <dimen name="espacio_horizontal">5dp</dimen>
+    <dimen name="espacio_vertical">10dp</dimen>
 
 </resources>

@@ -12,5 +12,6 @@
     <color name="colorPrimary">#FFAA92ED</color>
     <color name="colorPrimaryVariant">#FFAA92ED</color>
     <color name="colorOnPrimary">#FF000000</color>
+    <color name="colorTint">#333366</color>
 
 </resources>

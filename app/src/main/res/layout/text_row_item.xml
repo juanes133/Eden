@@ -5,21 +5,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="8dp">
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="4dp"
+    app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintItem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivCannabis"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:backgroundTint="@color/white"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="@dimen/espacio_horizontal"
             android:background="@color/cardview_dark_background"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintItem"/>
 
         <TextView
             android:id="@+id/tvNamePlant"
@@ -48,7 +55,7 @@
             android:id="@+id/descriptionTaste"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:singleLine="false"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/titleTaste"
             app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,8 +76,8 @@
             android:id="@+id/descriptionEffect"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:singleLine="false"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/titleEffect"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
             tools:text="Fuerte, con notas dulces de frutas y tonos " />
@@ -90,6 +97,7 @@
             android:id="@+id/descriptionThc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/titleThc"
             app:layout_constraintTop_toBottomOf="@+id/descriptionEffect"
             tools:text="19,5%" />
@@ -109,6 +117,7 @@
             android:id="@+id/descriptionPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/titlePrice"
             app:layout_constraintTop_toBottomOf="@+id/descriptionThc"
             tools:text="$17.85" />

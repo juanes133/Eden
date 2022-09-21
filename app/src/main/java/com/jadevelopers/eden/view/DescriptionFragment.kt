@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 
@@ -14,6 +15,7 @@ private lateinit var binding: FragmentDescriptionBinding
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding= FragmentDescriptionBinding.inflate(inflater,container,false)
+        (activity as AppCompatActivity).supportActionBar?.title = "Descripcion producto"
         return binding.root
     }
 }
