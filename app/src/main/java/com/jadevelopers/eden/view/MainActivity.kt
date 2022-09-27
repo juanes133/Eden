@@ -1,10 +1,13 @@
-package com.jadevelopers.eden
+package com.jadevelopers.eden.view
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -14,7 +17,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jadevelopers.eden.CheckNetworkConnection
+import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.ActivityMainBinding
+import com.jadevelopers.eden.viewmodel.ProductsViewModel
 
 class MainActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
@@ -24,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
+    private val productsViewModel: ProductsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

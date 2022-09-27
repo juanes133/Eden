@@ -8,68 +8,49 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.jadevelopers.eden.Cannabis
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.adapter.CannabisAdapter
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
+import com.jadevelopers.eden.model.Product
+import com.jadevelopers.eden.viewmodel.ProductsViewModel
 
 class ProductsFragment : Fragment() {
 
     private lateinit var binding: FragmentProductsBinding
+    private val productsViewModel: ProductsViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        binding.btnRetry.setOnClickListener {
-            dataBase()
+        //TODO: cambiar al archivo de strings.xml
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.titulo_productos)
+        productsViewModel.productsList.observe(viewLifecycleOwner) {
+            initRecyclerView(it)
+            binding.loading.isVisible = false
+            binding.productsContainer.isVisible = true
         }
-        dataBase()
-        (activity as AppCompatActivity).supportActionBar?.title = "Productos"
+        getProducts()
+        binding.btnRetry.setOnClickListener {
+            getProducts()
+        }
         return binding.root
     }
 
-    private fun dataBase() {
+    private fun getProducts() {
         binding.fallbackContainer.isVisible = false
         binding.loading.isVisible = true
-        val db = Firebase.firestore
-        db.collection("products")
-            .get()
-            .addOnSuccessListener { result ->
-                val list = ArrayList<Cannabis>()
-                for (document in result) {
-                    list.add(
-                        Cannabis(
-                            document.id,
-                            document.data["descripcion"].toString(),
-                            document.data["nombrePlanta"].toString(),
-                            document.data["sabor"].toString(),
-                            document.data["efecto"].toString(),
-                            document.data["thc"].toString(),
-                            document.data["precio"].toString(),
-                            document.data["imagen"].toString()
-
-                        )
-                    )
-                }
-                initRecyclerView(list)
-                binding.loading.isVisible = false
-                binding.productsContainer.isVisible = true
-            }
-            .addOnFailureListener {
-                binding.loading.isVisible = false
-                binding.fallbackContainer.isVisible = true
-                binding.productsContainer.isVisible = false
-            }
+        productsViewModel.getProducts()
     }
 
-    private fun initRecyclerView(list: ArrayList<Cannabis>) {
+    private fun initRecyclerView(list: ArrayList<Product>) {
         val manager = LinearLayoutManager(context)
         val decoration = DividerItemDecoration(context, manager.orientation)
         binding.recyclerCannabis.layoutManager = manager
@@ -78,7 +59,7 @@ class ProductsFragment : Fragment() {
         binding.recyclerCannabis.addItemDecoration(decoration)
     }
 
-    private fun onItemSelect(cannabis: Cannabis) {
+    private fun onItemSelect(cannabis: Product) {
         Toast.makeText(context, cannabis.namePlant, Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.descriptionFragment)
     }

@@ -5,6 +5,7 @@
     <string name="your_web_client_id">202382885503-b7f1hekb86dimm64itvt6ud466cggall.apps.googleusercontent.com</string>
     <string name="cerrarSesion">CerrarSesion</string>
     <string name="productos">Productos</string>
+    <string name="titulo_productos">Productos</string>
     <string name="seguimiento">Seguimiento</string>
     <string name="efecto">Efecto: ""</string>
     <string name="sabor">Sabor: ""</string>
@@ -27,4 +28,5 @@
     <string name="descripcion_producto">La Blueberry es una híbrida 80% índica y 20% sativa cuyos orígenes se remontan a los años 70. En aquel entonces, los cultivadores experimentaban con cruces de variedades autóctonas tailandesas, colombianas y mexicanas, y uno de los resultados fue la Juicy Fruit. La cepa híbrida Juicy Fruit fue cruzada de nuevo con una variedad pura afgana por DJ Short, creando la primera Blueberry de la historia alrededor de 1979.</string>
     <string name="saborTexto">Dulce y afrutado</string>
     <string name="comprar">Comprar ahora</string>
+    <string name="titulo_descripcion">Descripcion</string>
 </resources>

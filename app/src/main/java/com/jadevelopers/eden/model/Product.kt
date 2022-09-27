@@ -1,6 +1,6 @@
-package com.jadevelopers.eden
+package com.jadevelopers.eden.model
 
-data class Cannabis(
+data class Product(
     val id: String,
     val description: String,
     val namePlant: String,
