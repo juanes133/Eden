@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
@@ -23,10 +24,16 @@ class DescriptionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
-        (activity as AppCompatActivity).supportActionBar?.title =
-            getString(R.string.titulo_descripcion)
+            (activity as AppCompatActivity).supportActionBar?.title =
+                getString(R.string.titulo_descripcion)
+
         product = productsViewModel.productsList.value?.firstOrNull { x -> x.id == args.idProduct }
+        binding.descriptionProduct.text = product?.description
+        binding.descriptionThc.text = product?.thc
         binding.descriptionEffect.text = product?.effect
+        binding.descriptionTaste.text = product?.taste
+        binding.descriptionPrice.text = product?.price
+        Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
         return binding.root
     }
 }

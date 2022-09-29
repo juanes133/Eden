@@ -1,10 +1,15 @@
 package com.jadevelopers.eden.view
 
+import android.R.color
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -20,6 +25,7 @@ import com.jadevelopers.eden.databinding.FragmentProductsBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.viewmodel.ProductsViewModel
 
+
 class ProductsFragment : Fragment() {
 
     private lateinit var binding: FragmentProductsBinding
@@ -31,6 +37,7 @@ class ProductsFragment : Fragment() {
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.titulo_productos)
+        (activity as AppCompatActivity).supportActionBar?.show()
         productsViewModel.productsList.observe(viewLifecycleOwner) {
             initRecyclerView(it)
             binding.loading.isVisible = false
@@ -44,6 +51,13 @@ class ProductsFragment : Fragment() {
         getProducts()
         binding.btnRetry.setOnClickListener {
             getProducts()
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            binding.loading.indeterminateDrawable.colorFilter =
+                BlendModeColorFilter(Color.GREEN, BlendMode.SRC_ATOP)
+        } else {
+            @Suppress("DEPRECATION")
+            binding.loading.indeterminateDrawable.setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_ATOP)
         }
         return binding.root
     }

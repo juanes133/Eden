@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTint"
+    android:background="@color/colorSecondary"
     android:padding="4dp"
     tools:context=".view.ProductsFragment">
 
@@ -17,6 +17,8 @@
             android:id="@+id/recyclerCannabis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.jadevelopers.eden.view
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -31,6 +32,9 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+        (activity as AppCompatActivity).supportActionBar?.title = ""
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as AppCompatActivity).supportActionBar?.hide()
         binding.btngoogle.setOnClickListener {
             signIn()
         }
@@ -42,8 +46,6 @@ class LoginFragment : Fragment() {
         activity?.let {
             googleSignInClient = GoogleSignIn.getClient(it, gso)
             auth = Firebase.auth
-            (it as AppCompatActivity).supportActionBar?.title = ""
-            it.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         }
         return binding.root
     }

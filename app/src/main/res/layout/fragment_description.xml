@@ -4,27 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="20dp"
     tools:context=".view.DescriptionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintDescription"
+        android:id="@+id/constraintItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorSecondary"
+        tools:context=".view.DescriptionFragment">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            app:civ_border_width="2dp"
+        <ImageView
             android:id="@+id/ivCannabis"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="160dp"
-            app:civ_circle_background_color="@color/colorTint"
-            android:backgroundTint="@color/white"
-            android:layout_marginVertical="@dimen/espacio_vertical"
-            android:background="@color/cardview_dark_background"
-            android:src="@mipmap/ic_icon_principal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#5E5D5D"/>
 
         <TextView
             android:id="@+id/tvNamePlant"
@@ -32,12 +27,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/espacio_horizontal"
             android:layout_marginVertical="@dimen/espacio_vertical"
-            android:text="BlueBerry"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivCannabis" />
+            app:layout_constraintTop_toBottomOf="@+id/ivCannabis"
+            tools:text="BlueBerry" />
 
         <TextView
             android:id="@+id/titleDescription"
@@ -173,6 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_marginVertical="12dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/titlePrice"
             app:layout_constraintTop_toBottomOf="@+id/spinner"
             tools:text="$17,85%" />
@@ -197,8 +193,10 @@
             android:backgroundTint="@color/white"
             android:src="@mipmap/ic_shopping_bag"
             app:layout_constraintStart_toEndOf="@id/shopping"
-            app:layout_constraintTop_toBottomOf="@id/descriptionPrice"
-            />
+            app:layout_constraintTop_toBottomOf="@id/descriptionPrice" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.cardview.widget.CardView>
+
+
