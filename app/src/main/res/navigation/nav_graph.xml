@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_productsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_productsFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/trackingFragment"
@@ -27,5 +30,9 @@
         android:id="@+id/descriptionFragment"
         android:name="com.jadevelopers.eden.view.DescriptionFragment"
         android:label="description_item"
-        tools:layout="@layout/fragment_description" />
+        tools:layout="@layout/fragment_description" >
+        <argument
+            android:name="idProduct"
+            app:argType="string" />
+    </fragment>
 </navigation>

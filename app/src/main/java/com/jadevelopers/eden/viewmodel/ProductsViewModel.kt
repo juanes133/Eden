@@ -10,9 +10,16 @@ class ProductsViewModel : ViewModel() {
     private val mutableProductsList = MutableLiveData<ArrayList<Product>>()
     val productsList: LiveData<ArrayList<Product>> get() = mutableProductsList
 
+    private val mutableProductsError = MutableLiveData<Exception>()
+    val productsError: LiveData<Exception> get() = mutableProductsError
+
+    private val productsRepository = ProductsRepository()
+
     fun getProducts() {
-        val list = ArrayList<Product>()
-        list.add(Product("1", "Descripcion", "Yuber", "jugoso", "potente", "35%", "2000", ""))
-        mutableProductsList.value = list
+        productsRepository.getProducts({ list ->
+            mutableProductsList.value = list
+        }, {
+            mutableProductsError.value = it
+        })
     }
 }

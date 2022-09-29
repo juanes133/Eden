@@ -30,12 +30,16 @@ class ProductsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        //TODO: cambiar al archivo de strings.xml
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.titulo_productos)
         productsViewModel.productsList.observe(viewLifecycleOwner) {
             initRecyclerView(it)
             binding.loading.isVisible = false
             binding.productsContainer.isVisible = true
+        }
+        productsViewModel.productsError.observe(viewLifecycleOwner){
+            binding.loading.isVisible = false
+            binding.fallbackContainer.isVisible = true
+            binding.productsContainer.isVisible = false
         }
         getProducts()
         binding.btnRetry.setOnClickListener {
@@ -59,9 +63,8 @@ class ProductsFragment : Fragment() {
         binding.recyclerCannabis.addItemDecoration(decoration)
     }
 
-    private fun onItemSelect(cannabis: Product) {
-        Toast.makeText(context, cannabis.namePlant, Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.descriptionFragment)
+    private fun onItemSelect(product: Product) {
+        findNavController().navigate(ProductsFragmentDirections.actionProductsFragmentToDescriptionFragment(product.id))
     }
 
     override fun onStart() {
