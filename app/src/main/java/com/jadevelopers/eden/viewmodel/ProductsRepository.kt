@@ -9,11 +9,15 @@ class ProductsRepository {
     private val productsConverter = ProductsConverter()
 
     fun getProducts(onSuccess: (ArrayList<Product>) -> Unit, onFailure: (Exception) -> Unit) {
+        if(cacheProducts.isNotEmpty()){
+            onSuccess(cacheProducts)
+        }
         val db = Firebase.firestore
         db.collection(PRODUCTS)
             .get()
             .addOnSuccessListener { result ->
-                onSuccess(productsConverter.convertProducts(result))
+                cacheProducts = productsConverter.convertProducts(result)
+                onSuccess(cacheProducts)
             }
             .addOnFailureListener {
                 onFailure(it)
@@ -22,5 +26,6 @@ class ProductsRepository {
 
     companion object {
         const val PRODUCTS = "products"
+        private var cacheProducts = ArrayList<Product>()
     }
 }

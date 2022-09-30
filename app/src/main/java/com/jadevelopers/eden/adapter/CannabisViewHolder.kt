@@ -12,9 +12,6 @@ class CannabisViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun render(cannabisModel: Product, onClickListener: (Product) -> Unit) {
         binding.tvNamePlant.text = cannabisModel.namePlant
-        binding.descriptionTaste.text = cannabisModel.taste
-        binding.descriptionEffect.text = cannabisModel.effect
-        binding.descriptionThc.text= cannabisModel.thc
         binding.descriptionPrice.text = cannabisModel.price
         Glide.with(binding.ivCannabis.context).load(cannabisModel.photo).into(binding.ivCannabis)
         itemView.setOnClickListener {

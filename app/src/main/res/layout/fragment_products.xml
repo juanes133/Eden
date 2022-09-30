@@ -17,7 +17,7 @@
             android:id="@+id/recyclerCannabis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@android:color/transparent"
+            android:divider="@null"
             android:dividerHeight="0dp"
             app:layout_constraintTop_toTopOf="parent" />
 

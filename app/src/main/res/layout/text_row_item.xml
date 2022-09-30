@@ -1,123 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="4dp"
-    android:layout_marginVertical="4dp"
-    app:cardElevation="10dp">
+    android:backgroundTint="@color/colorSecondary"
+    android:padding="5dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivCannabis"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="@dimen/espacio_horizontal"
+        android:layout_marginVertical="5dp"
+        android:backgroundTint="@color/colorSecondary"
+        android:elevation="30dp"
+        android:src="@mipmap/ic_icon_principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivCannabis"
-            android:backgroundTint="@color/white"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="@dimen/espacio_horizontal"
-            android:background="@color/cardview_dark_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintItem"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="-60dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/constraintParent"
+        app:layout_constraintEnd_toEndOf="@id/constraintParent"
+        app:layout_constraintStart_toEndOf="@id/ivCannabis"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvNamePlant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="4dp"
-            app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="BlueBerry" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintItemText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/titleTaste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="4dp"
-            android:text="@string/sabor"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-            app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
+            <TextView
+                android:id="@+id/tvNamePlant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/titlePrice"
+                app:layout_constraintEnd_toEndOf="@id/constraintItemText"
+                app:layout_constraintStart_toStartOf="@id/constraintItemText"
+                app:layout_constraintTop_toTopOf="@id/constraintItemText"
+                tools:text="BlueBerry" />
 
-        <TextView
-            android:id="@+id/descriptionTaste"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/titleTaste"
-            app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Dulce y afrutado" />
+            <TextView
+                android:id="@+id/titlePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:text="@string/precio"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/constraintItemText"
+                app:layout_constraintEnd_toStartOf="@+id/descriptionPrice"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
 
-        <TextView
-            android:id="@+id/titleEffect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="4dp"
-            android:text="@string/efecto"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionTaste" />
+                />
 
-        <TextView
-            android:id="@+id/descriptionEffect"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/titleEffect"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
-            tools:text="Fuerte, con notas dulces de frutas y tonos " />
+            <TextView
+                android:id="@+id/descriptionPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/constraintItemText"
+                app:layout_constraintEnd_toEndOf="@id/constraintItemText"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
 
-        <TextView
-            android:id="@+id/titleThc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="4dp"
-            android:text="@string/thc"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionEffect" />
+                tools:text="$17.85" />
 
-        <TextView
-            android:id="@+id/descriptionThc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/titleThc"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionEffect"
-            tools:text="19,5%" />
 
-        <TextView
-            android:id="@+id/titlePrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="4dp"
-            android:text="@string/precio"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-            app:layout_constraintTop_toBottomOf="@+id/titleThc" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/descriptionPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/titlePrice"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionThc"
-            tools:text="$17.85" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

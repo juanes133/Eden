@@ -29,4 +29,27 @@
     <string name="saborTexto">Dulce y afrutado</string>
     <string name="comprar">Comprar ahora</string>
     <string name="titulo_descripcion">Descripcion</string>
+    <string name="blueberry">BlueBerry</string>
+    <string-array name="cuanty_gr">
+        <item>1g</item>
+        <item>2g</item>
+        <item>3g</item>
+        <item>4g</item>
+        <item>5g</item>
+        <item>6g</item>
+        <item>7g</item>
+        <item>8g</item>
+        <item>9g</item>
+        <item>10g</item>
+        <item>11g</item>
+        <item>12g</item>
+        <item>13g</item>
+        <item>14g</item>
+        <item>15g</item>
+        <item>16g</item>
+        <item>17g</item>
+        <item>18g</item>
+        <item>19g</item>
+        <item>20g</item>
+    </string-array>
 </resources>

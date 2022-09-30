@@ -15,4 +15,8 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="ButtonShopping" parent="ButtonNavigationStyle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -24,16 +26,29 @@ class DescriptionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
-            (activity as AppCompatActivity).supportActionBar?.title =
-                getString(R.string.titulo_descripcion)
+        (activity as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.titulo_descripcion)
 
         product = productsViewModel.productsList.value?.firstOrNull { x -> x.id == args.idProduct }
+        binding.tvNamePlant.text = product?.namePlant
         binding.descriptionProduct.text = product?.description
         binding.descriptionThc.text = product?.thc
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
+
+        val spinner: Spinner = binding.spinner
+        context?.let {
+            ArrayAdapter.createFromResource(
+                it,
+                R.array.cuanty_gr,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinner.adapter = adapter
+            }
+        }
         return binding.root
     }
 }
