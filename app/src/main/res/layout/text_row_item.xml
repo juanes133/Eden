@@ -6,7 +6,6 @@
     android:id="@+id/constraintParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/colorSecondary"
     android:padding="5dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -46,41 +45,36 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/black"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/titlePrice"
                 app:layout_constraintEnd_toEndOf="@id/constraintItemText"
-                app:layout_constraintStart_toStartOf="@id/constraintItemText"
+               app:layout_constraintStart_toStartOf="@id/constraintItemText"
                 app:layout_constraintTop_toTopOf="@id/constraintItemText"
                 tools:text="BlueBerry" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/titlePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"
-                android:text="@string/precio"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:src="@mipmap/ic_dollar"
                 app:layout_constraintBottom_toBottomOf="@id/constraintItemText"
-                app:layout_constraintEnd_toStartOf="@+id/descriptionPrice"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-
-                />
+                app:layout_constraintEnd_toStartOf="@id/descriptionPrice"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 
             <TextView
                 android:id="@+id/descriptionPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/espacio_horizontal"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/constraintItemText"
                 app:layout_constraintEnd_toEndOf="@id/constraintItemText"
+                app:layout_constraintStart_toStartOf="@id/constraintItemText"
+                app:layout_constraintStart_toEndOf="@+id/titlePrice"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-
-                tools:text="$17.85" />
+                tools:text="17.85" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
