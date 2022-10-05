@@ -23,7 +23,6 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardImage"
-                android:backgroundTint="@color/colorSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="30dp"
@@ -43,9 +42,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintText"
-            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             app:layout_constraintTop_toBottomOf="@+id/constraintImage">
 
 
@@ -165,26 +164,24 @@
                 app:layout_constraintTop_toBottomOf="@+id/titleEffect"
                 tools:text="@string/saborTexto" />
 
-            <TextView
-                android:id="@+id/titleAmount"
+
+            <Button
+                android:id="@+id/btnAmount"
+                style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/espacio_horizontal"
                 android:layout_marginVertical="@dimen/espacio_vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/cantidad"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:icon="@mipmap/ic_down"
+                app:iconGravity="end"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                app:layout_constraintStart_toEndOf="@id/titleAmount"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionTaste" />
 
             <ImageView
                 android:id="@+id/titlePrice"
@@ -192,10 +189,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
                 android:singleLine="false"
-                android:tintMode="src_in"
                 android:src="@mipmap/ic_dollar"
+                android:tintMode="src_in"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner" />
+                app:layout_constraintTop_toBottomOf="@+id/btnAmount" />
 
             <TextView
                 android:id="@+id/descriptionPrice"
@@ -205,26 +202,26 @@
                 android:layout_marginVertical="12dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/titlePrice"
-                app:layout_constraintTop_toBottomOf="@+id/spinner"
+                app:layout_constraintTop_toBottomOf="@+id/btnAmount"
                 tools:text="17,85%" />
 
             <Button
                 android:id="@+id/shopping"
-                style="@style/ButtonShopping"
+                style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:text="@string/comprar"
-                tools:background="@color/colorPrimary"
-                tools:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:icon="@mipmap/ic_shopping_bag"
-                tools:icon="@mipmap/ic_shopping_bag"
+                app:iconGravity="end"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
-                app:layout_constraintTop_toBottomOf="@+id/spinner" />
+                app:layout_constraintTop_toBottomOf="@+id/btnAmount"
+                tools:textColor="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

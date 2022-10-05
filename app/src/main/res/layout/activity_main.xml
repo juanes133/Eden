@@ -70,87 +70,60 @@
 
                 <Button
                     android:id="@+id/btn_products"
-                    style="@style/ButtonNavigationStyle"
+                    style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:backgroundTint="@color/white"
                     android:text="@string/productos"
-                    app:layout_constraintStart_toEndOf="@+id/ic_products"
-                    app:layout_constraintTop_toBottomOf="@+id/top_container" />
-
-                <ImageView
-                    android:id="@+id/ic_products"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/fragment_horizontal_margin"
-                    android:src="@mipmap/ic_products"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_tracking"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_products"
+                    android:textSize="21dp"
+                    app:icon="@mipmap/ic_products"
+                    app:iconGravity="start"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/top_container" />
 
                 <Button
                     android:id="@+id/btn_tracking"
-                    style="@style/ButtonNavigationStyle"
+                    style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:backgroundTint="@color/white"
                     android:text="@string/seguimiento"
-                    app:layout_constraintStart_toEndOf="@id/ic_tracking"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_products" />
-
-                <ImageView
-                    android:id="@+id/ic_tracking"
-                    android:src="@mipmap/ic_tracking"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/fragment_horizontal_margin"
-
-                    app:layout_constraintBottom_toTopOf="@id/btn_shopping"
+                    android:textSize="21dp"
+                    app:icon="@mipmap/ic_tracking"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btn_tracking"
                     app:layout_constraintTop_toBottomOf="@+id/btn_products" />
-
 
                 <Button
                     android:id="@+id/btn_shopping"
-                    style="@style/ButtonNavigationStyle"
+                    style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:backgroundTint="@color/white"
                     android:text="@string/compras"
-                    app:layout_constraintStart_toEndOf="@id/ic_shopping"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_tracking" />
-
-                <ImageView
-                    android:id="@+id/ic_shopping"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_shopping"
-                    android:layout_margin="@dimen/fragment_horizontal_margin"
-                    app:layout_constraintBottom_toBottomOf="@id/btn_shopping"
+                    android:textSize="21dp"
+                    app:icon="@mipmap/ic_shopping"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btn_shopping"
                     app:layout_constraintTop_toBottomOf="@+id/btn_tracking" />
-
 
                 <Button
                     android:id="@+id/btn_signOut"
-                    style="@style/ButtonSignOutStyle"
+                    style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:backgroundTint="@color/white"
                     android:text="@string/cerrarSesion"
+                    android:textSize="21dp"
+                    app:icon="@mipmap/ic_signout"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ic_signout" />
-
-                <ImageView
-                    android:id="@+id/ic_signout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/fragment_horizontal_margin"
-                    android:src="@mipmap/ic_signout"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btn_signOut"
-                    app:layout_constraintTop_toTopOf="@id/btn_signOut"
-                    app:tint="@color/red" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
