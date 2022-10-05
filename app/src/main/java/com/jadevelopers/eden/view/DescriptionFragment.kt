@@ -1,14 +1,9 @@
 package com.jadevelopers.eden.view
 
-import android.app.Dialog
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +15,6 @@ import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.viewmodel.ProductsViewModel
-import java.util.stream.DoubleStream.builder
 
 class DescriptionFragment : Fragment() {
     private lateinit var binding: FragmentDescriptionBinding

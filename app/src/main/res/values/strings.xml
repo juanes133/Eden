@@ -31,4 +31,5 @@
     <string name="titulo_descripcion">Descripcion</string>
     <string name="blueberry">BlueBerry</string>
     <string name="Cantidad">Cantidad</string>
+    <string name="por_gramo">por gramo</string>
 </resources>

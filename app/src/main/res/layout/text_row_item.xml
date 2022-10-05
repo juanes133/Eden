@@ -46,20 +46,11 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/titlePrice"
                 app:layout_constraintEnd_toEndOf="@id/constraintItemText"
-               app:layout_constraintStart_toStartOf="@id/constraintItemText"
+                app:layout_constraintBottom_toTopOf="@+id/descriptionPrice"
+                app:layout_constraintStart_toStartOf="@id/constraintItemText"
                 app:layout_constraintTop_toTopOf="@id/constraintItemText"
                 tools:text="BlueBerry" />
-
-            <ImageView
-                android:id="@+id/titlePrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_dollar"
-                app:layout_constraintBottom_toBottomOf="@id/constraintItemText"
-                app:layout_constraintEnd_toStartOf="@id/descriptionPrice"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 
             <TextView
                 android:id="@+id/descriptionPrice"
@@ -68,12 +59,11 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/constraintItemText"
                 app:layout_constraintEnd_toEndOf="@id/constraintItemText"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintItemText"
                 app:layout_constraintStart_toStartOf="@id/constraintItemText"
-                app:layout_constraintStart_toEndOf="@+id/titlePrice"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:text="17.85" />
+                tools:text="17.85 $/g" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
