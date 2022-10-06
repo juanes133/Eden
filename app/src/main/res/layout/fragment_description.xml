@@ -184,7 +184,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
 
             <ImageView
-                android:id="@+id/ImageDollar"
+                android:id="@+id/imageDollar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
@@ -205,7 +205,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/ImageDollar"
+                app:layout_constraintStart_toEndOf="@id/imageDollar"
                 app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
                 app:layout_constraintBottom_toTopOf="@+id/shopping"
                 tools:text="17,85%" />
