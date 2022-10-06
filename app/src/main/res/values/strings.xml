@@ -23,7 +23,7 @@
     <string name="registrate_con_google">Registrate con Google</string>
     <string name="bienvenidos_a_eden">Bienvenidos a Eden!</string>
     <string name="descripcion">Descripcion: ""</string>
-    <string name="cantidad">Cantidad: ""</string>
+    <string name="cantidad">Cantidad: </string>
     <string name="fuerte_con_notas_dulces_de_frutas_y_tonos">Fuerte, con notas dulces de frutas y tonos</string>
     <string name="descripcion_producto">La Blueberry es una híbrida 80% índica y 20% sativa cuyos orígenes se remontan a los años 70. En aquel entonces, los cultivadores experimentaban con cruces de variedades autóctonas tailandesas, colombianas y mexicanas, y uno de los resultados fue la Juicy Fruit. La cepa híbrida Juicy Fruit fue cruzada de nuevo con una variedad pura afgana por DJ Short, creando la primera Blueberry de la historia alrededor de 1979.</string>
     <string name="saborTexto">Dulce y afrutado</string>
@@ -32,4 +32,8 @@
     <string name="blueberry">BlueBerry</string>
     <string name="Cantidad">Cantidad</string>
     <string name="por_gramo">por gramo</string>
+    <string name="compra">Compra</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="desea_agregar_mas_productos">Desea agregar mas productos...</string>
+    <string name="_17_85_g">17.85 $/g</string>
 </resources>

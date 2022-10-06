@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.jadevelopers.eden.R
@@ -37,6 +38,7 @@ class DescriptionFragment : Fragment() {
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
+        Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
         binding.btnAmount.setOnClickListener{
             activity?.let {
                 val builder = AlertDialog.Builder(it)
@@ -48,7 +50,9 @@ class DescriptionFragment : Fragment() {
                 dialog.show()
             }
         }
-        Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
+        binding.btnShopping.setOnClickListener {
+            findNavController().navigate(R.id.shoppingFragment)
+        }
         return binding.root
     }
 

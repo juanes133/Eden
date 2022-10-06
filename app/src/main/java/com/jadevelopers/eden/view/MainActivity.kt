@@ -54,6 +54,9 @@ class MainActivity : AppCompatActivity() {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
+        binding.btnShopping.setOnClickListener{
+            findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
+        }
         binding.btnSignOut.setOnClickListener {
             Firebase.auth.signOut()
             findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)

@@ -2,9 +2,13 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
-    <dimen name="tamanio_imagen_button">48dp</dimen>
+    <dimen name="tamanio_image_button">48dp</dimen>
     <dimen name="padding">16dp</dimen>
-    <dimen name="espacio_horizontal">5dp</dimen>
-    <dimen name="espacio_vertical">10dp</dimen>
+    <dimen name="espace_horizontal">5dp</dimen>
+    <dimen name="espace_vertical">10dp</dimen>
+    <dimen name="margin_image_vertical">5dp</dimen>
+    <dimen name="title">18sp</dimen>
+    <dimen name="subtitle">16sp</dimen>
+    <dimen name="description">15sp</dimen>
 
 </resources>

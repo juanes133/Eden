@@ -39,4 +39,9 @@
             android:name="idProduct"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.jadevelopers.eden.view.ShoppingFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping" />
 </navigation>
