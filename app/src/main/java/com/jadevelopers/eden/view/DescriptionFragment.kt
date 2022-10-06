@@ -1,5 +1,6 @@
 package com.jadevelopers.eden.view
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.icu.text.CaseMap
@@ -30,6 +31,8 @@ class DescriptionFragment : Fragment() {
     private var product: Product? = null
     val gramos = arrayOf("1", "2", "5", "10", "20", "50")
 
+
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
@@ -49,11 +52,12 @@ class DescriptionFragment : Fragment() {
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.Cantidad))
                 builder.setItems(gramos) { _, which ->
-                  //  binding.btnAmount.text= builder.setTitle(getString(R.string.Cantidad)).toString()
-                    binding.btnAmount.text = gramos[which]
+
+                        binding.btnAmount.text =
+                            """${getString(R.string.Cantidad)}${gramos[which]}"""
                 }
                 val dialog = builder.create()
-                dialog.show()
+             dialog.show()
             }
         }
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
