@@ -169,7 +169,7 @@
                 android:id="@+id/btnAmount"
                 style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/espacio_horizontal"
                 android:layout_marginVertical="@dimen/espacio_vertical"
                 android:layout_marginStart="4dp"
@@ -184,15 +184,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
 
             <ImageView
-                android:id="@+id/titlePrice"
+                android:id="@+id/ImageDollar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
                 android:singleLine="false"
                 android:src="@mipmap/ic_dollar"
                 android:tintMode="src_in"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnAmount" />
+                android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                app:layout_constraintStart_toEndOf="@id/btnAmount"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
+                app:layout_constraintBottom_toTopOf="@+id/shopping"/>
 
             <TextView
                 android:id="@+id/descriptionPrice"
@@ -203,8 +205,9 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/titlePrice"
-                app:layout_constraintTop_toBottomOf="@+id/btnAmount"
+                app:layout_constraintStart_toEndOf="@id/ImageDollar"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
+                app:layout_constraintBottom_toTopOf="@+id/shopping"
                 tools:text="17,85%" />
 
             <Button
@@ -212,16 +215,20 @@
                 style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginHorizontal="@dimen/espacio_horizontal"
+                android:layout_marginVertical="@dimen/espacio_vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/comprar"
-                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:icon="@mipmap/ic_shopping_bag"
                 app:iconGravity="end"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
                 app:layout_constraintTop_toBottomOf="@+id/btnAmount"
-                tools:textColor="@color/white" />
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Comprar ahora" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

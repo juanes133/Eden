@@ -2,6 +2,7 @@ package com.jadevelopers.eden.view
 
 import android.app.Dialog
 import android.content.Context
+import android.icu.text.CaseMap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,12 +44,13 @@ class DescriptionFragment : Fragment() {
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
-        binding.btnAmount.setOnClickListener{
+        binding.btnAmount.setOnClickListener {
             activity?.let {
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.Cantidad))
                 builder.setItems(gramos) { _, which ->
-                    Toast.makeText(context, gramos[which], Toast.LENGTH_LONG).show()
+                  //  binding.btnAmount.text= builder.setTitle(getString(R.string.Cantidad)).toString()
+                    binding.btnAmount.text = gramos[which]
                 }
                 val dialog = builder.create()
                 dialog.show()
