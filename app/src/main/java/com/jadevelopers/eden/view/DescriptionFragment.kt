@@ -52,9 +52,7 @@ class DescriptionFragment : Fragment() {
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.Cantidad))
                 builder.setItems(gramos) { _, which ->
-
-                        binding.btnAmount.text =
-                            """${getString(R.string.Cantidad)}${gramos[which]}"""
+                        binding.btnAmount.text = "${getString(R.string.Cantidad)}${gramos[which]}"
                 }
                 val dialog = builder.create()
              dialog.show()
