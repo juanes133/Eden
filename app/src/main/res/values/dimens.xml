@@ -6,5 +6,8 @@
     <dimen name="padding">16dp</dimen>
     <dimen name="espacio_horizontal">5dp</dimen>
     <dimen name="espacio_vertical">10dp</dimen>
+    <dimen name="paddin_constrain_image">8dp</dimen>
+    <dimen name="margin_card_view">16dp</dimen>
+
 
 </resources>

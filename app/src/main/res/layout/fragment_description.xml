@@ -18,7 +18,7 @@
             android:id="@+id/constraintImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"
+            android:paddingTop="@dimen/paddin_constrain_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:elevation="30dp"
             app:cardCornerRadius="30dp"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_card_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                 android:id="@+id/constraintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="@dimen/padding">
 
                 <TextView
                     android:id="@+id/tvNamePlant"
@@ -179,7 +179,7 @@
 
                 <Button
                     android:id="@+id/btnAmount"
-                    style="@style/Widget.Material3.Button.Icon"
+                    style="@style/ButtonAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/espacio_horizontal"
@@ -187,9 +187,6 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="8dp"
                     android:text="@string/cantidad"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
                     app:icon="@mipmap/ic_down"
                     app:iconGravity="end"
                     app:layout_constraintStart_toStartOf="parent"
@@ -203,8 +200,11 @@
                     android:singleLine="false"
                     android:src="@mipmap/ic_dollar"
                     android:tintMode="src_in"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAmount" />
+                    android:padding="@dimen/padding"
+                    app:layout_constraintStart_toEndOf="@id/btnAmount"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
+                    app:layout_constraintBottom_toTopOf="@+id/shopping"
+                   />
 
                 <TextView
                     android:id="@+id/descriptionPrice"
@@ -216,23 +216,22 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@id/titlePrice"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAmount"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
+                    app:layout_constraintBottom_toTopOf="@+id/shopping"
                     tools:text="17,85%" />
 
                 <Button
                     android:id="@+id/shopping"
-                    style="@style/Widget.Material3.Button.Icon"
+                    style="@style/ButtonShopping"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:text="@string/comprar"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:icon="@mipmap/ic_shopping_bag"
+                    app:icon="@mipmap/ic_shopping_cart"
                     app:iconGravity="end"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
                     app:layout_constraintTop_toBottomOf="@+id/btnAmount"
+                    app:layout_constraintStart_toStartOf="@id/constraintText"
                     tools:textColor="@color/white" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

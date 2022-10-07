@@ -24,14 +24,12 @@ class DescriptionFragment : Fragment() {
     val gramos = arrayOf("1", "2", "5", "10", "20", "50")
 
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.titulo_descripcion)
-
         product = productsViewModel.productsList.value?.firstOrNull { x -> x.id == args.idProduct }
         binding.tvNamePlant.text = product?.namePlant
         binding.descriptionProduct.text = product?.description
@@ -44,10 +42,11 @@ class DescriptionFragment : Fragment() {
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.cantidad))
                 builder.setItems(gramos) { _, which ->
-                        binding.btnAmount.text = "${getString(R.string.cantidad)}: ${gramos[which]}"
+                    val text = "${getString(R.string.cantidad)}: ${gramos[which]}"
+                    binding.btnAmount.text = text
                 }
                 val dialog = builder.create()
-             dialog.show()
+                dialog.show()
             }
         }
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
