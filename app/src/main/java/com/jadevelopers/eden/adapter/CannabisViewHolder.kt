@@ -3,12 +3,12 @@ package com.jadevelopers.eden.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.jadevelopers.eden.databinding.ItemProductsBinding
 import com.jadevelopers.eden.model.Product
-import com.jadevelopers.eden.databinding.TextRowItemBinding
 
 class CannabisViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    private val binding = TextRowItemBinding.bind(view)
+    private val binding = ItemProductsBinding.bind(view)
 
     fun render(cannabisModel: Product, onClickListener: (Product) -> Unit) {
         binding.tvNamePlant.text = cannabisModel.namePlant
