@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".view.ShoppingFragment">
+    tools:context=".view.ShoppingCarFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/productsShoppingContainer"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerProductsShopping"
+            android:id="@+id/recyclerShoppingCar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:dividerHeight="0dp"

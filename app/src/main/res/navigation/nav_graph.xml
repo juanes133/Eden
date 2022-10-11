@@ -41,9 +41,9 @@
     </fragment>
     <fragment
         android:id="@+id/shoppingFragment"
-        android:name="com.jadevelopers.eden.view.ShoppingFragment"
+        android:name="com.jadevelopers.eden.view.ShoppingCarFragment"
         android:label="fragment_shopping"
-        tools:layout="@layout/fragment_shopping" >
+        tools:layout="@layout/fragment_shopping_car" >
         <argument android:name="idProductsShopping" />
     </fragment>
 </navigation>

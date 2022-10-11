@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
     private var navigationView: NavigationView? = null
     private val productsViewModel: ProductsViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+            override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
