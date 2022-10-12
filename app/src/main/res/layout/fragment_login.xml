@@ -12,7 +12,7 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:src="@mipmap/ic_icon_principal"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewImagen"
+        app:layout_constraintBottom_toTopOf="@+id/btngoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,27 +29,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ic_icon" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewImagen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="4dp"
-        android:layout_marginVertical="4dp"
-        app:cardElevation="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eden">
-
         <Button
             android:id="@+id/btngoogle"
             style="@style/ButtonGoogle"
-            app:icon="@mipmap/ic_goo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/registrate_con_google"
+            app:icon="@mipmap/ic_goo"
+            app:iconTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eden" />
-    </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toBottomOf="@+id/eden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

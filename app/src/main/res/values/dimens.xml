@@ -10,5 +10,6 @@
     <dimen name="title">18sp</dimen>
     <dimen name="subtitle">16sp</dimen>
     <dimen name="description">15sp</dimen>
-
+    <dimen name="paddin_constrain_image">8dp</dimen>
+    <dimen name="margin_card_view">16dp</dimen>
 </resources>

@@ -24,27 +24,28 @@ class DescriptionFragment : Fragment() {
     private var product: Product? = null
     val gramos = arrayOf("1", "2", "5", "10", "20", "50")
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.titulo_descripcion)
-
         product = productsViewModel.productsList.value?.firstOrNull { x -> x.id == args.idProduct }
         binding.tvNamePlant.text = product?.namePlant
         binding.descriptionProduct.text = product?.description
         binding.descriptionThc.text = product?.thc
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
-        binding.descriptionPrice.text = product?.price
+        binding.descriptionPrice.text = product?.productsViewModel
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
-        binding.btnAmount.setOnClickListener{
+        binding.btnAmount.setOnClickListener {
             activity?.let {
                 val builder = AlertDialog.Builder(it)
-                builder.setTitle(getString(R.string.Cantidad))
+                builder.setTitle(getString(R.string.cantidad))
                 builder.setItems(gramos) { _, which ->
-                    Toast.makeText(context, gramos[which], Toast.LENGTH_LONG).show()
+                    val text = "${getString(R.string.cantidad)}: ${gramos[which]}"
+                    binding.btnAmount.text = text
                 }
                 val dialog = builder.create()
                 dialog.show()

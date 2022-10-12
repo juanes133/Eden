@@ -1,16 +1,14 @@
 <resources>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="app_name">Eden</string>
     <string name="eden">Eden</string>
     <string name="your_web_client_id">202382885503-b7f1hekb86dimm64itvt6ud466cggall.apps.googleusercontent.com</string>
     <string name="cerrarSesion">CerrarSesion</string>
     <string name="productos">Productos</string>
     <string name="titulo_productos">Productos</string>
     <string name="seguimiento">Seguimiento</string>
-    <string name="efecto">Efecto: ""</string>
-    <string name="sabor">Sabor: ""</string>
-    <string name="thc">THC: ""</string>
-    <string name="precio">Precio: ""</string>
+    <string name="efecto">Efecto</string>
+    <string name="sabor">Sabor</string>
+    <string name="thc">THC</string>
+    <string name="precio">Precio</string>
     <string name="reintentar">Reintentar</string>
     <string name="google">Google</string>
     <string name="a_ocurrido_un_error">¡A ocurrido un error!</string>
@@ -22,18 +20,15 @@
     <string name="compras">Compras</string>
     <string name="registrate_con_google">Registrate con Google</string>
     <string name="bienvenidos_a_eden">Bienvenidos a Eden!</string>
-    <string name="descripcion">Descripcion: ""</string>
-    <string name="cantidad">Cantidad: </string>
+    <string name="descripcion">Descripcion</string>
+    <string name="cantidad">Cantidad</string>
     <string name="fuerte_con_notas_dulces_de_frutas_y_tonos">Fuerte, con notas dulces de frutas y tonos</string>
     <string name="descripcion_producto">La Blueberry es una híbrida 80% índica y 20% sativa cuyos orígenes se remontan a los años 70. En aquel entonces, los cultivadores experimentaban con cruces de variedades autóctonas tailandesas, colombianas y mexicanas, y uno de los resultados fue la Juicy Fruit. La cepa híbrida Juicy Fruit fue cruzada de nuevo con una variedad pura afgana por DJ Short, creando la primera Blueberry de la historia alrededor de 1979.</string>
     <string name="saborTexto">Dulce y afrutado</string>
-    <string name="comprar">Comprar ahora</string>
+    <string name="comprar">Carrito de compras</string>
     <string name="titulo_descripcion">Descripcion</string>
     <string name="blueberry">BlueBerry</string>
-    <string name="Cantidad">Cantidad</string>
-    <string name="por_gramo">por gramo</string>
     <string name="carrito_de_compras">Carrito de Compras</string>
     <string name="eliminar">Eliminar</string>
     <string name="desea_agregar_mas_productos">Desea agregar mas productos...</string>
-    <string name="_17_85_g">17.85 $/g</string>
 </resources>
