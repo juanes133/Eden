@@ -24,5 +24,5 @@ class ShoppingCarViewModel : ViewModel() {
         })
     }
 
-    
+
 }

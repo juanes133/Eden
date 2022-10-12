@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -37,7 +36,7 @@ class DescriptionFragment : Fragment() {
         binding.descriptionThc.text = product?.thc
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
-        binding.descriptionPrice.text = product?.productsViewModel
+        binding.descriptionPrice.text = product?.price
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
         binding.btnAmount.setOnClickListener {
             activity?.let {
@@ -51,7 +50,7 @@ class DescriptionFragment : Fragment() {
                 dialog.show()
             }
         }
-        binding.btnShopping.setOnClickListener {
+        binding.btnShoppingCar.setOnClickListener {
             findNavController().navigate(R.id.shoppingFragment)
         }
         return binding.root
