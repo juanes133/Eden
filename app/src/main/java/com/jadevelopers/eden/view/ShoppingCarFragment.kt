@@ -8,17 +8,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.jadevelopers.eden.R
+import com.jadevelopers.eden.ShoppingCarDb
 import com.jadevelopers.eden.adapter.ShoppingCarAdapter
 import com.jadevelopers.eden.databinding.FragmentShoppingCarBinding
 import com.jadevelopers.eden.model.ShoppingCar
 import com.jadevelopers.eden.viewmodel.ShoppingCarViewModel
+import kotlinx.coroutines.launch
 
 class ShoppingCarFragment : Fragment() {
 
     private lateinit var binding: FragmentShoppingCarBinding
-    private var product: ShoppingCar? = null
+    private var shoppingCar: ShoppingCar? = null
     private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels()
 
 
@@ -27,10 +31,11 @@ class ShoppingCarFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentShoppingCarBinding.inflate(inflater, container, false)
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.carrito_de_compras)
+        (activity as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.carrito_de_compras)
         shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
-            getShoppingCar()
+            binding.productsShoppingContainer.isVisible = true
         }
         return binding.root
     }
@@ -41,9 +46,15 @@ class ShoppingCarFragment : Fragment() {
         binding.recyclerShoppingCar.adapter =
             ShoppingCarAdapter(list)
     }
+
     private fun getShoppingCar() {
         activity?.applicationContext?.let {
             shoppingCarViewModel.getShoppingCar(it)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getShoppingCar()
     }
 }
