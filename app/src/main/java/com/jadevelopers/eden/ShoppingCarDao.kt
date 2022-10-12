@@ -10,13 +10,13 @@ interface ShoppingCarDao {
     fun getAll(): List<ShoppingCar>
 
     @Query("SELECT * FROM shoppingCar WHERE id = :id")
-    fun getById(id: String): List<ShoppingCar>
+    fun getById(id: Int): List<ShoppingCar>
 
     @Update
     fun update(ShoppingCar: ShoppingCar)
 
     @Insert
-    fun insertAll(product: List<ShoppingCar>)
+    fun insertAll(shoppingCar: List<ShoppingCar>)
 
     @Delete
     fun delete(ShoppingCar: ShoppingCar)

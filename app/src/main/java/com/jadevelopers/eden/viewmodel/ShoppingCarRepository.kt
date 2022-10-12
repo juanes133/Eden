@@ -7,11 +7,10 @@ import com.jadevelopers.eden.model.ShoppingCar
 
 class ShoppingCarRepository {
 
-    fun getShoppingCar(context: Context, onSuccess: (ArrayList<ShoppingCar>) -> Unit, onFailure: (Exception) -> Unit) {
+    fun getShoppingCar(
+        context: Context, onSuccess: (ArrayList<ShoppingCar>) -> Unit, onFailure: (Exception) -> Unit) {
         val room = Room
             .databaseBuilder(context, ShoppingCarDb::class.java, "shoppingCar")
             .build()
-
     }
-
 }
