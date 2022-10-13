@@ -31,4 +31,5 @@
     <string name="carrito_de_compras">Carrito de Compras</string>
     <string name="eliminar">Eliminar</string>
     <string name="desea_agregar_mas_productos">Desea agregar mas productos...</string>
+    <string name="agregar">agregar</string>
 </resources>

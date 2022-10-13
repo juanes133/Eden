@@ -3,7 +3,7 @@
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
     <dimen name="tamanio_image_button">48dp</dimen>
-    <dimen name="padding">16dp</dimen>
+    <dimen name="padding">8dp</dimen>
     <dimen name="espace_horizontal">5dp</dimen>
     <dimen name="espace_vertical">10dp</dimen>
     <dimen name="margin_image_vertical">5dp</dimen>

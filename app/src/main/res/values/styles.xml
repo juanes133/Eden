@@ -20,8 +20,6 @@
         <item name="android:backgroundTint">@color/colorPrimary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-
-
     </style>
 
     <style name="ButtonAmount" parent="Widget.Material3.Button.Icon">
@@ -29,9 +27,13 @@
         <item name="android:backgroundTint">@color/colorPrimary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
 
-
-
+    <style name="ButtonAdd" parent="Widget.Material3.Button.Icon">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

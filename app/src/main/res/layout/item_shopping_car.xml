@@ -68,7 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvNamePlant" />
 
             <TextView
-                android:id="@+id/descriptionPrice"
+                android:id="@+id/Add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/espace_vertical"
@@ -78,8 +78,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/btnAmount"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btnAmount"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:text="@string/_17_85_g" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 
             <TextView
                 android:id="@+id/addProducts"

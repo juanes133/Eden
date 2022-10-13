@@ -37,7 +37,11 @@ class DescriptionFragment : Fragment() {
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
+
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
+        binding.btnAdd.setOnClickListener {
+            binding.btnAdd
+        }
         binding.btnAmount.setOnClickListener {
             activity?.let {
                 val builder = AlertDialog.Builder(it)
@@ -45,7 +49,12 @@ class DescriptionFragment : Fragment() {
                 builder.setItems(gramos) { _, which ->
                     val text = "${getString(R.string.cantidad)}: ${gramos[which]}"
                     binding.btnAmount.text = text
+                    val operUno = gramos[which]
+                    val operDos = binding.descriptionPrice.text
+                    val result = operUno.toInt() * operDos.toString().toInt()
+                    binding.btnAdd.text = result.toString()
                 }
+
                 val dialog = builder.create()
                 dialog.show()
             }
