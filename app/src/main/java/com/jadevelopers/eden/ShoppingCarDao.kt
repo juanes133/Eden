@@ -6,7 +6,7 @@ import com.jadevelopers.eden.model.ShoppingCar
 @Dao
 interface ShoppingCarDao {
 
-    @Query("SELECT * FROM shoppingCar")
+    @Query("SELECT * FROM shoppingCar ")
     fun getAll(): List<ShoppingCar>
 
     @Query("SELECT * FROM shoppingCar WHERE id = :id")

@@ -1,11 +1,10 @@
 package com.jadevelopers.eden.view
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -30,6 +29,8 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        @Suppress("DEPRECATION")
+        activity?.window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title = ""
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)

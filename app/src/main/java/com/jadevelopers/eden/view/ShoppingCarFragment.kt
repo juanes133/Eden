@@ -37,6 +37,10 @@ class ShoppingCarFragment : Fragment() {
             recyclerShoppingCar(it)
             binding.productsShoppingContainer.isVisible = true
         }
+        shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
+            binding.productsShoppingContainer.isVisible = false
+
+        }
         return binding.root
     }
 

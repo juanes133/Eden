@@ -1,6 +1,7 @@
 package com.jadevelopers.eden.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -30,8 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var navigationView: NavigationView? = null
     private val productsViewModel: ProductsViewModel by viewModels()
 
-
-            override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
-        binding.btnShopping.setOnClickListener{
+        binding.btnShopping.setOnClickListener {
             findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
         }
         binding.btnSignOut.setOnClickListener {
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         return if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
             drawerLayout?.closeDrawers()
             false
-        }else{
+        } else {
             appBarConfiguration?.let { navController.navigateUp(it) } == true
         }
     }
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             drawerLayout?.closeDrawer(GravityCompat.START)
         } else if (Firebase.auth.currentUser == null) {
             finish()
-        }else{
+        } else {
             super.onBackPressed()
         }
     }

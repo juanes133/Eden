@@ -6,6 +6,6 @@ import com.jadevelopers.eden.model.ShoppingCar
 
 @Database(entities = [ShoppingCar::class], version = 1)
 
-abstract class ShoppingCarDb: RoomDatabase() {
-     abstract fun shoppingCarDao(): ShoppingCarDao
+abstract class ShoppingCarDb : RoomDatabase() {
+    abstract fun shoppingCarDao(): ShoppingCarDao
 }

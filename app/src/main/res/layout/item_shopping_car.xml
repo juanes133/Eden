@@ -79,7 +79,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btnAmount"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:text="@string/_17_85_g" />
+                tools:text="17_85_g" />
 
             <TextView
                 android:id="@+id/addProducts"
