@@ -1,7 +1,7 @@
 package com.jadevelopers.eden.view
 
 import android.os.Bundle
-import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private val productsViewModel: ProductsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        fullScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnSignOut.setOnClickListener {
             Firebase.auth.signOut()
+            fullScreen()
             findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)
             drawerLayout?.closeDrawers()
         }
@@ -67,6 +69,15 @@ class MainActivity : AppCompatActivity() {
         if (checkNetworkConnection?.isConnected(this) == false) {
             dialog?.setCancelable(false)
             dialog?.show()
+        }
+    }
+
+    private fun fullScreen() {
+        if (Firebase.auth.currentUser == null) {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
         }
     }
 

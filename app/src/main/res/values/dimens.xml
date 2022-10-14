@@ -12,4 +12,7 @@
     <dimen name="description">15sp</dimen>
     <dimen name="paddin_constrain_image">8dp</dimen>
     <dimen name="margin_card_view">16dp</dimen>
+    <dimen name="elevation_btn_google">10dp</dimen>
+    <dimen name="title_text_login">20sp</dimen>
+    <dimen name="translation_btn_google">8dp</dimen>
 </resources>
