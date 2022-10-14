@@ -15,14 +15,16 @@ import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.viewmodel.ShoppingCarViewModel
 
 class DescriptionFragment : Fragment() {
     private lateinit var binding: FragmentDescriptionBinding
     private val productsViewModel: ProductsViewModel by activityViewModels()
+    private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels()
     private val args: DescriptionFragmentArgs by navArgs()
     private var product: Product? = null
-    val gramos = arrayOf("1", "2", "5", "10", "20", "50")
-
+    private val grams = arrayOf("1", "2", "5", "10", "20", "50")
+    private var amount = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
@@ -37,24 +39,26 @@ class DescriptionFragment : Fragment() {
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
-
+        val txtAmount = "${getString(R.string.cantidad)}: $amount"
+        binding.btnAmount.text = txtAmount
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
+
         binding.btnAdd.setOnClickListener {
-            binding.btnAdd
+            insertShoppingCarItem()
         }
         binding.btnAmount.setOnClickListener {
             activity?.let {
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.cantidad))
-                builder.setItems(gramos) { _, which ->
-                    val text = "${getString(R.string.cantidad)}: ${gramos[which]}"
+                builder.setItems(grams) { _, which ->
+                    val text = "${getString(R.string.cantidad)}: ${grams[which]}"
                     binding.btnAmount.text = text
-                    val operUno = gramos[which]
+                    amount = grams[which].toInt()
                     val operDos = binding.descriptionPrice.text
-                    val result = operUno.toInt() * operDos.toString().toInt()
-                    binding.btnAdd.text = result.toString()
+                    val result = amount * operDos.toString().toInt()
+                    val textAdd = "${getString(R.string.agregar)}: $result"
+                    binding.btnAdd.text = textAdd
                 }
-
                 val dialog = builder.create()
                 dialog.show()
             }
@@ -63,6 +67,14 @@ class DescriptionFragment : Fragment() {
             findNavController().navigate(R.id.shoppingFragment)
         }
         return binding.root
+    }
+
+    private fun insertShoppingCarItem() {
+        context?.let {
+            product?.let { product ->
+                shoppingCarViewModel.insertShoppingCarItem(it, product.id.toInt(), amount)
+            }
+        }
     }
 
 }

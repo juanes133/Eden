@@ -18,5 +18,17 @@ class ShoppingCarRepository {
             .build()
     }
 
+    fun insertShoppingCarItem(
+        context: Context,
+        id: Int,
+        amount: Int,
+        onFailure: (Exception) -> Unit,
+    ) {
+        val room = Room
+            .databaseBuilder(context, ShoppingCarDb::class.java, "shoppingCar")
+            .build()
+        val shoppingCar = ShoppingCar(id, amount)
+        room.shoppingCarDao().insertAll(listOf(shoppingCar))
+    }
 
 }
