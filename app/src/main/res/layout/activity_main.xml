@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.MainActivity"
-        tools:layout_editor_absoluteX="-102dp"
-        tools:layout_editor_absoluteY="-16dp"
         tools:openDrawer="start">
 
         <androidx.fragment.app.FragmentContainerView
@@ -42,6 +40,7 @@
                     android:id="@+id/top_container"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
+                    android:padding="8dp"
                     android:background="@color/colorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -54,18 +53,21 @@
                         android:src="@mipmap/ic_icon_principal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintBottom_toTopOf="@+id/eden"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                     <TextView
+                        android:id="@+id/eden"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/eden"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ic_icon" />
+                        app:layout_constraintTop_toBottomOf="@+id/ic_icon"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
