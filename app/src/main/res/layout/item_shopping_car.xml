@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="@dimen/padding">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/itemShopping"
@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/ivCannabis"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/size_width_image_item"
+                android:layout_height="@dimen/size_heigth_image_item"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@mipmap/ic_icon_principal" />
@@ -34,8 +34,8 @@
                 android:id="@+id/remove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/espace_horizontal"
-                android:layout_marginVertical="@dimen/espace_vertical"
+                android:layout_marginHorizontal="@dimen/space_horizontal"
+                android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/eliminar"
                 android:textColor="@color/red"
                 android:textSize="@dimen/subtitle"
@@ -47,7 +47,10 @@
                 android:id="@+id/tvNamePlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="@dimen/space_horizontal"
                 android:textStyle="bold"
+                android:textSize="@dimen/title"
                 app:layout_constraintStart_toEndOf="@+id/ivCannabis"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/blueberry" />
@@ -57,10 +60,11 @@
                 style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/espace_vertical"
+                android:layout_marginHorizontal="@dimen/space_horizontal"
+                android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/cantidad"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
                 app:icon="@mipmap/ic_down"
                 app:iconGravity="end"
@@ -71,7 +75,7 @@
                 android:id="@+id/descriptionPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/espace_vertical"
+                android:layout_marginVertical="@dimen/space_vertical"
                 android:textColor="@color/black"
                 android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
@@ -79,14 +83,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btnAmount"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:text="17_85_g" />
+                tools:text="1785 $/g" />
 
             <TextView
                 android:id="@+id/addProducts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_horizontal"
                 android:text="@string/desea_agregar_mas_productos"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorTint"
+                android:textSize="@dimen/subtitle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivCannabis"
                 app:layout_constraintTop_toBottomOf="@+id/ivCannabis" />

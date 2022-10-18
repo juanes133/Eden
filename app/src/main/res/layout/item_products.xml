@@ -3,31 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintParent"
+    android:background="@color/colorImageBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:padding="@dimen/padding_item_products">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivCannabis"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginHorizontal="@dimen/espace_horizontal"
-        android:layout_marginVertical="@dimen/margin_image_vertical"
-        android:backgroundTint="@color/colorSecondary"
-        android:elevation="30dp"
+        android:layout_width="@dimen/size_width_image_item"
+        android:layout_height="@dimen/size_heigth_image_item"
+        android:elevation="@dimen/elevation_card_image_item"
         android:src="@mipmap/ic_icon_principal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circleImageStyle"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/width_card_item_text"
+        android:layout_height="120dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="-60dp"
         android:orientation="vertical"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="@dimen/radius_text_description"
         app:layout_constraintBottom_toBottomOf="@id/constraintParent"
         app:layout_constraintEnd_toEndOf="@id/constraintParent"
         app:layout_constraintStart_toEndOf="@id/ivCannabis"
@@ -36,13 +35,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintItemText"
             android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tvNamePlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title"
                 android:textStyle="bold"
@@ -63,7 +62,19 @@
                 app:layout_constraintBottom_toBottomOf="@+id/constraintItemText"
                 app:layout_constraintStart_toStartOf="@id/constraintItemText"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:text="17.85 $/g" />
+                tools:text="17.85" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:text="@string/price_grams"
+                android:textSize="@dimen/subtitle"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

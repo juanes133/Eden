@@ -35,8 +35,8 @@ class LoginFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = ""
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (activity as AppCompatActivity).supportActionBar?.hide()
-        binding.icIcon.animation = AnimationUtils.loadAnimation(context, R.anim.scroll_down)
-        binding.eden.animation = AnimationUtils.loadAnimation(context, R.anim.scroll_down)
+        binding.icIcon.animation = AnimationUtils.loadAnimation(context, R.anim.scroll_down_image_text_login)
+        binding.eden.animation = AnimationUtils.loadAnimation(context, R.anim.scroll_down_image_text_login)
         binding.btnGoogle.setOnClickListener {
             signIn()
         }
