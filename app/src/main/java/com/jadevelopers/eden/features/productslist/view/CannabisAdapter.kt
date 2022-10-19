@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.adapter
+package com.jadevelopers.eden.features.productslist.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

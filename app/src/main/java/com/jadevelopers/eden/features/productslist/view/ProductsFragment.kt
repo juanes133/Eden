@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.productslist.view
 
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
@@ -18,10 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.R
-import com.jadevelopers.eden.adapter.CannabisAdapter
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
 import com.jadevelopers.eden.model.Product
-import com.jadevelopers.eden.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 
 class ProductsFragment : Fragment() {
 

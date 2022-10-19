@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorImageBackground"
     android:padding="@dimen/padding_item_products"
-    tools:context=".view.ProductsFragment">
+    tools:context=".features.productslist.view.ProductsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/productsContainer"

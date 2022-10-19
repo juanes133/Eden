@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden
 
 import android.os.Bundle
 import android.view.WindowManager
@@ -16,12 +16,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jadevelopers.eden.CheckNetworkConnection
-import com.jadevelopers.eden.R
+import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
-import com.jadevelopers.eden.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 
-class MainActivity : AppCompatActivity() {
+class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
     private lateinit var binding: ActivityMainBinding
     private var checkNetworkConnection: CheckNetworkConnection? = null

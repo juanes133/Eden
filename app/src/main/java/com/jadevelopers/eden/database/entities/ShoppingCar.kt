@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.model
+package com.jadevelopers.eden.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

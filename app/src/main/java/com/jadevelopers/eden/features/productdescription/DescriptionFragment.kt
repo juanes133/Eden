@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.productdescription
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +11,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
-import com.jadevelopers.eden.viewmodel.ProductsViewModel
-import com.jadevelopers.eden.viewmodel.ShoppingCarViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.shoppingcar.ShoppingCarViewModel
 
 class DescriptionFragment : Fragment(){
     private lateinit var binding: FragmentDescriptionBinding

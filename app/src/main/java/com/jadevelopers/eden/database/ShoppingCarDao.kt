@@ -1,7 +1,7 @@
-package com.jadevelopers.eden
+package com.jadevelopers.eden.database
 
 import androidx.room.*
-import com.jadevelopers.eden.model.ShoppingCar
+import com.jadevelopers.eden.database.entities.ShoppingCar
 
 @Dao
 interface ShoppingCarDao {

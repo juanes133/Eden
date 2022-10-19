@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorImageBackground"
-    tools:context=".view.DescriptionFragment">
+    tools:context=".features.productdescription.DescriptionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".view.DescriptionFragment">
+        tools:context=".features.productdescription.DescriptionFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintImage"

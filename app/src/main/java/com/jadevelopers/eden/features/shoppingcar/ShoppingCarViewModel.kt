@@ -1,11 +1,11 @@
-package com.jadevelopers.eden.viewmodel
+package com.jadevelopers.eden.features.shoppingcar
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jadevelopers.eden.model.Product
-import com.jadevelopers.eden.model.ShoppingCar
+import com.jadevelopers.eden.database.entities.ShoppingCar
+import com.jadevelopers.eden.features.shoppingcar.ShoppingCarRepository
 
 class ShoppingCarViewModel : ViewModel() {
     private val mutableShoppingCarList = MutableLiveData<ArrayList<ShoppingCar>>()

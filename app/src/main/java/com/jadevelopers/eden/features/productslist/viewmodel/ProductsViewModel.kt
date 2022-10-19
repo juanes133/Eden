@@ -1,8 +1,9 @@
-package com.jadevelopers.eden.viewmodel
+package com.jadevelopers.eden.features.productslist.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.jadevelopers.eden.features.productslist.repository.ProductsRepository
 import com.jadevelopers.eden.model.Product
 
 class ProductsViewModel : ViewModel() {

@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.login
 
 import android.content.Intent
 import android.os.Bundle

@@ -6,12 +6,12 @@
     app:startDestination="@id/productsFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.jadevelopers.eden.view.LoginFragment"
+        android:name="com.jadevelopers.eden.features.login.LoginFragment"
         android:label="@string/login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.jadevelopers.eden.view.ProductsFragment"
+        android:name="com.jadevelopers.eden.features.productslist.view.ProductsFragment"
         android:label="@string/productos"
         tools:layout="@layout/fragment_products">
         <action
@@ -27,12 +27,12 @@
     </fragment>
     <fragment
         android:id="@+id/trackingFragment"
-        android:name="com.jadevelopers.eden.view.TrackingFragment"
+        android:name="com.jadevelopers.eden.features.tracking.TrackingFragment"
         android:label="@string/tracking"
         tools:layout="@layout/fragment_tracking" />
     <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.jadevelopers.eden.view.DescriptionFragment"
+        android:name="com.jadevelopers.eden.features.productdescription.DescriptionFragment"
         android:label="@string/descripcion"
         tools:layout="@layout/fragment_description">
         <argument
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoppingFragment"
-        android:name="com.jadevelopers.eden.view.ShoppingCarFragment"
+        android:name="com.jadevelopers.eden.features.shoppingcar.ShoppingCarFragment"
         android:label="@string/carrito_de_compras"
         tools:layout="@layout/fragment_shopping_car">
         <argument android:name="idProductsShopping" />

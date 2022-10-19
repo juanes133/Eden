@@ -1,16 +1,15 @@
-package com.jadevelopers.eden.viewmodel
+package com.jadevelopers.eden.features.shoppingcar
 
 import android.content.Context
 import androidx.room.Room
-import com.jadevelopers.eden.ShoppingCarDb
-import com.jadevelopers.eden.model.Product
-import com.jadevelopers.eden.model.ShoppingCar
+import com.jadevelopers.eden.database.ShoppingCarDb
+import com.jadevelopers.eden.database.entities.ShoppingCar
 
 class ShoppingCarRepository {
     fun getShoppingCar(
         context: Context,
         onSuccess: (ArrayList<ShoppingCar>) -> Unit,
-        onFailure: (Exception) -> Unit
+        onFailure: (Exception) -> Unit,
     ) {
         try {
             onSuccess(
@@ -28,11 +27,15 @@ class ShoppingCarRepository {
         amount: Int,
         onFailure: (Exception) -> Unit,
     ) {
-        val room = Room
-            .databaseBuilder(context, ShoppingCarDb::class.java, "shoppingCar")
-            .build()
-        val shoppingCar = ShoppingCar(id, amount)
-        room.shoppingCarDao().insertAll(listOf(shoppingCar))
+        try {
+            val room = Room
+                .databaseBuilder(context, ShoppingCarDb::class.java, "shoppingCar")
+                .build()
+            val shoppingCar = ShoppingCar(id, amount)
+            room.shoppingCarDao().insertAll(listOf(shoppingCar))
+        } catch (e: Exception) {
+            onFailure(e)
+        }
     }
 
     companion object {

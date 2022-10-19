@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.shoppingcar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,16 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.jadevelopers.eden.R
-import com.jadevelopers.eden.ShoppingCarDb
-import com.jadevelopers.eden.adapter.ShoppingCarAdapter
 import com.jadevelopers.eden.databinding.FragmentShoppingCarBinding
-import com.jadevelopers.eden.model.ShoppingCar
-import com.jadevelopers.eden.viewmodel.ShoppingCarViewModel
-import kotlinx.coroutines.launch
+import com.jadevelopers.eden.database.entities.ShoppingCar
 
 class ShoppingCarFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.tracking
 
 import android.os.Bundle
 import android.view.LayoutInflater

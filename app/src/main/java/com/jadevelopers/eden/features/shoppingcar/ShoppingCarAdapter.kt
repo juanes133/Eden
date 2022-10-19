@@ -1,10 +1,10 @@
-package com.jadevelopers.eden.adapter
+package com.jadevelopers.eden.features.shoppingcar
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jadevelopers.eden.R
-import com.jadevelopers.eden.model.ShoppingCar
+import com.jadevelopers.eden.database.entities.ShoppingCar
 
 class ShoppingCarAdapter(
     private val ShoppingCarList: List<ShoppingCar>,

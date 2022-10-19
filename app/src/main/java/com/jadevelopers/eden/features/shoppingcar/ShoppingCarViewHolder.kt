@@ -1,12 +1,11 @@
-package com.jadevelopers.eden.adapter
+package com.jadevelopers.eden.features.shoppingcar
 
 import android.view.View
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.jadevelopers.eden.R.id.productsFragment
 import com.jadevelopers.eden.databinding.ItemShoppingCarBinding
-import com.jadevelopers.eden.model.ShoppingCar
+import com.jadevelopers.eden.database.entities.ShoppingCar
 
 class ShoppingCarViewHolder(view: View): RecyclerView.ViewHolder(view){
 
