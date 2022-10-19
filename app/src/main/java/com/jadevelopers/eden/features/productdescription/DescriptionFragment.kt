@@ -11,16 +11,20 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
-import com.jadevelopers.eden.features.shoppingcar.ShoppingCarViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 
 class DescriptionFragment : Fragment(){
     private lateinit var binding: FragmentDescriptionBinding
     private val productsViewModel: ProductsViewModel by activityViewModels()
-    private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels()
+    private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels {
+        ShoppingCarViewModelFactory((activity?.application as EdenApplication).shoppingCarRepository)
+    }
     private val args: DescriptionFragmentArgs by navArgs()
     private var product: Product? = null
     private val grams = arrayOf("1", "2", "5", "10", "20", "50")
@@ -71,10 +75,9 @@ class DescriptionFragment : Fragment(){
     }
 
     private fun insertShoppingCarItem() {
-
         context?.let {
             product?.let { product ->
-                shoppingCarViewModel.insertShoppingCarItem(it, product.id.toInt(), amount)
+                shoppingCarViewModel.insertShoppingCarItem(product.id.toInt(), amount)
             }
         }
     }

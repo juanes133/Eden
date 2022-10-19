@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoppingFragment"
-        android:name="com.jadevelopers.eden.features.shoppingcar.ShoppingCarFragment"
+        android:name="com.jadevelopers.eden.features.shoppingcar.view.ShoppingCarFragment"
         android:label="@string/carrito_de_compras"
         tools:layout="@layout/fragment_shopping_car">
         <argument android:name="idProductsShopping" />

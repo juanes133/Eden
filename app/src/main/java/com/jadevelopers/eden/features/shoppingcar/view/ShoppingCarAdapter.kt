@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.features.shoppingcar
+package com.jadevelopers.eden.features.shoppingcar.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

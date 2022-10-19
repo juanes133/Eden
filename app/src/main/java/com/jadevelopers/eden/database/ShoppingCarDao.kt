@@ -13,11 +13,11 @@ interface ShoppingCarDao {
     fun getById(id: Int): List<ShoppingCar>
 
     @Update
-    fun update(ShoppingCar: ShoppingCar)
+    suspend fun update(ShoppingCar: ShoppingCar)
 
-    @Insert
-    fun insertAll(shoppingCar: List<ShoppingCar>)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(shoppingCar: ShoppingCar)
 
     @Delete
-    fun delete(ShoppingCar: ShoppingCar)
+    suspend fun delete(ShoppingCar: ShoppingCar)
 }

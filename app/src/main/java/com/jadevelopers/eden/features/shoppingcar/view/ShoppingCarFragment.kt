@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.features.shoppingcar
+package com.jadevelopers.eden.features.shoppingcar.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +9,19 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentShoppingCarBinding
 import com.jadevelopers.eden.database.entities.ShoppingCar
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 
 class ShoppingCarFragment : Fragment() {
 
     private lateinit var binding: FragmentShoppingCarBinding
-    private var shoppingCar: ShoppingCar? = null
-    private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels()
-
+    private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels {
+        ShoppingCarViewModelFactory((activity?.application as EdenApplication).shoppingCarRepository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +50,7 @@ class ShoppingCarFragment : Fragment() {
 
     private fun getShoppingCar() {
         activity?.applicationContext?.let {
-            shoppingCarViewModel.getShoppingCar(it)
+            shoppingCarViewModel.getShoppingCar()
         }
     }
 
