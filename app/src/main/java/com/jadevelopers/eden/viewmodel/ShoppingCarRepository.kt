@@ -22,19 +22,6 @@ class ShoppingCarRepository {
         }
     }
 
-    companion object {
-        const val SHOPPINGCAR = "shoppingCar"
-
-    }
-}
-
-        onFailure: (Exception) -> Unit,
-    ) {
-        val room = Room
-            .databaseBuilder(context, ShoppingCarDb::class.java, "shoppingCar")
-            .build()
-    }
-
     fun insertShoppingCarItem(
         context: Context,
         id: Int,
@@ -48,4 +35,8 @@ class ShoppingCarRepository {
         room.shoppingCarDao().insertAll(listOf(shoppingCar))
     }
 
+    companion object {
+        const val SHOPPINGCAR = "shoppingCar"
+
+    }
 }
