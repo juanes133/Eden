@@ -11,13 +11,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.viewmodel.ProductsViewModel
 import com.jadevelopers.eden.viewmodel.ShoppingCarViewModel
 
-class DescriptionFragment : Fragment() {
+class DescriptionFragment : Fragment(){
     private lateinit var binding: FragmentDescriptionBinding
     private val productsViewModel: ProductsViewModel by activityViewModels()
     private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels()
@@ -48,6 +49,7 @@ class DescriptionFragment : Fragment() {
         }
         binding.btnAmount.setOnClickListener {
             activity?.let {
+
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.cantidad))
                 builder.setItems(grams) { _, which ->
@@ -56,7 +58,7 @@ class DescriptionFragment : Fragment() {
                     amount = grams[which].toInt()
                     val operDos = binding.descriptionPrice.text
                     val result = amount * operDos.toString().toInt()
-                    val textAdd = "${getString(R.string.agregar)}: $result"
+                    val textAdd = "${getString(R.string.Agregar)}: $result"
                     binding.btnAdd.text = textAdd
                 }
                 val dialog = builder.create()
@@ -70,6 +72,7 @@ class DescriptionFragment : Fragment() {
     }
 
     private fun insertShoppingCarItem() {
+
         context?.let {
             product?.let { product ->
                 shoppingCarViewModel.insertShoppingCarItem(it, product.id.toInt(), amount)
