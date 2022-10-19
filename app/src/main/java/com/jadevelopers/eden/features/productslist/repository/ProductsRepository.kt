@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.viewmodel
+package com.jadevelopers.eden.features.productslist.repository
 
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

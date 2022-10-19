@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorImageBackground"
-    tools:context=".view.DescriptionFragment">
+    tools:context=".features.productdescription.DescriptionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintItem"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".view.DescriptionFragment">
+        tools:context=".features.productdescription.DescriptionFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintImage"
@@ -28,16 +27,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorImageBackground"
-                android:elevation="30dp"
+                android:elevation="@dimen/elevation_card_image_description"
                 app:layout_constraintEnd_toEndOf="@id/constraintImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivCannabis"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_width="@dimen/size_width_image_login"
+                    android:layout_height="@dimen/size_height_image_login"
                     android:layout_gravity="center"
+                    app:shapeAppearanceOverlay="@style/circleImageStyle"
                     tools:src="@mipmap/ic_icon_principal" />
 
             </androidx.cardview.widget.CardView>
@@ -46,9 +46,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="30dp"
-            app:cardCornerRadius="30dp"
             android:layout_margin="@dimen/margin_card_view"
+            android:elevation="@dimen/elevation_text_description"
+            app:cardCornerRadius="@dimen/radius_text_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,10 +64,10 @@
                     android:id="@+id/tvNamePlant"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/title"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/constraintText"
@@ -77,23 +77,23 @@
                     android:id="@+id/titleDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/descripcion"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/subtitle"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 
                 <TextView
                     android:id="@+id/descriptionProduct"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/size_width_description_product"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="@dimen/description"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/titleDescription"
@@ -103,11 +103,11 @@
                     android:id="@+id/titleThc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/thc"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/subtitle"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/descriptionProduct" />
@@ -116,10 +116,10 @@
                     android:id="@+id/descriptionThc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/description"
                     app:layout_constraintStart_toEndOf="@+id/titleThc"
                     app:layout_constraintTop_toBottomOf="@+id/descriptionProduct"
                     tools:text="19,5%" />
@@ -128,23 +128,23 @@
                     android:id="@+id/titleEffect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/efecto"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/subtitle"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleThc" />
 
                 <TextView
                     android:id="@+id/descriptionEffect"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/size_width_description_product"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/description"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/titleEffect"
                     app:layout_constraintTop_toBottomOf="@+id/titleThc"
@@ -154,27 +154,63 @@
                     android:id="@+id/titleTaste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/sabor"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/subtitle"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleEffect" />
 
                 <TextView
                     android:id="@+id/descriptionTaste"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/size_width_description_product"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/description"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/titleTaste"
                     app:layout_constraintTop_toBottomOf="@+id/titleEffect"
                     tools:text="@string/saborTexto" />
+
+                <TextView
+                    android:id="@+id/titlePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
+                    android:text="@string/precio"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/subtitle"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
+
+                <TextView
+                    android:id="@+id/descriptionPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/description"
+                    app:layout_constraintStart_toEndOf="@+id/titlePrice"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTaste"
+                    tools:text="17.89"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginVertical="@dimen/space_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/description"
+                    app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTaste"
+                    android:text="@string/price_grams"/>
 
 
                 <Button
@@ -182,65 +218,46 @@
                     style="@style/ButtonAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/espacio_horizontal"
-                    android:layout_marginVertical="@dimen/espacio_vertical"
-                    android:layout_marginStart="4dp"
-                    app:iconTint="@color/white"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/cantidad"
                     app:icon="@mipmap/ic_down"
                     app:iconGravity="end"
+                    app:iconTint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
-
-                <ImageView
-                    android:id="@+id/titlePrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    android:singleLine="false"
-                    android:src="@mipmap/ic_dollar"
-                    android:tintMode="src_in"
-                    android:padding="@dimen/padding"
-                    app:layout_constraintStart_toEndOf="@id/btnAmount"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
-                    app:layout_constraintBottom_toTopOf="@+id/shopping"
-                   />
-
-                <TextView
-                    android:id="@+id/descriptionPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="12dp"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/titlePrice"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
-                    app:layout_constraintBottom_toTopOf="@+id/shopping"
-                    tools:text="17,85%" />
+                    app:layout_constraintTop_toBottomOf="@+id/titlePrice" />
 
                 <Button
-                    android:id="@+id/shopping"
+                    android:id="@+id/btnAdd"
                     style="@style/ButtonShopping"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="12dp"
+                    app:layout_constraintStart_toEndOf="@id/btnAmount"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionPrice"
+                    android:text="@string/Agregar" />
+
+                <Button
+                    android:id="@+id/btnShoppingCar"
+                    style="@style/ButtonShopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
                     android:text="@string/comprar"
-                    app:iconTint="@color/white"
                     app:icon="@mipmap/ic_shopping_cart"
                     app:iconGravity="end"
-                    app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAmount"
+                    app:iconTint="@color/white"
+                    app:layout_constraintStart_toEndOf="@+id/btnAdd"
                     app:layout_constraintStart_toStartOf="@id/constraintText"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAmount"
                     tools:textColor="@color/white" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+</ScrollView>
 
 

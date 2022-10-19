@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.viewmodel
+package com.jadevelopers.eden.features.productslist.repository
 
 import com.google.firebase.firestore.QuerySnapshot
 import com.jadevelopers.eden.model.Product

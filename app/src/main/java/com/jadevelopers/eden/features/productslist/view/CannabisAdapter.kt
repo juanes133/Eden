@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.adapter
+package com.jadevelopers.eden.features.productslist.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,12 +12,11 @@ class CannabisAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CannabisViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return CannabisViewHolder(layoutInflater.inflate(R.layout.text_row_item, parent, false))
+        return CannabisViewHolder(layoutInflater.inflate(R.layout.item_products, parent, false))
     }
 
     override fun onBindViewHolder(holder: CannabisViewHolder, position: Int) {
         holder.render(CannabisList[position], onClickListener)
-
     }
 
     override fun getItemCount(): Int = CannabisList.size

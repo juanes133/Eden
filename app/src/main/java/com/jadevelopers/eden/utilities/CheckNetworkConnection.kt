@@ -1,10 +1,12 @@
-package com.jadevelopers.eden
+package com.jadevelopers.eden.utilities
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import android.net.*
+import android.net.ConnectivityManager
 import android.net.ConnectivityManager.NetworkCallback
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import android.os.Build
 import androidx.lifecycle.LiveData
 
@@ -53,7 +55,6 @@ class CheckNetworkConnection(private val connectivityManager: ConnectivityManage
         return result
     }
 
-    @SuppressLint("MissingPermission")
     override fun onActive() {
         super.onActive()
         val builder = NetworkRequest.Builder()

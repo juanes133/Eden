@@ -1,6 +1,7 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,12 +16,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jadevelopers.eden.CheckNetworkConnection
-import com.jadevelopers.eden.R
+import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
-import com.jadevelopers.eden.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 
-class MainActivity : AppCompatActivity() {
+class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
     private lateinit var binding: ActivityMainBinding
     private var checkNetworkConnection: CheckNetworkConnection? = null
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private val productsViewModel: ProductsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        fullScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -54,8 +55,12 @@ class MainActivity : AppCompatActivity() {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
+        binding.btnShopping.setOnClickListener {
+            findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
+        }
         binding.btnSignOut.setOnClickListener {
             Firebase.auth.signOut()
+            fullScreen()
             findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)
             drawerLayout?.closeDrawers()
         }
@@ -66,6 +71,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun fullScreen() {
+        if (Firebase.auth.currentUser == null) {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         super.onSupportNavigateUp()
         val navController = findNavController(R.id.fragmentContainerView)
@@ -73,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         return if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
             drawerLayout?.closeDrawers()
             false
-        }else{
+        } else {
             appBarConfiguration?.let { navController.navigateUp(it) } == true
         }
     }
@@ -95,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             drawerLayout?.closeDrawer(GravityCompat.START)
         } else if (Firebase.auth.currentUser == null) {
             finish()
-        }else{
+        } else {
             super.onBackPressed()
         }
     }

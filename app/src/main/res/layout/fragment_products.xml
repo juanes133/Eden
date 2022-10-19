@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorImageBackground"
-    android:padding="4dp"
-    tools:context=".view.ProductsFragment">
+    android:padding="@dimen/padding_item_products"
+    tools:context=".features.productslist.view.ProductsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/productsContainer"
@@ -17,8 +17,6 @@
             android:id="@+id/recyclerCannabis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null"
-            android:dividerHeight="0dp"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -27,13 +25,12 @@
         android:id="@+id/fallbackContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         tools:visibility="gone">
 
         <ImageView
             android:id="@+id/alertDb"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="@dimen/size_width_image_fallback"
+            android:layout_height="@dimen/size_heigth_image_fallback"
             android:background="@drawable/ic_launcher_foreground"
             android:src="@mipmap/ic_fallback_mari"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/a_ocurrido_un_error"
-            android:textSize="20sp"
+            android:textSize="@dimen/message_fallback_error"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/btnRetry"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,5 +70,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="loading" />
+        tools:text="@string/loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

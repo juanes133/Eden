@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -34,7 +35,9 @@ class LoginFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = ""
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (activity as AppCompatActivity).supportActionBar?.hide()
-        binding.btngoogle.setOnClickListener {
+        binding.icIcon.animation = AnimationUtils.loadAnimation(context, R.anim.scroll_down_image_text_login)
+        binding.eden.animation = AnimationUtils.loadAnimation(context, R.anim.scroll_down_image_text_login)
+        binding.btnGoogle.setOnClickListener {
             signIn()
         }
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

@@ -6,14 +6,14 @@
     app:startDestination="@id/productsFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.jadevelopers.eden.view.LoginFragment"
-        android:label="fragment_login"
+        android:name="com.jadevelopers.eden.features.login.LoginFragment"
+        android:label="@string/login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.jadevelopers.eden.view.ProductsFragment"
-        android:label="fragment_products"
-        tools:layout="@layout/fragment_products" >
+        android:name="com.jadevelopers.eden.features.productslist.view.ProductsFragment"
+        android:label="@string/productos"
+        tools:layout="@layout/fragment_products">
         <action
             android:id="@+id/action_productsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -27,16 +27,23 @@
     </fragment>
     <fragment
         android:id="@+id/trackingFragment"
-        android:name="com.jadevelopers.eden.view.TrackingFragment"
-        android:label="fragment_tracking"
+        android:name="com.jadevelopers.eden.features.tracking.TrackingFragment"
+        android:label="@string/tracking"
         tools:layout="@layout/fragment_tracking" />
     <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.jadevelopers.eden.view.DescriptionFragment"
-        android:label="description_item"
-        tools:layout="@layout/fragment_description" >
+        android:name="com.jadevelopers.eden.features.productdescription.DescriptionFragment"
+        android:label="@string/descripcion"
+        tools:layout="@layout/fragment_description">
         <argument
             android:name="idProduct"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.jadevelopers.eden.features.shoppingcar.view.ShoppingCarFragment"
+        android:label="@string/carrito_de_compras"
+        tools:layout="@layout/fragment_shopping_car">
+        <argument android:name="idProductsShopping" />
     </fragment>
 </navigation>

@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.LoginFragment"
-    android:background="@color/colorImageBackground">
+    android:background="@color/colorImageBackground"
+    tools:context=".features.login.LoginFragment">
 
     <ImageView
         android:id="@+id/ic_icon"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="@dimen/size_width_image_login"
+        android:layout_height="@dimen/size_height_image_login"
         android:src="@mipmap/ic_icon_principal"
-        app:layout_constraintBottom_toTopOf="@+id/btngoogle"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,23 +23,26 @@
         android:layout_height="wrap_content"
         android:text="@string/bienvenidos_a_eden"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/title_text_login_drawer"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ic_icon" />
 
-        <Button
-            android:id="@+id/btngoogle"
-            style="@style/ButtonGoogle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/registrate_con_google"
-            app:icon="@mipmap/ic_goo"
-            app:iconTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eden"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+    <Button
+        android:id="@+id/btnGoogle"
+        style="@style/ButtonGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_btn_google"
+        android:stateListAnimator="@null"
+        android:text="@string/registrate_con_google"
+        android:translationZ="@dimen/translation_btn_google"
+        app:icon="@mipmap/ic_goo"
+        app:iconTint="@color/colorTint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eden" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

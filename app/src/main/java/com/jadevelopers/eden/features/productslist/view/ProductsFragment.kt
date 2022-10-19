@@ -1,4 +1,4 @@
-package com.jadevelopers.eden.view
+package com.jadevelopers.eden.features.productslist.view
 
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -17,11 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.R
-import com.jadevelopers.eden.adapter.CannabisAdapter
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
 import com.jadevelopers.eden.model.Product
-import com.jadevelopers.eden.viewmodel.ProductsViewModel
-
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 
 class ProductsFragment : Fragment() {
 
@@ -32,6 +31,9 @@ class ProductsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        activity?.window?.clearFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         binding = FragmentProductsBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.titulo_productos)
@@ -53,12 +55,16 @@ class ProductsFragment : Fragment() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             binding.loading.indeterminateDrawable.colorFilter =
                 @Suppress("DEPRECATION")
-                BlendModeColorFilter(this.resources.getColor(R.color.colorPrimary),
-                    BlendMode.SRC_ATOP)
+                BlendModeColorFilter(
+                    this.resources.getColor(R.color.colorPrimary),
+                    BlendMode.SRC_ATOP
+                )
         } else {
             @Suppress("DEPRECATION")
-            binding.loading.indeterminateDrawable.setColorFilter(this.resources.getColor(R.color.colorPrimary),
-                PorterDuff.Mode.SRC_ATOP)
+            binding.loading.indeterminateDrawable.setColorFilter(
+                this.resources.getColor(R.color.colorPrimary),
+                PorterDuff.Mode.SRC_ATOP
+            )
         }
 
         return binding.root
@@ -79,8 +85,11 @@ class ProductsFragment : Fragment() {
     }
 
     private fun onItemSelect(product: Product) {
-        findNavController().navigate(ProductsFragmentDirections.actionProductsFragmentToDescriptionFragment(
-            product.id))
+        findNavController().navigate(
+            ProductsFragmentDirections.actionProductsFragmentToDescriptionFragment(
+                product.id
+            )
+        )
     }
 
     override fun onStart() {

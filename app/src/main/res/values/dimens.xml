@@ -2,12 +2,36 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
-    <dimen name="tamanio_imagen_button">48dp</dimen>
+    <dimen name="tamanio_image_button">48dp</dimen>
     <dimen name="padding">16dp</dimen>
-    <dimen name="espacio_horizontal">5dp</dimen>
-    <dimen name="espacio_vertical">10dp</dimen>
+    <dimen name="space_horizontal">5dp</dimen>
+    <dimen name="space_vertical">10dp</dimen>
+    <dimen name="margin_image_item_vertical">5dp</dimen>
+    <dimen name="title">18sp</dimen>
+    <dimen name="subtitle">16sp</dimen>
+    <dimen name="description">15sp</dimen>
     <dimen name="paddin_constrain_image">8dp</dimen>
     <dimen name="margin_card_view">16dp</dimen>
-
-
+    <dimen name="elevation_btn_google">10dp</dimen>
+    <dimen name="title_text_login_drawer">20sp</dimen>
+    <dimen name="translation_btn_google">8dp</dimen>
+    <dimen name="height_image_drawer">160dp</dimen>
+    <dimen name="size_width_image_drawer">90dp</dimen>
+    <dimen name="size_height_image_drawer">90dp</dimen>
+    <dimen name="size_width_image_login">160dp</dimen>
+    <dimen name="size_height_image_login">160dp</dimen>
+    <dimen name="elevation_card_image_description">30dp</dimen>
+    <dimen name="elevation_text_description">30dp</dimen>
+    <dimen name="radius_text_description">30dp</dimen>
+    <dimen name="size_width_description_product">0dp</dimen>
+    <dimen name="size_width_image_fallback">250dp</dimen>
+    <dimen name="size_heigth_image_fallback">250dp</dimen>
+    <dimen name="message_fallback_error">20sp</dimen>
+    <dimen name="padding_item_products">8dp</dimen>
+    <dimen name="size_width_image_item">100dp</dimen>
+    <dimen name="size_heigth_image_item">100dp</dimen>
+    <dimen name="elevation_card_image_item">30dp</dimen>
+    <dimen name="width_card_item_text">0dp</dimen>
+    <dimen name="height_card_item_text">0dp</dimen>
+    <dimen name="radius_item_text">20dp</dimen>
 </resources>
