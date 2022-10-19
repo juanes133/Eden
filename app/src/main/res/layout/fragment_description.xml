@@ -176,6 +176,32 @@
                     app:layout_constraintTop_toBottomOf="@+id/titleEffect"
                     tools:text="@string/saborTexto" />
 
+                <TextView
+                    android:id="@+id/titlePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/espace_horizontal"
+                    android:layout_marginVertical="@dimen/espace_vertical"
+                    android:text="@string/precio"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/subtitle"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
+
+                <TextView
+                    android:id="@+id/descriptionPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/espace_horizontal"
+                    android:layout_marginVertical="@dimen/espace_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/description"
+
+                    app:layout_constraintStart_toEndOf="@+id/titlePrice"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
+                    tools:text="17.89"/>
+
 
                 <Button
                     android:id="@+id/btnAmount"
@@ -189,33 +215,18 @@
                     app:iconGravity="end"
                     app:iconTint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
+                    app:layout_constraintTop_toBottomOf="@+id/titlePrice" />
 
-                <ImageView
-                    android:id="@+id/titlePrice"
+                <Button
+                    android:id="@+id/btnAdd"
+                    style="@style/ButtonShopping"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_marginVertical="12dp"
-                    android:padding="@dimen/padding"
-                    android:singleLine="false"
-                    android:src="@mipmap/ic_dollar"
-                    app:layout_constraintBottom_toTopOf="@+id/btnShoppingCar"
                     app:layout_constraintStart_toEndOf="@id/btnAmount"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste" />
-
-                <TextView
-                    android:id="@+id/descriptionPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/btnShoppingCar"
-                    app:layout_constraintStart_toEndOf="@id/titlePrice"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTaste"
-                    tools:text="17,85%" />
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionPrice"
+                    android:text="@string/Agregar" />
 
                 <Button
                     android:id="@+id/btnShoppingCar"
@@ -227,7 +238,7 @@
                     app:icon="@mipmap/ic_shopping_cart"
                     app:iconGravity="end"
                     app:iconTint="@color/white"
-                    app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
+                    app:layout_constraintStart_toEndOf="@+id/btnAdd"
                     app:layout_constraintStart_toStartOf="@id/constraintText"
                     app:layout_constraintTop_toBottomOf="@+id/btnAmount"
                     tools:textColor="@color/white" />

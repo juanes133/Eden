@@ -13,9 +13,9 @@ class ShoppingCarViewHolder(view: View): RecyclerView.ViewHolder(view){
     private val binding = ItemShoppingCarBinding.bind(view)
 
     fun render(productShoppingModel: ShoppingCar){
-        binding.tvNamePlant.text = productShoppingModel.namePlant
-        binding.descriptionPrice.text = productShoppingModel.price
-        Glide.with(binding.ivCannabis.context).load(productShoppingModel.photo).into(binding.ivCannabis)
+        //binding.tvNamePlant.text = productShoppingModel.namePlant
+        //binding.descriptionPrice.text = productShoppingModel.price
+        //Glide.with(binding.ivCannabis.context).load(productShoppingModel.photo).into(binding.ivCannabis)
         binding.addProducts.setOnClickListener {
             binding.addProducts.findNavController().navigate(productsFragment)
         }

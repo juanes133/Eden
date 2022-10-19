@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.model.ShoppingCar
 
 class ShoppingCarViewModel : ViewModel() {
@@ -24,5 +25,10 @@ class ShoppingCarViewModel : ViewModel() {
         })
     }
 
+    fun insertShoppingCarItem(context: Context, id: Int, amount: Int) {
+        shoppingCarRepository.insertShoppingCarItem(context,id,amount) {
+            mutableShoppingCarError.value = it
+        }
+    }
 
 }
