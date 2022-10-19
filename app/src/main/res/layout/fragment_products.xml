@@ -70,5 +70,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/Loading" />
+        tools:text="@string/loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

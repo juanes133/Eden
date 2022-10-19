@@ -31,6 +31,6 @@
     <string name="carrito_de_compras">Carrito de Compras</string>
     <string name="eliminar">Eliminar</string>
     <string name="desea_agregar_mas_productos">Desea agregar mas productos...</string>
-    <string name="Loading">loading</string>
+    <string name="loading">loading</string>
     <string name="price_grams">$/g</string>
 </resources>
