@@ -16,14 +16,23 @@ import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentDescriptionBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 
-class DescriptionFragment : Fragment(){
+class DescriptionFragment : Fragment() {
     private lateinit var binding: FragmentDescriptionBinding
-    private val productsViewModel: ProductsViewModel by activityViewModels()
+    private val productsViewModel: ProductsViewModel by activityViewModels {
+        ProductsViewModelFactory(
+            (activity?.application as EdenApplication).productsRepository
+        )
+    }
     private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels {
-        ShoppingCarViewModelFactory((activity?.application as EdenApplication).shoppingCarRepository)
+        ShoppingCarViewModelFactory(
+            (activity?.application as EdenApplication).shoppingCarRepository,
+            (activity?.application as EdenApplication).productsRepository
+        )
+
     }
     private val args: DescriptionFragmentArgs by navArgs()
     private var product: Product? = null
@@ -43,10 +52,9 @@ class DescriptionFragment : Fragment(){
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
+        Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
         val txtAmount = "${getString(R.string.cantidad)}: $amount"
         binding.btnAmount.text = txtAmount
-        Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
-
         binding.btnAdd.setOnClickListener {
             insertShoppingCarItem()
         }

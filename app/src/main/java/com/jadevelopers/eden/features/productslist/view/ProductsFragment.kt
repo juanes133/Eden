@@ -17,15 +17,21 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
 
 class ProductsFragment : Fragment() {
 
     private lateinit var binding: FragmentProductsBinding
-    private val productsViewModel: ProductsViewModel by activityViewModels()
+    private val productsViewModel: ProductsViewModel by activityViewModels {
+        ProductsViewModelFactory(
+            (activity?.application as EdenApplication).productsRepository
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

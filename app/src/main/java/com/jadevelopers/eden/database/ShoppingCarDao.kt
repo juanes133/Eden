@@ -7,10 +7,10 @@ import com.jadevelopers.eden.database.entities.ShoppingCar
 interface ShoppingCarDao {
 
     @Query("SELECT * FROM shoppingCar ")
-    fun getAll(): List<ShoppingCar>
+    suspend fun getAll(): List<ShoppingCar>
 
     @Query("SELECT * FROM shoppingCar WHERE id = :id")
-    fun getById(id: Int): List<ShoppingCar>
+    suspend fun getById(id: Int): List<ShoppingCar>
 
     @Update
     suspend fun update(ShoppingCar: ShoppingCar)

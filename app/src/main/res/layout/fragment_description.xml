@@ -199,19 +199,18 @@
                     android:textSize="@dimen/description"
                     app:layout_constraintStart_toEndOf="@+id/titlePrice"
                     app:layout_constraintTop_toBottomOf="@+id/titleTaste"
-                    tools:text="17.89"/>
+                    tools:text="17.89" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="2dp"
                     android:layout_marginVertical="@dimen/space_vertical"
+                    android:text="@string/price_grams"
                     android:textColor="@color/black"
                     android:textSize="@dimen/description"
                     app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste"
-                    android:text="@string/price_grams"/>
-
+                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
 
                 <Button
                     android:id="@+id/btnAmount"
@@ -234,9 +233,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginVertical="12dp"
+                    android:text="@string/Agregar"
                     app:layout_constraintStart_toEndOf="@id/btnAmount"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionPrice"
-                    android:text="@string/Agregar" />
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionPrice" />
 
                 <Button
                     android:id="@+id/btnShoppingCar"

@@ -19,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
 
 class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null

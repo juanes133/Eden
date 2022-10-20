@@ -20,7 +20,10 @@ class ShoppingCarFragment : Fragment() {
 
     private lateinit var binding: FragmentShoppingCarBinding
     private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels {
-        ShoppingCarViewModelFactory((activity?.application as EdenApplication).shoppingCarRepository)
+        ShoppingCarViewModelFactory(
+            (activity?.application as EdenApplication).shoppingCarRepository,
+            (activity?.application as EdenApplication).productsRepository
+        )
     }
 
     override fun onCreateView(

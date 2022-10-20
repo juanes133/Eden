@@ -1,19 +1,19 @@
 package com.jadevelopers.eden.features.productslist.repository
 
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.jadevelopers.eden.database.entities.ShoppingCar
 import com.jadevelopers.eden.model.Product
 
-class ProductsRepository {
+class ProductsRepository(private val firebaseDataBase: FirebaseFirestore) {
 
     private val productsConverter = ProductsConverter()
 
     fun getProducts(onSuccess: (ArrayList<Product>) -> Unit, onFailure: (Exception) -> Unit) {
-        if(cacheProducts.isNotEmpty()){
+        if (cacheProducts.isNotEmpty()) {
             onSuccess(cacheProducts)
         }
-        val db = Firebase.firestore
-        db.collection(PRODUCTS)
+
+        firebaseDataBase.collection(PRODUCTS)
             .get()
             .addOnSuccessListener { result ->
                 cacheProducts = productsConverter.convertProducts(result)
@@ -22,6 +22,12 @@ class ProductsRepository {
             .addOnFailureListener {
                 onFailure(it)
             }
+    }
+
+    fun getProductsByIds(list: ArrayList<ShoppingCar>) {
+        val ids = Product("1", "","blueberry","","","","10000","")
+        val filtered = ids.id.filter {}
+        filtered.toSet()
     }
 
     companion object {

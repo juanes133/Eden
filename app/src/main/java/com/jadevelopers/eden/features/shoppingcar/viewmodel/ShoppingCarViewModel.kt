@@ -2,10 +2,14 @@ package com.jadevelopers.eden.features.shoppingcar.viewmodel
 
 import androidx.lifecycle.*
 import com.jadevelopers.eden.database.entities.ShoppingCar
+import com.jadevelopers.eden.features.productslist.repository.ProductsRepository
 import com.jadevelopers.eden.features.shoppingcar.repository.ShoppingCarRepository
 import kotlinx.coroutines.launch
 
-class ShoppingCarViewModel(private val shoppingCarRepository: ShoppingCarRepository) : ViewModel() {
+class ShoppingCarViewModel(
+    private val shoppingCarRepository: ShoppingCarRepository,
+    private val productsRepository: ProductsRepository
+) : ViewModel() {
     private val mutableShoppingCarList = MutableLiveData<ArrayList<ShoppingCar>>()
     val shoppingCarList: LiveData<ArrayList<ShoppingCar>> get() = mutableShoppingCarList
 
@@ -15,7 +19,7 @@ class ShoppingCarViewModel(private val shoppingCarRepository: ShoppingCarReposit
     fun getShoppingCar() {
         viewModelScope.launch {
             shoppingCarRepository.getShoppingCar({ list ->
-                mutableShoppingCarList.value = list
+                productsRepository.getProductsByIds(list)
             }, {
                 mutableShoppingCarError.value = it
             })
@@ -32,12 +36,15 @@ class ShoppingCarViewModel(private val shoppingCarRepository: ShoppingCarReposit
 
 }
 
-class ShoppingCarViewModelFactory(private val repository: ShoppingCarRepository) :
+class ShoppingCarViewModelFactory(
+    private val shoppingCarRepository: ShoppingCarRepository,
+    private val productsRepository: ProductsRepository
+) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ShoppingCarViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return ShoppingCarViewModel(repository) as T
+            return ShoppingCarViewModel(shoppingCarRepository, productsRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
