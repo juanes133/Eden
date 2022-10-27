@@ -20,9 +20,9 @@ import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
-import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
+import com.jadevelopers.eden.model.Product
 
 class ProductsFragment : Fragment() {
 
@@ -45,7 +45,7 @@ class ProductsFragment : Fragment() {
             getString(R.string.titulo_productos)
         (activity as AppCompatActivity).supportActionBar?.show()
         productsViewModel.productsList.observe(viewLifecycleOwner) {
-            initRecyclerView(it)
+            initRecyclerViewProduct(it)
             binding.loading.isVisible = false
             binding.productsContainer.isVisible = true
             binding.fallbackContainer.isVisible = false
@@ -83,11 +83,12 @@ class ProductsFragment : Fragment() {
         productsViewModel.getProducts()
     }
 
-    private fun initRecyclerView(list: ArrayList<Product>) {
+    private fun initRecyclerViewProduct(list: ArrayList<Product>) {
+        list.sortBy { it.namePlant }
         val manager = LinearLayoutManager(context)
         binding.recyclerCannabis.layoutManager = manager
         binding.recyclerCannabis.adapter =
-            CannabisAdapter(list) { cannabis -> onItemSelect(cannabis) }
+            ProductsAdapter(list) { product -> onItemSelect(product) }
     }
 
     private fun onItemSelect(product: Product) {

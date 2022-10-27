@@ -6,16 +6,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.R
 
-class CannabisAdapter(
+class ProductsAdapter(
     private val CannabisList: List<Product>,
-    private val onClickListener: (Product) -> Unit) : RecyclerView.Adapter<CannabisViewHolder>() {
+    private val onClickListener: (Product) -> Unit) : RecyclerView.Adapter<ProductsViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CannabisViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return CannabisViewHolder(layoutInflater.inflate(R.layout.item_products, parent, false))
+        return ProductsViewHolder(layoutInflater.inflate(R.layout.item_products, parent, false))
     }
 
-    override fun onBindViewHolder(holder: CannabisViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         holder.render(CannabisList[position], onClickListener)
     }
 

@@ -8,8 +8,9 @@ data class Product(
     val effect: String,
     val thc: String,
     val price: String,
-    val photo: String
+    val photo: String,
 )
+
 
 
 

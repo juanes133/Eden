@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentShoppingCarBinding
-import com.jadevelopers.eden.database.entities.ShoppingCar
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
+import com.jadevelopers.eden.model.ShoppingCarItem
 
 class ShoppingCarFragment : Fragment() {
 
@@ -33,22 +33,20 @@ class ShoppingCarFragment : Fragment() {
         binding = FragmentShoppingCarBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.carrito_de_compras)
-        shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
+        shoppingCarViewModel.shoppingCarItem.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
             binding.productsShoppingContainer.isVisible = true
         }
         shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
             binding.productsShoppingContainer.isVisible = false
-
         }
         return binding.root
     }
 
-    private fun recyclerShoppingCar(list: ArrayList<ShoppingCar>) {
+    private fun recyclerShoppingCar(list: ArrayList<ShoppingCarItem>) {
         val manager = LinearLayoutManager(context)
         binding.recyclerShoppingCar.layoutManager = manager
-        binding.recyclerShoppingCar.adapter =
-            ShoppingCarAdapter(list)
+        binding.recyclerShoppingCar.adapter = ShoppingCarAdapter(list)
     }
 
     private fun getShoppingCar() {

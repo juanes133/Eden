@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class ShoppingCar(
     @PrimaryKey
     val id: Int,
-    val amount:Int
+    val amount: Int,
 )
 
 

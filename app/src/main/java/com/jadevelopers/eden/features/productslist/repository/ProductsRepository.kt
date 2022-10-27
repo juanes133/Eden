@@ -24,10 +24,10 @@ class ProductsRepository(private val firebaseDataBase: FirebaseFirestore) {
             }
     }
 
-    fun getProductsByIds(list: ArrayList<ShoppingCar>) {
-        val ids = Product("1", "","blueberry","","","","10000","")
-        val filtered = ids.id.filter {}
-        filtered.toSet()
+    fun getProductsByIds(shoppingCarList: ArrayList<ShoppingCar>): ArrayList<Product> {
+        return cacheProducts.filter { x ->
+            shoppingCarList.contains(shoppingCarList.firstOrNull { item -> item.id.toString() == x.id })
+        } as ArrayList<Product>
     }
 
     companion object {

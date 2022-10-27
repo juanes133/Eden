@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding">
+    android:padding="@dimen/padding_item_products">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/itemShopping"
@@ -25,32 +25,31 @@
                 android:id="@+id/ivCannabis"
                 android:layout_width="@dimen/size_width_image_item"
                 android:layout_height="@dimen/size_heigth_image_item"
+                app:layout_constraintBottom_toTopOf="@+id/remove"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
                 tools:src="@mipmap/ic_icon_principal" />
 
             <TextView
                 android:id="@+id/remove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/space_horizontal"
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/eliminar"
                 android:textColor="@color/red"
                 android:textSize="@dimen/subtitle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivCannabis" />
+                app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
 
             <TextView
                 android:id="@+id/tvNamePlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/space_horizontal"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/blueberry" />
 
@@ -68,20 +67,19 @@
                 app:icon="@mipmap/ic_down"
                 app:iconGravity="end"
                 app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-                app:layout_constraintTop_toBottomOf="@id/tvNamePlant" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/Add"
+            <Button
+                android:id="@+id/btnAdd"
+                style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:textColor="@color/black"
                 android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/btnAmount"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnAmount"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
+                app:layout_constraintStart_toStartOf="@+id/btnAmount"
+                app:layout_constraintTop_toBottomOf="@+id/btnAmount"
                 tools:text="1785 $/g" />
 
             <TextView
@@ -93,8 +91,9 @@
                 android:textColor="@color/colorTint"
                 android:textSize="@dimen/subtitle"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-                app:layout_constraintTop_toBottomOf="@+id/ivCannabis" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/remove"
+                app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

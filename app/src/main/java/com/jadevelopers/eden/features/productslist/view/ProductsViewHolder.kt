@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.jadevelopers.eden.databinding.ItemProductsBinding
 import com.jadevelopers.eden.model.Product
 
-class CannabisViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemProductsBinding.bind(view)
 
