@@ -12,10 +12,13 @@ class ShoppingCarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemShoppingCarBinding.bind(view)
 
-    fun render(productShoppingModel: ShoppingCarItem) {
-        binding.tvNamePlant.text = productShoppingModel.namePlant
-        Glide.with(binding.ivCannabis.context).load(productShoppingModel.photo)
+    fun render(shoppingCarModel: ShoppingCarItem) {
+        binding.tvNamePlant.text = shoppingCarModel.namePlant
+        Glide.with(binding.ivCannabis.context).load(shoppingCarModel.photo)
             .into(binding.ivCannabis)
+        binding.btnDelete.setOnClickListener {
+
+        }
         binding.addProducts.setOnClickListener {
             binding.addProducts.findNavController().navigate(productsFragment)
         }

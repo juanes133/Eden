@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/padding_item_products">
 
     <androidx.cardview.widget.CardView
@@ -25,13 +25,13 @@
                 android:id="@+id/ivCannabis"
                 android:layout_width="@dimen/size_width_image_item"
                 android:layout_height="@dimen/size_heigth_image_item"
-                app:layout_constraintBottom_toTopOf="@+id/remove"
+                app:layout_constraintBottom_toTopOf="@+id/btnDelete"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
                 tools:src="@mipmap/ic_icon_principal" />
 
             <TextView
-                android:id="@+id/remove"
+                android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/space_vertical"
@@ -62,12 +62,12 @@
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/cantidad"
                 android:textColor="@color/black"
-                android:textSize="@dimen/subtitle"
+                android:textSize="@dimen/description"
                 android:textStyle="bold"
                 app:icon="@mipmap/ic_down"
                 app:iconGravity="end"
                 app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 
             <Button
                 android:id="@+id/btnAdd"
@@ -75,12 +75,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/space_vertical"
+                android:text="@string/total"
                 android:textColor="@color/black"
-                android:textSize="@dimen/subtitle"
+                android:textSize="@dimen/description"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/btnAmount"
                 app:layout_constraintTop_toBottomOf="@+id/btnAmount"
-                tools:text="1785 $/g" />
+                tools:text="@string/total" />
 
             <TextView
                 android:id="@+id/addProducts"
@@ -92,7 +93,7 @@
                 android:textSize="@dimen/subtitle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/remove"
+                app:layout_constraintStart_toEndOf="@+id/btnDelete"
                 app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

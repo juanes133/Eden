@@ -7,7 +7,7 @@ import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.R
 
 class ProductsAdapter(
-    private val CannabisList: List<Product>,
+    private val productList: List<Product>,
     private val onClickListener: (Product) -> Unit) : RecyclerView.Adapter<ProductsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
@@ -16,8 +16,8 @@ class ProductsAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
-        holder.render(CannabisList[position], onClickListener)
+        holder.render(productList[position], onClickListener)
     }
 
-    override fun getItemCount(): Int = CannabisList.size
+    override fun getItemCount(): Int = productList.size
 }

@@ -1,15 +1,20 @@
 package com.jadevelopers.eden
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -19,7 +24,6 @@ import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
-import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
 
 class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
@@ -70,6 +74,15 @@ class EdenActivity : AppCompatActivity() {
             dialog?.setCancelable(false)
             dialog?.show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main_bar, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
     }
 
     private fun fullScreen() {

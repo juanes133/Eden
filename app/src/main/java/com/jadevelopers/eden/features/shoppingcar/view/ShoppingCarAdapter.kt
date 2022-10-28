@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jadevelopers.eden.R
-import com.jadevelopers.eden.features.productslist.view.ProductsViewHolder
-import com.jadevelopers.eden.model.Product
 import com.jadevelopers.eden.model.ShoppingCarItem
 
 class ShoppingCarAdapter(
-    private val ShoppingCarList: ArrayList<ShoppingCarItem>,
+    private val shoppingCarList: ArrayList<ShoppingCarItem>,
 ) : RecyclerView.Adapter<ShoppingCarViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingCarViewHolder {
@@ -18,8 +16,8 @@ class ShoppingCarAdapter(
     }
 
     override fun onBindViewHolder(holder: ShoppingCarViewHolder, position: Int) {
-        holder.render(ShoppingCarList[position])
+        holder.render(shoppingCarList[position])
     }
 
-    override fun getItemCount(): Int = ShoppingCarList.size
+    override fun getItemCount(): Int = shoppingCarList.size
 }

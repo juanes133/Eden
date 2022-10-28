@@ -77,7 +77,7 @@ class DescriptionFragment : Fragment() {
             }
         }
         binding.btnShoppingCar.setOnClickListener {
-            findNavController().navigate(R.id.shoppingFragment)
+                    findNavController().navigate(R.id.shoppingFragment)
         }
         return binding.root
     }

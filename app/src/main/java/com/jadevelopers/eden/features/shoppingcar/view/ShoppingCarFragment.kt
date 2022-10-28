@@ -33,12 +33,13 @@ class ShoppingCarFragment : Fragment() {
         binding = FragmentShoppingCarBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.carrito_de_compras)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         shoppingCarViewModel.shoppingCarItem.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
-            binding.productsShoppingContainer.isVisible = true
+            binding.shoppingCarContainer.isVisible = true
         }
         shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
-            binding.productsShoppingContainer.isVisible = false
+            binding.shoppingCarContainer.isVisible = false
         }
         return binding.root
     }

@@ -10,12 +10,12 @@ class ProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemProductsBinding.bind(view)
 
-    fun render(cannabisModel: Product, onClickListener: (Product) -> Unit) {
-        binding.tvNamePlant.text = cannabisModel.namePlant
-        binding.descriptionPrice.text = cannabisModel.price
-        Glide.with(binding.ivCannabis.context).load(cannabisModel.photo).into(binding.ivCannabis)
+    fun render(productModel: Product, onClickListener: (Product) -> Unit) {
+        binding.tvNamePlant.text = productModel.namePlant
+        binding.descriptionPrice.text = productModel.price
+        Glide.with(binding.ivCannabis.context).load(productModel.photo).into(binding.ivCannabis)
         itemView.setOnClickListener {
-            onClickListener(cannabisModel)
+            onClickListener(productModel)
         }
     }
 }

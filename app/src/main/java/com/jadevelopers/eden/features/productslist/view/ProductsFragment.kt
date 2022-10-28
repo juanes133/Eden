@@ -5,14 +5,12 @@ import android.graphics.BlendModeColorFilter
 import android.graphics.PorterDuff
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
@@ -86,8 +84,8 @@ class ProductsFragment : Fragment() {
     private fun initRecyclerViewProduct(list: ArrayList<Product>) {
         list.sortBy { it.namePlant }
         val manager = LinearLayoutManager(context)
-        binding.recyclerCannabis.layoutManager = manager
-        binding.recyclerCannabis.adapter =
+        binding.recyclerProducts.layoutManager = manager
+        binding.recyclerProducts.adapter =
             ProductsAdapter(list) { product -> onItemSelect(product) }
     }
 
