@@ -33,7 +33,7 @@
     <string name="desea_agregar_mas_productos">Desea agregar mas productos...</string>
     <string name="loading">loading</string>
     <string name="price_grams">$/g</string>
-    <string name="Agregar">agregar</string>
+    <string name="Agregar">Agregar</string>
     <string name="login">Login</string>
 
 </resources>

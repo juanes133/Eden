@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,7 +20,7 @@ import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 
-class DescriptionFragment : Fragment(){
+class DescriptionFragment : Fragment() {
     private lateinit var binding: FragmentDescriptionBinding
     private val productsViewModel: ProductsViewModel by activityViewModels()
     private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels {
@@ -46,10 +47,25 @@ class DescriptionFragment : Fragment(){
         val txtAmount = "${getString(R.string.cantidad)}: $amount"
         binding.btnAmount.text = txtAmount
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
-
+        val add = binding.descriptionPrice.text
+        val txtAdd = "${getString(R.string.Agregar)}: $add"
+        binding.btnAdd.text = txtAdd
+        shoppingCarViewModel.shoppingCarInsertItem.observe(viewLifecycleOwner) {
+            binding.btnAdd.isVisible = false
+            binding.btnDelet.isVisible = true
+        }
         binding.btnAdd.setOnClickListener {
             insertShoppingCarItem()
         }
+        shoppingCarViewModel.shoppingCarDeleteItem.observe(viewLifecycleOwner) {
+            binding.btnAdd.isVisible = true
+            binding.btnDelet.isVisible = false
+        }
+
+        binding.btnDelet.setOnClickListener {
+            deleteShoppingCarItem()
+        }
+
         binding.btnAmount.setOnClickListener {
             activity?.let {
 
@@ -82,6 +98,14 @@ class DescriptionFragment : Fragment(){
         }
     }
 
+    private fun deleteShoppingCarItem() {
+        context?.let {
+            product?.let { product ->
+                shoppingCarViewModel.deleteShoppingCarItem(product.id.toInt())
+
+            }
+        }
+    }
 }
 
 

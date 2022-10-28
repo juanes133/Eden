@@ -18,6 +18,6 @@ interface ShoppingCarDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(shoppingCar: ShoppingCar)
 
-    @Delete
-    suspend fun delete(ShoppingCar: ShoppingCar)
+    @Query("DELETE FROM shoppingCar WHERE id = :id")
+    suspend fun delete(id: Int)
 }

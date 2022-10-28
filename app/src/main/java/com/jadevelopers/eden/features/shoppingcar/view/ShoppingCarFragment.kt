@@ -38,6 +38,7 @@ class ShoppingCarFragment : Fragment() {
             binding.productsShoppingContainer.isVisible = false
 
         }
+
         return binding.root
     }
 
@@ -53,6 +54,7 @@ class ShoppingCarFragment : Fragment() {
             shoppingCarViewModel.getShoppingCar()
         }
     }
+
 
     override fun onResume() {
         super.onResume()
