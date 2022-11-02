@@ -24,7 +24,7 @@ class ShoppingCarViewModel(
                 val result = ArrayList<ShoppingCarItem>()
                 list.forEach {
                     val product = products.first { x -> x.id == it.id.toString() }
-                    result.add(ShoppingCarItem(it.id, product.namePlant, product.photo, it.amount))
+                    result.add(ShoppingCarItem(it.id, product.namePlant, product.photo, it.amount, product.price))
                 }
                 mutableShoppingCarItem.value = result
             }, {

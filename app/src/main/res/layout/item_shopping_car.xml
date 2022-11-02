@@ -39,8 +39,7 @@
                 android:textColor="@color/red"
                 android:textSize="@dimen/subtitle"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/tvNamePlant"
@@ -55,7 +54,7 @@
 
             <Button
                 android:id="@+id/btnAmount"
-                style="@style/Widget.Material3.Button.Icon"
+                style="@style/ButtonGoogle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/space_horizontal"
@@ -64,14 +63,14 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/description"
                 android:textStyle="bold"
+                android:translationZ="@dimen/translation_btn_google"
                 app:icon="@mipmap/ic_down"
                 app:iconGravity="end"
-                app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
+                app:layout_constraintTop_toTopOf="@+id/ivCannabis"
+                app:layout_constraintStart_toEndOf="@+id/ivCannabis" />
 
-            <Button
-                android:id="@+id/btnAdd"
-                style="@style/Widget.Material3.Button.Icon"
+            <TextView
+                android:id="@+id/tvTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/space_vertical"
@@ -79,22 +78,37 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/description"
                 android:textStyle="bold"
+                android:translationZ="@dimen/translation_btn_google"
                 app:layout_constraintStart_toStartOf="@+id/btnAmount"
                 app:layout_constraintTop_toBottomOf="@+id/btnAmount"
                 tools:text="@string/total" />
 
             <TextView
-                android:id="@+id/addProducts"
+                android:id="@+id/titlePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/space_horizontal"
-                android:text="@string/desea_agregar_mas_productos"
-                android:textColor="@color/colorTint"
+                android:layout_marginVertical="@dimen/space_vertical"
+                android:text="@string/precio"
+                android:textColor="@color/black"
                 android:textSize="@dimen/subtitle"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnDelete"
-                app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/descriptionPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_horizontal"
+                android:layout_marginVertical="@dimen/space_vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/description"
+                app:layout_constraintStart_toEndOf="@+id/titlePrice"
+                tools:text="17.89"
+                android:visibility="gone"
+                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -15,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jadevelopers.eden.EdenActivity
 import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
@@ -35,13 +37,10 @@ class ProductsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        activity?.window?.clearFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        (activity as AppCompatActivity).supportActionBar?.title =
-            getString(R.string.titulo_productos)
-        (activity as AppCompatActivity).supportActionBar?.show()
+        (activity as EdenActivity).supportActionBar?.title = getString(R.string.titulo_productos)
+        (activity as EdenActivity).supportActionBar?.show()
+        (activity as EdenActivity).menu?.children?.first()?.isVisible = true
         productsViewModel.productsList.observe(viewLifecycleOwner) {
             initRecyclerViewProduct(it)
             binding.loading.isVisible = false

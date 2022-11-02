@@ -1,9 +1,8 @@
 package com.jadevelopers.eden
 
+import android.os.Build
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.WindowManager
+import android.view.*
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -34,6 +33,7 @@ class EdenActivity : AppCompatActivity() {
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
     private val productsViewModel: ProductsViewModel by viewModels()
+    internal var menu: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         fullScreen()
@@ -78,19 +78,23 @@ class EdenActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main_bar, menu)
+        this.menu = menu
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.btn_shopping_car -> {
+                findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun fullScreen() {
         if (Firebase.auth.currentUser == null) {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
+            supportActionBar?.hide()
         }
     }
 
