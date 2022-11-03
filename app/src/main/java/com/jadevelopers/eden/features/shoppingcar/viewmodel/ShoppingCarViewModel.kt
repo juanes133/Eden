@@ -18,6 +18,9 @@ class ShoppingCarViewModel(private val shoppingCarRepository: ShoppingCarReposit
     private val mutableShoppingCarDeleteItem = MutableLiveData<Boolean>()
     val shoppingCarDeleteItem: LiveData<Boolean> get() = mutableShoppingCarDeleteItem
 
+    private val mutableShoppingCarGetByIdItem = MutableLiveData<ArrayList<ShoppingCar>>()
+    val shoppingCarGetByIdItem: LiveData<ArrayList<ShoppingCar>> get() = mutableShoppingCarGetByIdItem
+
     fun getShoppingCar() {
         viewModelScope.launch {
             shoppingCarRepository.getShoppingCar({ list ->
@@ -40,22 +43,33 @@ class ShoppingCarViewModel(private val shoppingCarRepository: ShoppingCarReposit
 
     fun deleteShoppingCarItem(id: Int) {
         viewModelScope.launch {
-            shoppingCarRepository.deleteShoppingCarItem(id,  {
+            shoppingCarRepository.deleteShoppingCarItem(id, {
                 mutableShoppingCarDeleteItem.value = true
             }, {
                 mutableShoppingCarError.value = it
             })
         }
     }
-}
 
-    class ShoppingCarViewModelFactory(private val repository: ShoppingCarRepository) :
-        ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ShoppingCarViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return ShoppingCarViewModel(repository) as T
-            }
-            throw IllegalArgumentException("Unknown ViewModel class")
+    fun getByIdShoppingCarItem(id: Int) {
+        viewModelScope.launch {
+            shoppingCarRepository.getByIdShoppingCarItem(id, {
+                mutableShoppingCarGetByIdItem.value = it
+            }, {
+                mutableShoppingCarError.value = it
+            })
         }
     }
+
+}
+
+class ShoppingCarViewModelFactory(private val repository: ShoppingCarRepository) :
+    ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ShoppingCarViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return ShoppingCarViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}

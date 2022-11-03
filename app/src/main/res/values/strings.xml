@@ -35,5 +35,6 @@
     <string name="price_grams">$/g</string>
     <string name="Agregar">Agregar</string>
     <string name="login">Login</string>
+    <string name="valor_total">Valor Total</string>
 
 </resources>

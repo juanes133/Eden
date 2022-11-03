@@ -38,37 +38,24 @@ class DescriptionFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.titulo_descripcion)
         product = productsViewModel.productsList.value?.firstOrNull { x -> x.id == args.idProduct }
+        getByIdShoppingCarItem()
         binding.tvNamePlant.text = product?.namePlant
         binding.descriptionProduct.text = product?.description
         binding.descriptionThc.text = product?.thc
         binding.descriptionEffect.text = product?.effect
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
-        val txtAmount = "${getString(R.string.cantidad)}: $amount"
-        binding.btnAmount.text = txtAmount
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
-        val add = binding.descriptionPrice.text
-        val txtAdd = "${getString(R.string.Agregar)}: $add"
-        binding.btnAdd.text = txtAdd
-        shoppingCarViewModel.shoppingCarInsertItem.observe(viewLifecycleOwner) {
-            binding.btnAdd.isVisible = false
-            binding.btnDelet.isVisible = true
-        }
+
         binding.btnAdd.setOnClickListener {
             insertShoppingCarItem()
         }
-        shoppingCarViewModel.shoppingCarDeleteItem.observe(viewLifecycleOwner) {
-            binding.btnAdd.isVisible = true
-            binding.btnDelet.isVisible = false
-        }
-
-        binding.btnDelet.setOnClickListener {
+        binding.btnDelete.setOnClickListener {
             deleteShoppingCarItem()
+            binding.btnAmount.isEnabled=true
         }
-
         binding.btnAmount.setOnClickListener {
             activity?.let {
-
                 val builder = AlertDialog.Builder(it)
                 builder.setTitle(getString(R.string.cantidad))
                 builder.setItems(grams) { _, which ->
@@ -77,8 +64,7 @@ class DescriptionFragment : Fragment() {
                     amount = grams[which].toInt()
                     val operDos = binding.descriptionPrice.text
                     val result = amount * operDos.toString().toInt()
-                    val textAdd = "${getString(R.string.Agregar)}: $result"
-                    binding.btnAdd.text = textAdd
+                    binding.descriptionTotal.text = result.toString()
                 }
                 val dialog = builder.create()
                 dialog.show()
@@ -86,6 +72,31 @@ class DescriptionFragment : Fragment() {
         }
         binding.btnShoppingCar.setOnClickListener {
             findNavController().navigate(R.id.shoppingFragment)
+        }
+        shoppingCarViewModel.shoppingCarInsertItem.observe(viewLifecycleOwner) {
+            binding.btnAdd.isVisible = false
+            binding.btnDelete.isVisible = true
+        }
+        shoppingCarViewModel.shoppingCarDeleteItem.observe(viewLifecycleOwner) {
+            binding.btnAdd.isVisible = true
+            binding.btnDelete.isVisible = false
+        }
+        shoppingCarViewModel.shoppingCarGetByIdItem.observe(viewLifecycleOwner) {
+            if (it.size == 1) {
+                binding.btnDelete.isVisible = true
+                binding.btnAdd.isVisible = false
+                val txtAmount = "${getString(R.string.cantidad)}: ${it.first().amount}"
+                binding.btnAmount.text = txtAmount
+
+                product?.price?.let { price ->
+                    val total = price.toInt() * it.first().amount
+                    binding.descriptionTotal.text = total.toString()
+                }
+                binding.btnAmount.isEnabled = false
+            } else {
+                binding.btnAdd.isVisible = true
+                binding.btnDelete.isVisible = false
+            }
         }
         return binding.root
     }
@@ -102,7 +113,14 @@ class DescriptionFragment : Fragment() {
         context?.let {
             product?.let { product ->
                 shoppingCarViewModel.deleteShoppingCarItem(product.id.toInt())
+            }
+        }
+    }
 
+    private fun getByIdShoppingCarItem() {
+        context?.let {
+            product?.let { product ->
+                shoppingCarViewModel.getByIdShoppingCarItem(product.id.toInt())
             }
         }
     }

@@ -46,4 +46,19 @@ class ShoppingCarRepository(private val shoppingCarDao: ShoppingCarDao) {
             onFailure(e)
         }
     }
+
+    suspend fun getByIdShoppingCarItem(
+        id: Int,
+        onSuccess: (ArrayList<ShoppingCar>) -> Unit,
+        onFailure: (Exception) -> Unit,
+    ) {
+        try {
+            onSuccess(
+                shoppingCarDao.getById(id) as ArrayList<ShoppingCar>
+            )
+        } catch (e: Exception) {
+            onFailure(e)
+
+        }
+    }
 }
