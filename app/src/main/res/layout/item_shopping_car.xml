@@ -21,14 +21,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivCannabis"
                 android:layout_width="@dimen/size_width_image_item"
                 android:layout_height="@dimen/size_heigth_image_item"
+                android:adjustViewBounds="true"
+                android:elevation="@dimen/elevation_card_image_item"
+                android:outlineAmbientShadowColor="@color/white"
+                android:outlineSpotShadowColor="@color/white"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/btnDelete"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:src="@mipmap/ic_icon_principal" />
+                app:shapeAppearanceOverlay="@style/circleImageStyle"
+                tools:src="@mipmap/ic_icon_principal"
+                tools:targetApi="p" />
 
             <TextView
                 android:id="@+id/btnDelete"
@@ -63,11 +71,10 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/description"
                 android:textStyle="bold"
-                android:translationZ="@dimen/translation_btn_google"
                 app:icon="@mipmap/ic_down"
                 app:iconGravity="end"
-                app:layout_constraintTop_toTopOf="@+id/ivCannabis"
-                app:layout_constraintStart_toEndOf="@+id/ivCannabis" />
+                app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+                app:layout_constraintTop_toTopOf="@+id/ivCannabis" />
 
             <TextView
                 android:id="@+id/tvTotal"
@@ -93,8 +100,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
                 android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints" />
 
             <TextView
@@ -105,10 +112,10 @@
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:textColor="@color/black"
                 android:textSize="@dimen/description"
-                app:layout_constraintStart_toEndOf="@+id/titlePrice"
-                tools:text="17.89"
                 android:visibility="gone"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintStart_toEndOf="@+id/titlePrice"
+                tools:ignore="MissingConstraints"
+                tools:text="17.89" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -32,7 +32,6 @@ class DescriptionFragment : Fragment() {
             (activity?.application as EdenApplication).shoppingCarRepository,
             (activity?.application as EdenApplication).productsRepository
         )
-
     }
     private val args: DescriptionFragmentArgs by navArgs()
     private var product: Product? = null
@@ -77,7 +76,7 @@ class DescriptionFragment : Fragment() {
             }
         }
         binding.btnShoppingCar.setOnClickListener {
-                    findNavController().navigate(R.id.shoppingFragment)
+            findNavController().navigate(R.id.shoppingFragment)
         }
         return binding.root
     }

@@ -60,8 +60,17 @@ class EdenActivity : AppCompatActivity() {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
+        binding.btnProducts.setOnClickListener {
+            findNavController(R.id.fragmentContainerView).navigate(R.id.productsFragment)
+            drawerLayout?.closeDrawers()
+        }
+        binding.btnTracking.setOnClickListener {
+            findNavController(R.id.fragmentContainerView).navigate(R.id.trackingFragment)
+            drawerLayout?.closeDrawers()
+        }
         binding.btnShopping.setOnClickListener {
             findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
+            drawerLayout?.closeDrawers()
         }
         binding.btnSignOut.setOnClickListener {
             Firebase.auth.signOut()
