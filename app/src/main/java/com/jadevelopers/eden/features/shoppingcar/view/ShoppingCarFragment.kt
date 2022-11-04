@@ -48,6 +48,7 @@ class ShoppingCarFragment : Fragment() {
         binding.addProducts.setOnClickListener {
             binding.addProducts.findNavController().navigate(R.id.productsFragment)
         }
+
         return binding.root
     }
 
@@ -62,6 +63,7 @@ class ShoppingCarFragment : Fragment() {
             shoppingCarViewModel.getShoppingCar()
         }
     }
+
 
     override fun onResume() {
         super.onResume()
