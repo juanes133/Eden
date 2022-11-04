@@ -37,6 +37,7 @@
                     android:layout_width="@dimen/size_width_image_login"
                     android:layout_height="@dimen/size_height_image_login"
                     android:layout_gravity="center"
+                    android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/circleImageStyle"
                     tools:src="@mipmap/ic_icon_principal" />
 
@@ -201,7 +202,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/titleTaste"
                     tools:text="17.89" />
 
-
                 <TextView
                     android:id="@+id/titleTotal"
                     android:layout_width="wrap_content"
@@ -238,7 +238,6 @@
                     android:textSize="@dimen/description"
                     app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
                     app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
-
 
                 <Button
                     android:id="@+id/btnAmount"

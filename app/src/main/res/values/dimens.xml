@@ -22,7 +22,7 @@
     <dimen name="size_height_image_login">160dp</dimen>
     <dimen name="elevation_card_image_description">30dp</dimen>
     <dimen name="elevation_text_description">30dp</dimen>
-    <dimen name="radius_text_description">30dp</dimen>
+    <dimen name="radius_text_description">20dp</dimen>
     <dimen name="size_width_description_product">0dp</dimen>
     <dimen name="size_width_image_fallback">250dp</dimen>
     <dimen name="size_heigth_image_fallback">250dp</dimen>

@@ -1,15 +1,20 @@
 package com.jadevelopers.eden
 
+import android.os.Build
 import android.os.Bundle
-import android.view.WindowManager
+import android.view.*
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -19,6 +24,8 @@ import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 
 class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
@@ -28,7 +35,13 @@ class EdenActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
-    private val productsViewModel: ProductsViewModel by viewModels()
+    public val shoppingCarViewModel: ShoppingCarViewModel by viewModels {
+        ShoppingCarViewModelFactory(
+            (application as EdenApplication).shoppingCarRepository,
+            (application as EdenApplication).productsRepository
+        )
+    }
+    internal var menu: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         fullScreen()
@@ -55,8 +68,17 @@ class EdenActivity : AppCompatActivity() {
                 setupActionBarWithNavController(it, appBarConfiguration)
             }
         }
+        binding.btnProducts.setOnClickListener {
+            findNavController(R.id.fragmentContainerView).navigate(R.id.productsFragment)
+            drawerLayout?.closeDrawers()
+        }
+        binding.btnTracking.setOnClickListener {
+            findNavController(R.id.fragmentContainerView).navigate(R.id.trackingFragment)
+            drawerLayout?.closeDrawers()
+        }
         binding.btnShopping.setOnClickListener {
             findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
+            drawerLayout?.closeDrawers()
         }
         binding.btnSignOut.setOnClickListener {
             Firebase.auth.signOut()
@@ -71,12 +93,25 @@ class EdenActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main_bar, menu)
+        this.menu = menu
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.btn_shopping_car -> {
+                findNavController(R.id.fragmentContainerView).navigate(R.id.shoppingFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun fullScreen() {
         if (Firebase.auth.currentUser == null) {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
+            supportActionBar?.hide()
         }
     }
 

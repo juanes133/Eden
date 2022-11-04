@@ -30,11 +30,14 @@
     <string name="blueberry">BlueBerry</string>
     <string name="carrito_de_compras">Carrito de Compras</string>
     <string name="eliminar">Eliminar</string>
-    <string name="desea_agregar_mas_productos">Desea agregar mas productos...</string>
+    <string name="Agregar_mas">Agregar mas…</string>
     <string name="loading">loading</string>
     <string name="price_grams">$/g</string>
     <string name="Agregar">Agregar</string>
     <string name="login">Login</string>
+    <string name="total">Total</string>
+    <string name="btn_shopping_car">Shopping Car</string>
+    <string name="comprar_ahora">Comprar ahora</string>
     <string name="valor_total">Valor Total</string>
 
 </resources>

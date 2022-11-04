@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/padding">
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_item_products">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/itemShopping"
@@ -21,82 +21,101 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivCannabis"
                 android:layout_width="@dimen/size_width_image_item"
                 android:layout_height="@dimen/size_heigth_image_item"
+                android:adjustViewBounds="true"
+                android:elevation="@dimen/elevation_card_image_item"
+                android:outlineAmbientShadowColor="@color/white"
+                android:outlineSpotShadowColor="@color/white"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/btnDelete"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@mipmap/ic_icon_principal" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
+                app:shapeAppearanceOverlay="@style/circleImageStyle"
+                tools:src="@mipmap/ic_icon_principal"
+                tools:targetApi="p" />
 
             <TextView
-                android:id="@+id/remove"
+                android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/space_horizontal"
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/eliminar"
                 android:textColor="@color/red"
                 android:textSize="@dimen/subtitle"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivCannabis" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/tvNamePlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:layout_marginHorizontal="@dimen/space_horizontal"
-                android:textStyle="bold"
                 android:textSize="@dimen/title"
-                app:layout_constraintStart_toEndOf="@+id/ivCannabis"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/blueberry" />
 
             <Button
                 android:id="@+id/btnAmount"
-                style="@style/Widget.Material3.Button.Icon"
+                style="@style/ButtonGoogle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/space_horizontal"
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/cantidad"
                 android:textColor="@color/black"
-                android:textSize="@dimen/subtitle"
+                android:textSize="@dimen/description"
                 android:textStyle="bold"
                 app:icon="@mipmap/ic_down"
                 app:iconGravity="end"
                 app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-                app:layout_constraintTop_toBottomOf="@id/tvNamePlant" />
+                app:layout_constraintTop_toTopOf="@+id/ivCannabis" />
 
             <TextView
-                android:id="@+id/Add"
+                android:id="@+id/tvTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/space_vertical"
+                android:text="@string/total"
                 android:textColor="@color/black"
-                android:textSize="@dimen/subtitle"
+                android:textSize="@dimen/description"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/btnAmount"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnAmount"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                tools:text="1785 $/g" />
+                android:translationZ="@dimen/translation_btn_google"
+                app:layout_constraintStart_toStartOf="@+id/btnAmount"
+                app:layout_constraintTop_toBottomOf="@+id/btnAmount"
+                tools:text="@string/total" />
 
             <TextView
-                android:id="@+id/addProducts"
+                android:id="@+id/titlePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/space_horizontal"
-                android:text="@string/desea_agregar_mas_productos"
-                android:textColor="@color/colorTint"
+                android:layout_marginVertical="@dimen/space_vertical"
+                android:text="@string/precio"
+                android:textColor="@color/black"
                 android:textSize="@dimen/subtitle"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivCannabis"
-                app:layout_constraintTop_toBottomOf="@+id/ivCannabis" />
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
 
+            <TextView
+                android:id="@+id/descriptionPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_horizontal"
+                android:layout_marginVertical="@dimen/space_vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/description"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/titlePrice"
+                tools:ignore="MissingConstraints"
+                tools:text="17.89" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

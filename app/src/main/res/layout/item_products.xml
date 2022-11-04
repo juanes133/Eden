@@ -3,25 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintParent"
-    android:background="@color/colorImageBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorImageBackground"
     android:padding="@dimen/padding_item_products">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivCannabis"
         android:layout_width="@dimen/size_width_image_item"
         android:layout_height="@dimen/size_heigth_image_item"
-        android:elevation="@dimen/elevation_card_image_item"
-        android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:padding="5dp"
-        app:strokeWidth="5dp"
+        android:elevation="@dimen/elevation_card_image_item"
+        android:outlineSpotShadowColor="@color/white"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_icon_principal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/circleImageStyle"/>
+        app:shapeAppearanceOverlay="@style/circleImageStyle"
+        tools:targetApi="p" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewText"
@@ -39,8 +40,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintItemText"
             android:layout_width="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tvNamePlant"
@@ -49,8 +50,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/title"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/constraintItemText"
                 app:layout_constraintBottom_toTopOf="@+id/descriptionPrice"
+                app:layout_constraintEnd_toEndOf="@id/constraintItemText"
                 app:layout_constraintStart_toStartOf="@id/constraintItemText"
                 app:layout_constraintTop_toTopOf="@id/constraintItemText"
                 tools:text="BlueBerry" />
@@ -62,8 +63,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/constraintItemText"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintItemText"
+                app:layout_constraintEnd_toEndOf="@id/constraintItemText"
                 app:layout_constraintStart_toStartOf="@id/constraintItemText"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
                 tools:text="17.85" />
@@ -73,12 +74,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:text="@string/price_grams"
-                android:textSize="@dimen/subtitle"
                 android:textColor="@color/black"
+                android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

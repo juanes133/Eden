@@ -17,7 +17,7 @@ class ProductsConverter {
                     document.data["efecto"].toString(),
                     document.data["thc"].toString(),
                     document.data["precio"].toString(),
-                    document.data["imagen"].toString()
+                    document.data["imagen"].toString(),
                 )
             )
         }
