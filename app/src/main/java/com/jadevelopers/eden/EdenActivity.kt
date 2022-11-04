@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -23,6 +24,8 @@ import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
+import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 
 class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
@@ -32,7 +35,12 @@ class EdenActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
-    private val productsViewModel: ProductsViewModel by viewModels()
+    public val shoppingCarViewModel: ShoppingCarViewModel by viewModels {
+        ShoppingCarViewModelFactory(
+            (application as EdenApplication).shoppingCarRepository,
+            (application as EdenApplication).productsRepository
+        )
+    }
     internal var menu: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -42,7 +42,9 @@ class ShoppingCarFragment : Fragment() {
         }
         shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
             binding.shoppingCarContainer.isVisible = false
+            //TODO: pendiente por hacer el fallback
         }
+
         binding.addProducts.setOnClickListener {
             binding.addProducts.findNavController().navigate(R.id.productsFragment)
         }
