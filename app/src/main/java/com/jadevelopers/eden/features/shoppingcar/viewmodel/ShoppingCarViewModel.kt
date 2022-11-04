@@ -1,6 +1,7 @@
 package com.jadevelopers.eden.features.shoppingcar.viewmodel
 
 import androidx.lifecycle.*
+import com.jadevelopers.eden.database.entities.ShoppingCar
 import com.jadevelopers.eden.features.productslist.repository.ProductsRepository
 import com.jadevelopers.eden.features.shoppingcar.repository.ShoppingCarRepository
 import com.jadevelopers.eden.model.ShoppingCarItem
@@ -11,11 +12,11 @@ class ShoppingCarViewModel(
     private val productsRepository: ProductsRepository,
 ) : ViewModel() {
 
-    private val mutableShoppingCarItem = MutableLiveData<ArrayList<ShoppingCarItem>>()
-    val shoppingCarItem: LiveData<ArrayList<ShoppingCarItem>> get() = mutableShoppingCarItem
+    private val mutableShoppingCarList = MutableLiveData<ArrayList<ShoppingCarItem>>()
+    val shoppingCarList: LiveData<ArrayList<ShoppingCarItem>> get() = mutableShoppingCarList
 
-    private val mutableShoppingCarItemError = MutableLiveData<Exception>()
-    val shoppingCarError: LiveData<Exception> get() = mutableShoppingCarItemError
+    private val mutableShoppingCarError = MutableLiveData<Exception>()
+    val shoppingCarError: LiveData<Exception> get() = mutableShoppingCarError
 
     private val mutableShoppingCarInsertItem = MutableLiveData<Boolean>()
     val shoppingCarInsertItem: LiveData<Boolean> get() = mutableShoppingCarInsertItem
@@ -35,9 +36,9 @@ class ShoppingCarViewModel(
                     val product = products.first { x -> x.id == it.id.toString() }
                     result.add(ShoppingCarItem(it.id, product.namePlant, product.photo, it.amount, product.price))
                 }
-                mutableShoppingCarItem.value = result
+                mutableShoppingCarList.value = result
             }, {
-                mutableShoppingCarItemError.value = it
+                mutableShoppingCarError.value = it
             })
         }
     }

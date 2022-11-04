@@ -6,7 +6,7 @@ import com.jadevelopers.eden.model.Product
 
 class ShoppingCarRepository(private val shoppingCarDao: ShoppingCarDao) {
 
-    fun getShoppingCar(
+    suspend fun getShoppingCar(
         onSuccess: (ArrayList<ShoppingCar>) -> Unit,
         onFailure: (Exception) -> Unit,
     ) {

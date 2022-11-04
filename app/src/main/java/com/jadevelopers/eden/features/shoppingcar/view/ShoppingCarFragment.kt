@@ -36,7 +36,7 @@ class ShoppingCarFragment : Fragment() {
         (activity as EdenActivity).supportActionBar?.title =
             getString(R.string.carrito_de_compras)
         (activity as EdenActivity).menu?.children?.first()?.isVisible = false
-        shoppingCarViewModel.shoppingCarItem.observe(viewLifecycleOwner) {
+        shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
             binding.shoppingCarContainer.isVisible = true
         }
