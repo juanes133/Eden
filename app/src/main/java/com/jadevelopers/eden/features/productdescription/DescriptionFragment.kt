@@ -49,10 +49,11 @@ class DescriptionFragment : Fragment() {
 
         binding.btnAdd.setOnClickListener {
             insertShoppingCarItem()
+            binding.btnAmount.isEnabled = false
         }
         binding.btnDelete.setOnClickListener {
             deleteShoppingCarItem()
-            binding.btnAmount.isEnabled=true
+            binding.btnAmount.isEnabled = true
         }
         binding.btnAmount.setOnClickListener {
             activity?.let {
@@ -62,16 +63,13 @@ class DescriptionFragment : Fragment() {
                     val text = "${getString(R.string.cantidad)}: ${grams[which]}"
                     binding.btnAmount.text = text
                     amount = grams[which].toInt()
-                    val operDos = binding.descriptionPrice.text
+                    val operDos = product?.price
                     val result = amount * operDos.toString().toInt()
                     binding.descriptionTotal.text = result.toString()
                 }
                 val dialog = builder.create()
                 dialog.show()
             }
-        }
-        binding.btnShoppingCar.setOnClickListener {
-            findNavController().navigate(R.id.shoppingFragment)
         }
         shoppingCarViewModel.shoppingCarInsertItem.observe(viewLifecycleOwner) {
             binding.btnAdd.isVisible = false
