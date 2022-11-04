@@ -199,18 +199,45 @@
                     android:textSize="@dimen/description"
                     app:layout_constraintStart_toEndOf="@+id/titlePrice"
                     app:layout_constraintTop_toBottomOf="@+id/titleTaste"
-                    tools:text="17.89"/>
+                    tools:text="17.89" />
+
 
                 <TextView
+                    android:id="@+id/titleTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
+                    android:text="@string/valor_total"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/subtitle"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titlePrice" />
+
+                <TextView
+                    android:id="@+id/descriptionTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_horizontal"
+                    android:layout_marginVertical="@dimen/space_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/description"
+                    app:layout_constraintStart_toEndOf="@id/titleTotal"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionPrice"
+                    tools:text="17.89" />
+
+                <TextView
+                    android:id="@+id/measure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="2dp"
                     android:layout_marginVertical="@dimen/space_vertical"
+                    android:text="@string/price_grams"
                     android:textColor="@color/black"
                     android:textSize="@dimen/description"
                     app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste"
-                    android:text="@string/price_grams"/>
+                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
 
 
                 <Button
@@ -225,34 +252,39 @@
                     app:iconGravity="end"
                     app:iconTint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titlePrice" />
+                    app:layout_constraintTop_toBottomOf="@+id/titleTotal" />
 
-                <Button
-                    android:id="@+id/btnAdd"
-                    style="@style/ButtonShopping"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAddDelete"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="12dp"
-                    app:layout_constraintStart_toEndOf="@id/btnAmount"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionPrice"
-                    android:text="@string/Agregar" />
+                    app:layout_constraintTop_toBottomOf="@id/btnAmount">
 
-                <Button
-                    android:id="@+id/btnShoppingCar"
-                    style="@style/ButtonShopping"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:text="@string/comprar"
-                    app:icon="@mipmap/ic_shopping_cart"
-                    app:iconGravity="end"
-                    app:iconTint="@color/white"
-                    app:layout_constraintStart_toEndOf="@+id/btnAdd"
-                    app:layout_constraintStart_toStartOf="@id/constraintText"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAmount"
-                    tools:textColor="@color/white" />
+                    <Button
+                        android:id="@+id/btnAdd"
+                        style="@style/ButtonShopping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/space_horizontal"
+                        android:text="@string/Agregar"
+                        app:layout_constraintStart_toStartOf="@id/constraintAddDelete"
+                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete" />
 
+                    <TextView
+                        android:id="@+id/btnDelete"
+                        style="@style/ButtonShopping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/eliminar"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/subtitle"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="@id/constraintAddDelete"
+                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete"
+                        tools:visibility="gone" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

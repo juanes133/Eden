@@ -10,7 +10,7 @@ interface ShoppingCarDao {
     fun getAll(): List<ShoppingCar>
 
     @Query("SELECT * FROM shoppingCar WHERE id = :id")
-    fun getById(id: Int): List<ShoppingCar>
+    suspend fun getById(id: Int): List<ShoppingCar>
 
     @Update
     suspend fun update(ShoppingCar: ShoppingCar)
@@ -18,6 +18,6 @@ interface ShoppingCarDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(shoppingCar: ShoppingCar)
 
-    @Delete
-    suspend fun delete(ShoppingCar: ShoppingCar)
+    @Query("DELETE FROM shoppingCar WHERE id = :id")
+    suspend fun delete(id: Int)
 }
