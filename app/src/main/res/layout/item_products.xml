@@ -31,11 +31,14 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="-60dp"
         android:orientation="vertical"
+        android:outlineAmbientShadowColor="@color/colorImageBackground"
+        android:outlineSpotShadowColor="@color/colorImageBackground"
         app:cardCornerRadius="@dimen/radius_text_description"
         app:layout_constraintBottom_toBottomOf="@id/constraintParent"
         app:layout_constraintEnd_toEndOf="@id/constraintParent"
         app:layout_constraintStart_toEndOf="@id/ivCannabis"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnusedAttribute">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintItemText"
@@ -65,11 +68,13 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintItemText"
                 app:layout_constraintEnd_toEndOf="@id/constraintItemText"
-                app:layout_constraintStart_toStartOf="@id/constraintItemText"
+                app:layout_constraintHorizontal_bias="0.442"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant"
                 tools:text="17.85" />
 
             <TextView
+                android:id="@+id/grams"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
@@ -78,6 +83,7 @@
                 android:textSize="@dimen/subtitle"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
 

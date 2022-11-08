@@ -1,31 +1,26 @@
 package com.jadevelopers.eden
 
-import android.os.Build
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jadevelopers.eden.utilities.CheckNetworkConnection
 import com.jadevelopers.eden.databinding.ActivityMainBinding
-import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
+import com.jadevelopers.eden.utilities.CheckNetworkConnection
 
 class EdenActivity : AppCompatActivity() {
     private var dialog: AlertDialog? = null
@@ -35,7 +30,7 @@ class EdenActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
-    public val shoppingCarViewModel: ShoppingCarViewModel by viewModels {
+    val shoppingCarViewModel: ShoppingCarViewModel by viewModels {
         ShoppingCarViewModelFactory(
             (application as EdenApplication).shoppingCarRepository,
             (application as EdenApplication).productsRepository

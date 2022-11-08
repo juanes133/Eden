@@ -20,8 +20,7 @@ class ShoppingCarAdapter(
     }
 
     override fun onBindViewHolder(holder: ShoppingCarViewHolder, position: Int) {
-        holder.render(shoppingCarList[position])
-    }
+        holder.render(shoppingCarList[position]) }
 
     override fun getItemCount(): Int = shoppingCarList.size
 }

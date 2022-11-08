@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.jadevelopers.eden.EdenApplication
@@ -54,7 +53,8 @@ class DescriptionFragment : Fragment() {
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
-
+        val txtAmount = "${getString(R.string.cantidad)}: $amount"
+        binding.btnAmount.text = txtAmount
         binding.btnAdd.setOnClickListener {
             insertShoppingCarItem()
             binding.btnAmount.isEnabled = false
@@ -71,8 +71,8 @@ class DescriptionFragment : Fragment() {
                     val text = "${getString(R.string.cantidad)}: ${grams[which]}"
                     binding.btnAmount.text = text
                     amount = grams[which].toInt()
-                    val operDos = product?.price
-                    val result = amount * operDos.toString().toInt()
+                    val operaDos = product?.price
+                    val result = amount * operaDos.toString().toInt()
                     binding.descriptionTotal.text = result.toString()
                 }
                 val dialog = builder.create()

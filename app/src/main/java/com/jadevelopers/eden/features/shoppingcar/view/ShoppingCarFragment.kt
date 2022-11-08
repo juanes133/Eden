@@ -39,16 +39,18 @@ class ShoppingCarFragment : Fragment() {
         shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
             binding.shoppingCarContainer.isVisible = true
+            binding.fallbackContainer.isVisible = false
+        }
+        shoppingCarViewModel.shoppingCarDeleteItem.observe(viewLifecycleOwner) {
+            binding.shoppingCarContainer.isVisible = true
         }
         shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
             binding.shoppingCarContainer.isVisible = false
-            //TODO: pendiente por hacer el fallback
+            binding.fallbackContainer.isVisible = true
         }
-
         binding.addProducts.setOnClickListener {
             binding.addProducts.findNavController().navigate(R.id.productsFragment)
         }
-
         return binding.root
     }
 
@@ -63,7 +65,6 @@ class ShoppingCarFragment : Fragment() {
             shoppingCarViewModel.getShoppingCar()
         }
     }
-
 
     override fun onResume() {
         super.onResume()
