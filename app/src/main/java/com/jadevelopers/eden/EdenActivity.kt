@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.databinding.ActivityMainBinding
+import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
 import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
 import com.jadevelopers.eden.utilities.CheckNetworkConnection
@@ -30,7 +31,12 @@ class EdenActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private var navController: NavController? = null
     private var navigationView: NavigationView? = null
-    val shoppingCarViewModel: ShoppingCarViewModel by viewModels {
+    internal val productsViewModel: ProductsViewModel by viewModels {
+        ProductsViewModel.ProductsViewModelFactory(
+            (application as EdenApplication).productsRepository
+        )
+    }
+    internal val shoppingCarViewModel: ShoppingCarViewModel by viewModels {
         ShoppingCarViewModelFactory(
             (application as EdenApplication).shoppingCarRepository,
             (application as EdenApplication).productsRepository

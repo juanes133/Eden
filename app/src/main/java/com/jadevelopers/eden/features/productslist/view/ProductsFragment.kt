@@ -10,6 +10,7 @@ import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
@@ -18,28 +19,24 @@ import com.jadevelopers.eden.EdenActivity
 import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
+import com.jadevelopers.eden.features.base.EdenFragment
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
 import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
 import com.jadevelopers.eden.model.Product
 
-class ProductsFragment : Fragment() {
+class ProductsFragment : EdenFragment() {
 
     private lateinit var binding: FragmentProductsBinding
-    private val productsViewModel: ProductsViewModel by activityViewModels {
-        ProductsViewModelFactory(
-            (activity?.application as EdenApplication).productsRepository
-        )
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        (activity as EdenActivity).supportActionBar?.title = getString(R.string.titulo_productos)
-        (activity as EdenActivity).supportActionBar?.show()
-        (activity as EdenActivity).menu?.children?.first()?.isVisible = true
-        productsViewModel.productsList.observe(viewLifecycleOwner) {
+        edenActivity.supportActionBar?.title = getString(R.string.titulo_productos)
+        edenActivity.supportActionBar?.show()
+        edenActivity.menu?.children?.first()?.isVisible = true
+        edenActivity.productsViewModel.productsList.observe(viewLifecycleOwner) {
             initRecyclerViewProduct(it)
             binding.loading.isVisible = false
             binding.productsContainer.isVisible = true
@@ -48,7 +45,7 @@ class ProductsFragment : Fragment() {
         binding.btnRetry.setOnClickListener {
             getProducts()
         }
-        productsViewModel.productsError.observe(viewLifecycleOwner) {
+        edenActivity.productsViewModel.productsError.observe(viewLifecycleOwner) {
             binding.fallbackContainer.isVisible = true
             binding.loading.isVisible = false
             binding.productsContainer.isVisible = false
@@ -75,7 +72,7 @@ class ProductsFragment : Fragment() {
         binding.productsContainer.isVisible = false
         binding.fallbackContainer.isVisible = false
         binding.loading.isVisible = true
-        productsViewModel.getProducts()
+        edenActivity.productsViewModel.getProducts()
     }
 
     private fun initRecyclerViewProduct(list: ArrayList<Product>) {

@@ -6,45 +6,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jadevelopers.eden.EdenActivity
-import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentShoppingCarBinding
-import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModel
-import com.jadevelopers.eden.features.shoppingcar.viewmodel.ShoppingCarViewModelFactory
+import com.jadevelopers.eden.features.base.EdenFragment
 import com.jadevelopers.eden.model.ShoppingCarItem
 
-class ShoppingCarFragment : Fragment() {
+class ShoppingCarFragment : EdenFragment() {
 
     private lateinit var binding: FragmentShoppingCarBinding
-    private val shoppingCarViewModel: ShoppingCarViewModel by activityViewModels {
-        ShoppingCarViewModelFactory(
-            (activity?.application as EdenApplication).shoppingCarRepository,
-            (activity?.application as EdenApplication).productsRepository
-        )
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentShoppingCarBinding.inflate(inflater, container, false)
-        (activity as EdenActivity).supportActionBar?.title =
+        edenActivity.supportActionBar?.title =
             getString(R.string.carrito_de_compras)
-        (activity as EdenActivity).menu?.children?.first()?.isVisible = false
-        shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
+        edenActivity.menu?.children?.first()?.isVisible = false
+        edenActivity.shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
             binding.shoppingCarContainer.isVisible = true
             binding.fallbackContainer.isVisible = false
         }
-        shoppingCarViewModel.shoppingCarDeleteItem.observe(viewLifecycleOwner) {
+        edenActivity.shoppingCarViewModel.shoppingCarDeleteItem.observe(viewLifecycleOwner) {
             binding.shoppingCarContainer.isVisible = true
         }
-        shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
+        edenActivity.shoppingCarViewModel.shoppingCarError.observe(viewLifecycleOwner) {
             binding.shoppingCarContainer.isVisible = false
             binding.fallbackContainer.isVisible = true
         }
@@ -62,7 +51,7 @@ class ShoppingCarFragment : Fragment() {
 
     private fun getShoppingCar() {
         activity?.applicationContext?.let {
-            shoppingCarViewModel.getShoppingCar()
+            edenActivity.shoppingCarViewModel.getShoppingCar()
         }
     }
 

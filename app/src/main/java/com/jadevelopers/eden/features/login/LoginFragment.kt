@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -20,8 +18,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentLoginBinding
+import com.jadevelopers.eden.features.base.EdenFragment
 
-class LoginFragment : Fragment() {
+class LoginFragment : EdenFragment() {
 
     private var auth: FirebaseAuth? = null
     private var googleSignInClient: GoogleSignInClient? = null
@@ -31,10 +30,11 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        context
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-        (activity as AppCompatActivity).supportActionBar?.title = ""
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        (activity as AppCompatActivity).supportActionBar?.hide()
+        edenActivity.supportActionBar?.title = ""
+        edenActivity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        edenActivity.supportActionBar?.hide()
         binding.icIcon.animation =
             AnimationUtils.loadAnimation(context, R.anim.scroll_down_image_text_login)
         binding.eden.animation =
