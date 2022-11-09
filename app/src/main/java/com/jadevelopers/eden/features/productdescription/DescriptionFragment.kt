@@ -54,7 +54,8 @@ class DescriptionFragment : Fragment() {
         binding.descriptionTaste.text = product?.taste
         binding.descriptionPrice.text = product?.price
         Glide.with(binding.ivCannabis.context).load(product?.photo).into(binding.ivCannabis)
-
+        val txtAmount = "${getString(R.string.cantidad)}: $amount"
+        binding.btnAmount.text = txtAmount
         binding.btnAdd.setOnClickListener {
             insertShoppingCarItem()
             binding.btnAmount.isEnabled = false

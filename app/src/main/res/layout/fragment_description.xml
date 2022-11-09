@@ -82,7 +82,7 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/descripcion"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
+                    android:textSize="@dimen/description"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
@@ -108,7 +108,7 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/thc"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
+                    android:textSize="@dimen/description"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/descriptionProduct" />
@@ -121,8 +121,10 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:textColor="@color/black"
                     android:textSize="@dimen/description"
+                    app:layout_constraintBottom_toTopOf="@+id/descriptionEffect"
+                    app:layout_constraintEnd_toEndOf="@id/constraintText"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/titleThc"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionProduct"
                     tools:text="19,5%" />
 
                 <TextView
@@ -133,7 +135,7 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/efecto"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
+                    android:textSize="@dimen/description"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleThc" />
@@ -159,7 +161,7 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/sabor"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
+                    android:textSize="@dimen/description"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleEffect" />
@@ -185,7 +187,7 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/precio"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
+                    android:textSize="@dimen/description"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
@@ -210,7 +212,7 @@
                     android:layout_marginVertical="@dimen/space_vertical"
                     android:text="@string/valor_total"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
+                    android:textSize="@dimen/description"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/titlePrice" />
@@ -246,12 +248,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/space_horizontal"
                     android:layout_marginVertical="@dimen/space_vertical"
+                    android:background="@drawable/selector_btn_enable_property"
+                    android:radius="30dp"
                     android:text="@string/cantidad"
                     app:icon="@mipmap/ic_down"
                     app:iconGravity="end"
                     app:iconTint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTotal" />
+                    app:layout_constraintTop_toBottomOf="@+id/titleTotal"
+                    tools:enabled="false" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintAddDelete"
@@ -267,7 +272,8 @@
                         android:layout_marginHorizontal="@dimen/space_horizontal"
                         android:text="@string/Agregar"
                         app:layout_constraintStart_toStartOf="@id/constraintAddDelete"
-                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete" />
+                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete"
+                        tools:visibility="gone" />
 
                     <TextView
                         android:id="@+id/btnDelete"
@@ -280,8 +286,7 @@
                         android:textSize="@dimen/subtitle"
                         android:visibility="visible"
                         app:layout_constraintStart_toStartOf="@id/constraintAddDelete"
-                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete"
-                        tools:visibility="gone" />
+                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,11 +36,12 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="ButtonAdd" parent="Widget.Material3.Button.Icon">
+    <style name="ButtonAmount." parent="Widget.Material3.Button">
         <item name="android:textColor">@color/white</item>
-        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:backgroundTint">@drawable/selector_btn_enable_property</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/selector_btn_enable_property</item>
     </style>
 
 </resources>

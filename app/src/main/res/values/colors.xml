@@ -16,5 +16,5 @@
     <color name="colorSecondary">#D0D8D7</color>
     <color name="colorProgressBar">#FF018786</color>
     <color name="colorImageBackground">#F6F6F6</color>
-
+    <color name="colorNotAvailable">#939495</color>
 </resources>
