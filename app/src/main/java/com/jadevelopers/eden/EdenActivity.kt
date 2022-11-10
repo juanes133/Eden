@@ -140,7 +140,7 @@ class EdenActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
+    fun onBackPressed(productsFragment: Int) {
         if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
             drawerLayout?.closeDrawer(GravityCompat.START)
         } else if (Firebase.auth.currentUser == null) {

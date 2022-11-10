@@ -8,20 +8,13 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jadevelopers.eden.EdenActivity
-import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
 import com.jadevelopers.eden.features.base.EdenFragment
-import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
-import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
 import com.jadevelopers.eden.model.Product
 
 class ProductsFragment : EdenFragment() {
@@ -32,6 +25,7 @@ class ProductsFragment : EdenFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentProductsBinding.inflate(inflater, container, false)
         edenActivity.supportActionBar?.title = getString(R.string.titulo_productos)
         edenActivity.supportActionBar?.show()

@@ -1,12 +1,13 @@
 package com.jadevelopers.eden.features.shoppingcar.view
 
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentShoppingCarBinding
@@ -38,15 +39,19 @@ class ShoppingCarFragment : EdenFragment() {
             binding.fallbackContainer.isVisible = true
         }
         binding.addProducts.setOnClickListener {
-            binding.addProducts.findNavController().navigate(R.id.productsFragment)
+            this.parentFragmentManager
+                .primaryNavigationFragment
+                ?.findNavController()?.popBackStack()
         }
+
         return binding.root
     }
 
     private fun recyclerShoppingCar(list: ArrayList<ShoppingCarItem>) {
         val manager = LinearLayoutManager(context)
         binding.recyclerShoppingCar.layoutManager = manager
-        binding.recyclerShoppingCar.adapter = activity?.let { ShoppingCarAdapter(list, it) }
+        binding.recyclerShoppingCar.adapter =
+            activity?.let { ShoppingCarAdapter(list, it) }
     }
 
     private fun getShoppingCar() {

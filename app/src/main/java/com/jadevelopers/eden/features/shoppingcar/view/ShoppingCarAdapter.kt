@@ -17,10 +17,12 @@ class ShoppingCarAdapter(
         return ShoppingCarViewHolder(layoutInflater.inflate(R.layout.item_shopping_car,
             parent,
             false), context)
+
     }
 
     override fun onBindViewHolder(holder: ShoppingCarViewHolder, position: Int) {
-        holder.render(shoppingCarList[position]) }
+        holder.render(shoppingCarList[position])
+    }
 
     override fun getItemCount(): Int = shoppingCarList.size
 }

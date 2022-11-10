@@ -3,6 +3,7 @@ package com.jadevelopers.eden.features.shoppingcar.view
 import android.content.Context
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jadevelopers.eden.EdenActivity
@@ -23,6 +24,7 @@ class ShoppingCarViewHolder(view: View, val context: Context) : RecyclerView.Vie
             .into(binding.ivCannabis)
         binding.btnDelete.setOnClickListener {
             (context as EdenActivity).shoppingCarViewModel.deleteShoppingCarItem(shoppingCarModel.id)
+            binding.itemShopping.isVisible = false
         }
 
         val result = shoppingCarModel.amount * shoppingCarModel.price.toInt()
@@ -44,10 +46,9 @@ class ShoppingCarViewHolder(view: View, val context: Context) : RecyclerView.Vie
                 val result = amount * shoppingCarModel.price.toInt()
                 val total = "${context.getString(R.string.total)}: $result"
                 binding.tvTotal.text = total
-
-                val dialog = builder.create()
-                dialog.show()
             }
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 }
