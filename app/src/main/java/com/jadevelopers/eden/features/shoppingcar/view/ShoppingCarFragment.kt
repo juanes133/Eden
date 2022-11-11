@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jadevelopers.eden.EdenActivity
 import com.jadevelopers.eden.EdenApplication
@@ -46,7 +47,10 @@ class ShoppingCarFragment : Fragment() {
         }
 
         binding.addProducts.setOnClickListener {
-            binding.addProducts.findNavController().navigate(R.id.productsFragment)
+            findNavController().navigate(R.id.productsFragment)
+        }
+        binding.shopping.setOnClickListener {
+           findNavController().navigate(R.id.checkOutFragment)
         }
 
         return binding.root

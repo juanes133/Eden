@@ -46,4 +46,9 @@
         tools:layout="@layout/fragment_shopping_car">
         <argument android:name="idProductsShopping" />
     </fragment>
+    <fragment
+        android:id="@+id/checkOutFragment"
+        android:name="com.jadevelopers.eden.features.checkout.CheckOutFragment"
+        android:label="fragment_check_out"
+        tools:layout="@layout/fragment_check_out" />
 </navigation>

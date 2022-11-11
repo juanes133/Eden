@@ -16,6 +16,7 @@ class CheckOutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        binding= FragmentCheckOutBinding.inflate(inflater, container, false)
         return binding.root
     }
 

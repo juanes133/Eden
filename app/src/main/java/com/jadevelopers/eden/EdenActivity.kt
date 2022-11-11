@@ -86,7 +86,6 @@ class EdenActivity : AppCompatActivity() {
             findNavController(R.id.fragmentContainerView).navigate(R.id.action_productsFragment_to_loginFragment)
             drawerLayout?.closeDrawers()
         }
-
         if (checkNetworkConnection?.isConnected(this) == false) {
             dialog?.setCancelable(false)
             dialog?.show()
