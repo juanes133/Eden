@@ -27,7 +27,6 @@ class ProductsFragment : EdenFragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        edenActivity.supportActionBar?.title = getString(R.string.titulo_productos)
         edenActivity.supportActionBar?.show()
         edenActivity.menu?.children?.first()?.isVisible = true
         edenActivity.productsViewModel.productsList.observe(viewLifecycleOwner) {
@@ -55,10 +54,8 @@ class ProductsFragment : EdenFragment() {
             @Suppress("DEPRECATION")
             binding.loading.indeterminateDrawable.setColorFilter(
                 this.resources.getColor(R.color.colorPrimary),
-                PorterDuff.Mode.SRC_ATOP
-            )
+                PorterDuff.Mode.SRC_ATOP)
         }
-
         return binding.root
     }
 

@@ -1,7 +1,6 @@
 package com.jadevelopers.eden.features.shoppingcar.view
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +22,6 @@ class ShoppingCarFragment : EdenFragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentShoppingCarBinding.inflate(inflater, container, false)
-        edenActivity.supportActionBar?.title =
-            getString(R.string.carrito_de_compras)
         edenActivity.menu?.children?.first()?.isVisible = false
         edenActivity.shoppingCarViewModel.shoppingCarList.observe(viewLifecycleOwner) {
             recyclerShoppingCar(it)
@@ -39,11 +36,14 @@ class ShoppingCarFragment : EdenFragment() {
             binding.fallbackContainer.isVisible = true
         }
         binding.addProducts.setOnClickListener {
-            this.parentFragmentManager
-                .primaryNavigationFragment
-                ?.findNavController()?.popBackStack()
+            if (findNavController().backQueue.size == 3) {
+                findNavController().popBackStack()
+            }else{
+                if (findNavController().backQueue.size == 4) {
+                    findNavController().popBackStack(R.id.productsFragment, false)
+                }
+            }
         }
-
         return binding.root
     }
 

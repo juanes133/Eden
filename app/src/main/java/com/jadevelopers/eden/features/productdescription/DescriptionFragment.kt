@@ -25,8 +25,6 @@ class DescriptionFragment : EdenFragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
-        edenActivity.supportActionBar?.title =
-            getString(R.string.titulo_descripcion)
         product = edenActivity.productsViewModel.productsList.value?.firstOrNull { x -> x.id == args.idProduct }
         getByIdShoppingCarItem()
         binding.tvNamePlant.text = product?.namePlant

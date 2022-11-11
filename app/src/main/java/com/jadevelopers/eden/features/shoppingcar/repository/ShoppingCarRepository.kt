@@ -2,7 +2,6 @@ package com.jadevelopers.eden.features.shoppingcar.repository
 
 import com.jadevelopers.eden.database.ShoppingCarDao
 import com.jadevelopers.eden.database.entities.ShoppingCar
-import com.jadevelopers.eden.model.Product
 
 class ShoppingCarRepository(private val shoppingCarDao: ShoppingCarDao) {
 
