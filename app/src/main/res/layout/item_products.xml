@@ -15,7 +15,7 @@
         android:adjustViewBounds="true"
         android:elevation="@dimen/elevation_card_image_item"
         android:outlineSpotShadowColor="@color/white"
-        android:padding="8dp"
+        android:padding="@dimen/paddin_constrain_image"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_icon_principal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,13 +27,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewText"
         android:layout_width="@dimen/width_card_item_text"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="-60dp"
         android:orientation="vertical"
-        android:outlineAmbientShadowColor="@color/colorImageBackground"
-        android:outlineSpotShadowColor="@color/colorImageBackground"
         app:cardCornerRadius="@dimen/radius_text_description"
+        android:layout_marginStart="@dimen/margin_card_item_products"
+        android:layout_marginEnd="@dimen/margin_item_products"
         app:layout_constraintBottom_toBottomOf="@id/constraintParent"
         app:layout_constraintEnd_toEndOf="@id/constraintParent"
         app:layout_constraintStart_toEndOf="@id/ivCannabis"
@@ -44,6 +43,7 @@
             android:id="@+id/constraintItemText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_item_text"
             android:layout_gravity="center_vertical">
 
             <TextView

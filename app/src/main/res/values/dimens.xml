@@ -37,4 +37,7 @@
     <dimen name="space_horizontal_shopping">12dp</dimen>
     <dimen name="space_horizontal_total">15dp</dimen>
     <dimen name="radius_shopping_card">15dp</dimen>
+    <dimen name="margin_item_products">16dp</dimen>
+    <dimen name="margin_card_item_products">-60dp</dimen>
+    <dimen name="margin_item_text">25dp</dimen>
 </resources>
