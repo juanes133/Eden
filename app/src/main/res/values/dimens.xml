@@ -5,7 +5,7 @@
     <dimen name="tamanio_image_button">48dp</dimen>
     <dimen name="padding">16dp</dimen>
     <dimen name="space_horizontal">5dp</dimen>
-    <dimen name="space_vertical">10dp</dimen>
+    <dimen name="space_vertical">2dp</dimen>
     <dimen name="margin_image_item_vertical">5dp</dimen>
     <dimen name="title">18sp</dimen>
     <dimen name="subtitle">16sp</dimen>
@@ -39,5 +39,5 @@
     <dimen name="radius_shopping_card">15dp</dimen>
     <dimen name="margin_item_products">16dp</dimen>
     <dimen name="margin_card_item_products">-60dp</dimen>
-    <dimen name="margin_item_text">25dp</dimen>
+    <dimen name="margin_btn_description">10dp</dimen>
 </resources>

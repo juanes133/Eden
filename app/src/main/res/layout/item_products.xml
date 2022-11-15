@@ -43,7 +43,7 @@
             android:id="@+id/constraintItemText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_item_text"
+            android:layout_margin="25dp"
             android:layout_gravity="center_vertical">
 
             <TextView

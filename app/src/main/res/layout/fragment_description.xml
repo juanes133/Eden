@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,288 +7,308 @@
     android:background="@color/colorImageBackground"
     tools:context=".features.productdescription.DescriptionFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintItem"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".features.productdescription.DescriptionFragment">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/paddin_constrain_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardImage"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorImageBackground"
-                android:elevation="@dimen/elevation_card_image_description"
-                app:layout_constraintEnd_toEndOf="@id/constraintImage"
+                android:paddingTop="@dimen/paddin_constrain_image"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/ivCannabis"
-                    android:layout_width="@dimen/size_width_image_login"
-                    android:layout_height="@dimen/size_height_image_login"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    app:shapeAppearanceOverlay="@style/circleImageStyle"
-                    tools:src="@mipmap/ic_icon_principal" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorImageBackground"
+                    android:elevation="@dimen/elevation_card_image_description"
+                    app:layout_constraintEnd_toEndOf="@id/constraintImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivCannabis"
+                        android:layout_width="@dimen/size_width_image_login"
+                        android:layout_height="@dimen/size_height_image_login"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/circleImageStyle"
+                        tools:src="@mipmap/ic_icon_principal" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_card_view"
-            android:elevation="@dimen/elevation_text_description"
-            app:cardCornerRadius="@dimen/radius_text_description"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintImage">
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding">
+                android:padding="@dimen/padding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintImage">
 
-                <TextView
-                    android:id="@+id/tvNamePlant"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/title"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/constraintText"
-                    tools:text="@string/blueberry" />
-
-                <TextView
-                    android:id="@+id/titleDescription"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/descripcion"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
-
-                <TextView
-                    android:id="@+id/descriptionProduct"
-                    android:layout_width="@dimen/size_width_description_product"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/titleDescription"
-                    tools:text="@string/descripcion_producto" />
-
-                <TextView
-                    android:id="@+id/titleThc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/thc"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionProduct" />
-
-                <TextView
-                    android:id="@+id/descriptionThc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintStart_toEndOf="@+id/titleThc"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionProduct"
-                    tools:text="19,5%" />
-
-                <TextView
-                    android:id="@+id/titleEffect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/efecto"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleThc" />
-
-                <TextView
-                    android:id="@+id/descriptionEffect"
-                    android:layout_width="@dimen/size_width_description_product"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/titleEffect"
-                    app:layout_constraintTop_toBottomOf="@+id/titleThc"
-                    tools:text="@string/fuerte_con_notas_dulces_de_frutas_y_tonos" />
-
-                <TextView
-                    android:id="@+id/titleTaste"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/sabor"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleEffect" />
-
-                <TextView
-                    android:id="@+id/descriptionTaste"
-                    android:layout_width="@dimen/size_width_description_product"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/titleTaste"
-                    app:layout_constraintTop_toBottomOf="@+id/titleEffect"
-                    tools:text="@string/saborTexto" />
-
-                <TextView
-                    android:id="@+id/titlePrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/precio"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
-
-                <TextView
-                    android:id="@+id/descriptionPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintStart_toEndOf="@+id/titlePrice"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste"
-                    tools:text="17.89" />
-
-                <TextView
-                    android:id="@+id/titleTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/valor_total"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/titlePrice" />
-
-                <TextView
-                    android:id="@+id/descriptionTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintStart_toEndOf="@id/titleTotal"
-                    app:layout_constraintTop_toBottomOf="@id/descriptionPrice"
-                    tools:text="17.89" />
-
-                <TextView
-                    android:id="@+id/measure"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/price_grams"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/description"
-                    app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
-
-                <Button
-                    android:id="@+id/btnAmount"
-                    style="@style/ButtonAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_horizontal"
-                    android:layout_marginVertical="@dimen/space_vertical"
-                    android:text="@string/cantidad"
-                    app:icon="@mipmap/ic_down"
-                    app:iconGravity="end"
-                    app:iconTint="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTotal" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintAddDelete"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/btnAmount">
+                    android:layout_margin="@dimen/margin_card_view"
+                    android:elevation="@dimen/elevation_text_description"
+                    app:cardCornerRadius="@dimen/radius_text_description"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <Button
-                        android:id="@+id/btnAdd"
-                        style="@style/ButtonShopping"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/space_horizontal"
-                        android:text="@string/Agregar"
-                        app:layout_constraintStart_toStartOf="@id/constraintAddDelete"
-                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete" />
+                        android:padding="@dimen/padding">
 
-                    <TextView
-                        android:id="@+id/btnDelete"
-                        style="@style/ButtonShopping"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="5dp"
-                        android:text="@string/eliminar"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/subtitle"
-                        android:visibility="visible"
-                        app:layout_constraintStart_toStartOf="@id/constraintAddDelete"
-                        app:layout_constraintTop_toTopOf="@id/constraintAddDelete"
-                        tools:visibility="gone" />
+                        <TextView
+                            android:id="@+id/tvNamePlant"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/title"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/blueberry" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/titleDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:text="@string/descripcion"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subtitle"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvNamePlant" />
+
+                        <TextView
+                            android:id="@+id/descriptionProduct"
+                            android:layout_width="@dimen/size_width_description_product"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/titleDescription"
+                            tools:text="@string/descripcion_producto" />
+
+                        <TextView
+                            android:id="@+id/titleThc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_horizontal"
+                            android:text="@string/thc"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subtitle"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/descriptionProduct" />
+
+                        <TextView
+                            android:id="@+id/descriptionThc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintStart_toEndOf="@+id/titleThc"
+                            app:layout_constraintTop_toBottomOf="@+id/descriptionProduct"
+                            tools:text="19,5%" />
+
+                        <TextView
+                            android:id="@+id/titleEffect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:text="@string/efecto"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subtitle"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/titleThc" />
+
+                        <TextView
+                            android:id="@+id/descriptionEffect"
+                            android:layout_width="@dimen/size_width_description_product"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/titleEffect"
+                            app:layout_constraintTop_toBottomOf="@+id/titleThc"
+                            tools:text="@string/fuerte_con_notas_dulces_de_frutas_y_tonos" />
+
+                        <TextView
+                            android:id="@+id/titleTaste"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:text="@string/sabor"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subtitle"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/descriptionEffect" />
+
+                        <TextView
+                            android:id="@+id/descriptionTaste"
+                            android:layout_width="@dimen/size_width_description_product"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/titleTaste"
+                            app:layout_constraintTop_toBottomOf="@+id/descriptionEffect"
+                            tools:text="@string/saborTexto" />
+
+                        <TextView
+                            android:id="@+id/titlePrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:text="@string/precio"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subtitle"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
+
+                        <TextView
+                            android:id="@+id/descriptionPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintStart_toEndOf="@+id/titlePrice"
+                            app:layout_constraintTop_toBottomOf="@+id/titleTaste"
+                            tools:text="17.89" />
+
+                        <TextView
+                            android:id="@+id/titleTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:text="@string/valor_total"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subtitle"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/titlePrice" />
+
+                        <TextView
+                            android:id="@+id/descriptionTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_horizontal"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintStart_toEndOf="@id/titleTotal"
+                            app:layout_constraintTop_toBottomOf="@id/descriptionPrice"
+                            tools:text="17.89" />
+
+                        <TextView
+                            android:id="@+id/measure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="2dp"
+                            android:layout_marginVertical="@dimen/space_vertical"
+                            android:text="@string/price_grams"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/description"
+                            app:layout_constraintStart_toEndOf="@+id/descriptionPrice"
+                            app:layout_constraintTop_toBottomOf="@+id/titleTaste" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_card_item_products">
+
+            <Button
+                android:id="@+id/btnAmount"
+                style="@style/ButtonAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_btn_description"
+                android:text="@string/cantidad"
+                app:icon="@mipmap/ic_down"
+                app:iconGravity="end"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                style="@style/ButtonShopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_btn_description"
+                android:text="@string/Agregar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/btnDelete"
+                style="@style/ButtonShopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_btn_description"
+                android:text="@string/eliminar"
+                android:textColor="@color/red"
+                android:textSize="@dimen/subtitle"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
