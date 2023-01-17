@@ -40,4 +40,5 @@
     <dimen name="margin_item_products">16dp</dimen>
     <dimen name="margin_card_item_products">-60dp</dimen>
     <dimen name="margin_btn_description">10dp</dimen>
+    <dimen name="margin_vertical_text">16dp</dimen>
 </resources>

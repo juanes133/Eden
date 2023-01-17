@@ -59,7 +59,6 @@ class EdenActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
         drawerLayout = binding.drawerLayout
-        navigationView = binding.navigationView
         appBarConfiguration = navController?.let {
             AppBarConfiguration(it.graph, drawerLayout)
         }
