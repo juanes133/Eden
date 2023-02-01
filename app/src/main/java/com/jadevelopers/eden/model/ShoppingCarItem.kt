@@ -5,6 +5,6 @@ data class ShoppingCarItem(
     val namePlant: String,
     val photo: String,
     val amount: Int,
-    val price: String
+    val price: String,
 )
    

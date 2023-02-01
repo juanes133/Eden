@@ -3,7 +3,7 @@
     <style name="Theme.Eden" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorTint</item>
+        <item name="colorPrimaryVariant">@color/colorTint3</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#D0D8D7</item>

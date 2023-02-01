@@ -10,13 +10,19 @@
         android:id="@+id/itemShopping"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:outlineAmbientShadowColor="@color/colorImageBackground"
+        android:outlineSpotShadowColor="@color/colorImageBackground"
+        app:cardCornerRadius="@dimen/radius_shopping_card"
+        app:cardElevation="@dimen/elevation_card_image_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnusedAttribute">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,6 +48,7 @@
                 android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_horizontal_shopping"
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/eliminar"
                 android:textColor="@color/red"
@@ -53,6 +60,7 @@
                 android:id="@+id/tvNamePlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_horizontal_shopping"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title"
                 android:textStyle="bold"
@@ -80,6 +88,7 @@
                 android:id="@+id/tvTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_horizontal_total"
                 android:layout_marginVertical="@dimen/space_vertical"
                 android:text="@string/total"
                 android:textColor="@color/black"
@@ -120,6 +129,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

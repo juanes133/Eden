@@ -8,38 +8,28 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jadevelopers.eden.EdenActivity
-import com.jadevelopers.eden.EdenApplication
 import com.jadevelopers.eden.R
 import com.jadevelopers.eden.databinding.FragmentProductsBinding
-import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel
-import com.jadevelopers.eden.features.productslist.viewmodel.ProductsViewModel.ProductsViewModelFactory
+import com.jadevelopers.eden.features.base.EdenFragment
 import com.jadevelopers.eden.model.Product
 
-class ProductsFragment : Fragment() {
+class ProductsFragment : EdenFragment() {
 
     private lateinit var binding: FragmentProductsBinding
-    private val productsViewModel: ProductsViewModel by activityViewModels {
-        ProductsViewModelFactory(
-            (activity?.application as EdenApplication).productsRepository
-        )
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        (activity as EdenActivity).supportActionBar?.title = getString(R.string.titulo_productos)
-        (activity as EdenActivity).supportActionBar?.show()
-        (activity as EdenActivity).menu?.children?.first()?.isVisible = true
-        productsViewModel.productsList.observe(viewLifecycleOwner) {
+        edenActivity.supportActionBar?.show()
+        edenActivity.menu?.children?.first()?.isVisible = true
+        edenActivity.productsViewModel.productsList.observe(viewLifecycleOwner) {
             initRecyclerViewProduct(it)
             binding.loading.isVisible = false
             binding.productsContainer.isVisible = true
@@ -48,7 +38,7 @@ class ProductsFragment : Fragment() {
         binding.btnRetry.setOnClickListener {
             getProducts()
         }
-        productsViewModel.productsError.observe(viewLifecycleOwner) {
+        edenActivity.productsViewModel.productsError.observe(viewLifecycleOwner) {
             binding.fallbackContainer.isVisible = true
             binding.loading.isVisible = false
             binding.productsContainer.isVisible = false
@@ -64,10 +54,8 @@ class ProductsFragment : Fragment() {
             @Suppress("DEPRECATION")
             binding.loading.indeterminateDrawable.setColorFilter(
                 this.resources.getColor(R.color.colorPrimary),
-                PorterDuff.Mode.SRC_ATOP
-            )
+                PorterDuff.Mode.SRC_ATOP)
         }
-
         return binding.root
     }
 
@@ -75,7 +63,7 @@ class ProductsFragment : Fragment() {
         binding.productsContainer.isVisible = false
         binding.fallbackContainer.isVisible = false
         binding.loading.isVisible = true
-        productsViewModel.getProducts()
+        edenActivity.productsViewModel.getProducts()
     }
 
     private fun initRecyclerViewProduct(list: ArrayList<Product>) {
